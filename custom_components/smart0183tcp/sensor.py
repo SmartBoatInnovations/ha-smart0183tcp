@@ -309,6 +309,7 @@ class TCPSensor(SensorEntity):
         """Read the data from the TCP connection with improved error handling."""
         retry_delay = 1  # Start with a 1-second delay
         max_retry_delay = 60  # Maximum delay of 60 seconds between retries
+        writer = None
 
         while True:
             try:
