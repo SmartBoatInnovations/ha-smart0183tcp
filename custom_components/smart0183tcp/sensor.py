@@ -331,18 +331,24 @@ class TCPSensor(SensorEntity):
 
             except (ClientConnectorError, IncompleteReadError, UnicodeDecodeError) as specific_exc:
                 _LOGGER.error(f"Connection error to {host}:{port}: {specific_exc}")
+                
+            except asyncio.CancelledError:
+                _LOGGER.info("Connection attempt to TCP device was cancelled.")
+                raise
 
             except Exception as exc:
                 _LOGGER.exception(f"Unexpected error with TCP device {host}:{port}: {exc}")
 
             finally:
-                if writer:
-                    writer.close()
-                    await writer.wait_closed()
-
+                try:
+                    if writer:
+                        writer.close()
+                        await writer.wait_closed()
+                except Exception as e:
+                    _LOGGER.error(f"Error closing writer: {e}")
                 _LOGGER.info(f"Will retry in {retry_delay} seconds...")
                 await asyncio.sleep(retry_delay)
-                retry_delay = min(retry_delay * 2, max_retry_delay)  # Exponential backoff
+                retry_delay = min(retry_delay * 2, max_retry_delay)
 
     @callback
     def stop_tcp_read(self, event):
