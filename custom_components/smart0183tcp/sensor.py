@@ -314,7 +314,8 @@ class TCPSensor(SensorEntity):
             try:
                 _LOGGER.info(f"Attempting to connect to TCP device {host}:{port} ")
 
-                reader, writer = await asyncio.open_connection(host, port)
+                reader, writer = await asyncio.wait_for(asyncio.open_connection(host, port), timeout=10)
+
                 
                 _LOGGER.info(f"Connected to TCP device {host}:{port}")
                 retry_delay = 1  # Reset retry delay after a successful connection
