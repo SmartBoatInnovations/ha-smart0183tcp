@@ -1,0 +1,10 @@
+{
+  "domain": "smart0183tcp",
+  "name": "Smart Boat 0183 TCP",
+  "documentation": "https://www.smartboatinnovations.com/smart0183",
+  "dependencies": [],
+  "integration_type": "hub",
+  "requirements": [],
+  "codeowners": [],
+  "version": "0.1"
+}
