@@ -2,3385 +2,3398 @@
     {
         "sentence_id": "AAM",
         "sentence_description": "Waypoint Arrival Alarm",
+        "group": "Routing",
         "fields": [
             {
                 "name": "AAM 1",
                 "unique_id": "AAM_1",
-                "Full_description": "Status, BOOLEAN, A = Arrival circle entered, V = not passed",
-                "short_description": "Status SID AAM_1"
+                "Full_description": "Status, A = Arrival circle entered, V = not passed",
+                "short_description": "Status AAM_1"
             },
             {
                 "name": "AAM 2",
                 "unique_id": "AAM_2",
-                "Full_description": "Status, BOOLEAN, A = perpendicular passed at waypoint, V = not passed",
-                "short_description": "Status SID AAM_2"
+                "Full_description": "Status, A = perpendicular passed at waypoint, V = not passed",
+                "short_description": "Status AAM_2"
             },
             {
                 "name": "AAM 3",
                 "unique_id": "AAM_3",
                 "Full_description": "Arrival circle radius",
-                "short_description": "Arrival circle radius SID AAM_3"
+                "short_description": "Arrival circle radius AAM_3",
+                "unit_of_measurement": "NM"
             },
             {
                 "name": "AAM 4",
                 "unique_id": "AAM_4",
                 "Full_description": "Units of radius, nautical miles",
-                "short_description": "Units of radius SID AAM_4"
+                "short_description": "Units of radius AAM_4"
             },
             {
                 "name": "AAM 5",
                 "unique_id": "AAM_5",
                 "Full_description": "Waypoint ID",
-                "short_description": "Waypoint ID SID AAM_5"
+                "short_description": "Waypoint ID AAM_5"
             }
         ]
     },
     {
         "sentence_id": "ALM",
         "sentence_description": "GPS Almanac Data",
+        "group": "Global positioning",
         "fields": [
             {
                 "name": "ALM 1",
                 "unique_id": "ALM_1",
                 "Full_description": "Total number of messages",
-                "short_description": "Total number of messages SID ALM_1"
+                "short_description": "Total number of messages ALM_1"
             },
             {
                 "name": "ALM 2",
                 "unique_id": "ALM_2",
                 "Full_description": "Message Number",
-                "short_description": "Message Number SID ALM_2"
+                "short_description": "Message Number ALM_2"
             },
             {
                 "name": "ALM 3",
                 "unique_id": "ALM_3",
                 "Full_description": "Satellite PRN number (01 to 32)",
-                "short_description": "Satellite PRN number SID ALM_3"
+                "short_description": "Satellite PRN number ALM_3"
             },
             {
                 "name": "ALM 4",
                 "unique_id": "ALM_4",
                 "Full_description": "GPS Week Number",
-                "short_description": "GPS Week Number SID ALM_4"
+                "short_description": "GPS Week Number ALM_4"
             },
             {
                 "name": "ALM 5",
                 "unique_id": "ALM_5",
                 "Full_description": "SV health, bits 17-24 of each almanac page",
-                "short_description": "SV health SID ALM_5"
+                "short_description": "SV health ALM_5"
             },
             {
                 "name": "ALM 6",
                 "unique_id": "ALM_6",
                 "Full_description": "Eccentricity",
-                "short_description": "Eccentricity SID ALM_6"
+                "short_description": "Eccentricity ALM_6"
             },
             {
                 "name": "ALM 7",
                 "unique_id": "ALM_7",
                 "Full_description": "Almanac Reference Time",
-                "short_description": "Almanac Reference Time SID ALM_7"
+                "short_description": "Almanac Reference Time ALM_7"
             },
             {
                 "name": "ALM 8",
                 "unique_id": "ALM_8",
                 "Full_description": "Inclination Angle",
-                "short_description": "Inclination Angle SID ALM_8"
+                "short_description": "Inclination Angle ALM_8"
             },
             {
                 "name": "ALM 9",
                 "unique_id": "ALM_9",
                 "Full_description": "Rate of Right Ascension",
-                "short_description": "Rate of Right Ascension SID ALM_9"
+                "short_description": "Rate of Right Ascension ALM_9"
             },
             {
                 "name": "ALM 10",
                 "unique_id": "ALM_10",
                 "Full_description": "Root of semi-major axis",
-                "short_description": "Root of semi SID ALM_10"
+                "short_description": "Root of semi ALM_10"
             },
             {
                 "name": "ALM 11",
                 "unique_id": "ALM_11",
                 "Full_description": "Argument of perigee",
-                "short_description": "Argument of perigee SID ALM_11"
+                "short_description": "Argument of perigee ALM_11"
             },
             {
                 "name": "ALM 12",
                 "unique_id": "ALM_12",
                 "Full_description": "Longitude of ascension node",
-                "short_description": "Longitude of ascension node SID ALM_12"
+                "short_description": "Longitude of ascension node ALM_12"
             },
             {
                 "name": "ALM 13",
                 "unique_id": "ALM_13",
                 "Full_description": "Mean anomaly",
-                "short_description": "Mean anomaly SID ALM_13"
+                "short_description": "Mean anomaly ALM_13"
             },
             {
                 "name": "ALM 14",
                 "unique_id": "ALM_14",
                 "Full_description": "F0 Clock Parameter",
-                "short_description": "F0 Clock Parameter SID ALM_14"
+                "short_description": "F0 Clock Parameter ALM_14"
             },
             {
                 "name": "ALM 15",
                 "unique_id": "ALM_15",
                 "Full_description": "F1 Clock Parameter",
-                "short_description": "F1 Clock Parameter SID ALM_15"
+                "short_description": "F1 Clock Parameter ALM_15"
             }
         ]
     },
     {
         "sentence_id": "APA",
-        "sentence_description": "Autopilot Sentence \"A\"",
+        "sentence_description": "Autopilot Sentence A",
+        "group": "Autopilot",
         "fields": [
             {
                 "name": "APA 1",
                 "unique_id": "APA_1",
-                "Full_description": "Status V = Loran-C Blink or SNR warning V = general warning flag or other navigation systems when a reliable fix is not available",
-                "short_description": "Status V SID APA_1"
+                "Full_description": "Status",
+                "short_description": "Status V APA_1"
             },
             {
                 "name": "APA 2",
                 "unique_id": "APA_2",
-                "Full_description": "Status V = Loran-C Cycle Lock warning flag A = OK or not used",
-                "short_description": "Status V SID APA_2"
+                "Full_description": "Status 2",
+                "short_description": "Status V APA_2"
             },
             {
                 "name": "APA 3",
                 "unique_id": "APA_3",
                 "Full_description": "Cross Track Error Magnitude",
-                "short_description": "Cross Track Error Magnitude SID APA_3"
+                "short_description": "Cross Track Error Magnitude APA_3"
             },
             {
                 "name": "APA 4",
                 "unique_id": "APA_4",
                 "Full_description": "Direction to steer, L or R",
-                "short_description": "Direction to steer SID APA_4"
+                "short_description": "Direction to steer APA_4"
             },
             {
                 "name": "APA 5",
                 "unique_id": "APA_5",
                 "Full_description": "Cross Track Units (Nautic miles or kilometers)",
-                "short_description": "Cross Track Units SID APA_5"
+                "short_description": "Cross Track Units APA_5"
             },
             {
                 "name": "APA 6",
                 "unique_id": "APA_6",
                 "Full_description": "Status A = Arrival Circle Entered",
-                "short_description": "Status SID APA_6"
+                "short_description": "Status APA_6"
             },
             {
                 "name": "APA 7",
                 "unique_id": "APA_7",
                 "Full_description": "Status A = Perpendicular passed at waypoint",
-                "short_description": "Status SID APA_7"
+                "short_description": "Status APA_7"
             },
             {
                 "name": "APA 8",
                 "unique_id": "APA_8",
                 "Full_description": "Bearing origin to destination",
-                "short_description": "Bearing origin to destination SID APA_8"
+                "short_description": "Bearing origin to destination APA_8"
             },
             {
                 "name": "APA 9",
                 "unique_id": "APA_9",
                 "Full_description": "M = Magnetic, T = True",
-                "short_description": "M or T SID APA_9"
+                "short_description": "M or T APA_9"
             },
             {
                 "name": "APA 10",
                 "unique_id": "APA_10",
                 "Full_description": "Destination Waypoint ID",
-                "short_description": "Destination Waypoint ID SID APA_10"
+                "short_description": "Destination Waypoint ID APA_10"
             },
             {
                 "name": "APA 11",
                 "unique_id": "APA_11",
                 "Full_description": "checksum",
-                "short_description": "checksum SID APA_11"
+                "short_description": "checksum APA_11"
             }
         ]
     },
     {
         "sentence_id": "APB",
-        "sentence_description": "Autopilot Sentence \"B\"",
+        "sentence_description": "Autopilot Sentence B",
+        "group": "Autopilot",
         "fields": [
             {
                 "name": "APB 1",
                 "unique_id": "APB_1",
-                "Full_description": "Status V = Loran-C Blink or SNR warning V = general warning flag or other navigation systems when a reliable fix is not available",
-                "short_description": "Status SID APB_1"
+                "Full_description": "Status",
+                "short_description": "Status APB_1"
             },
             {
                 "name": "APB 2",
                 "unique_id": "APB_2",
-                "Full_description": "Status V = Loran-C Cycle Lock warning flag A = OK or not used",
-                "short_description": "Status SID APB_2"
+                "Full_description": "Status 2",
+                "short_description": "Status APB_2"
             },
             {
                 "name": "APB 3",
                 "unique_id": "APB_3",
                 "Full_description": "Cross Track Error Magnitude",
-                "short_description": "Cross Track Error Magnitude SID APB_3"
+                "short_description": "Cross Track Error Magnitude APB_3"
             },
             {
                 "name": "APB 4",
                 "unique_id": "APB_4",
                 "Full_description": "Direction to steer, L or R",
-                "short_description": "Direction to steer SID APB_4"
+                "short_description": "Direction to steer APB_4"
             },
             {
                 "name": "APB 5",
                 "unique_id": "APB_5",
                 "Full_description": "Cross Track Units, N = Nautical Miles",
-                "short_description": "Cross Track Units SID APB_5"
+                "short_description": "Cross Track Units APB_5"
             },
             {
                 "name": "APB 6",
                 "unique_id": "APB_6",
                 "Full_description": "Status A = Arrival Circle Entered",
-                "short_description": "Status SID APB_6"
+                "short_description": "Status APB_6"
             },
             {
                 "name": "APB 7",
                 "unique_id": "APB_7",
                 "Full_description": "Status A = Perpendicular passed at waypoint",
-                "short_description": "Status SID APB_7"
+                "short_description": "Status APB_7"
             },
             {
                 "name": "APB 8",
                 "unique_id": "APB_8",
                 "Full_description": "Bearing origin to destination",
-                "short_description": "Bearing origin to destination SID APB_8"
+                "short_description": "Bearing origin to destination APB_8",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "APB 9",
                 "unique_id": "APB_9",
                 "Full_description": "M = Magnetic, T = True",
-                "short_description": "M or T SID APB_9"
+                "short_description": "M or T APB_9"
             },
             {
                 "name": "APB 10",
                 "unique_id": "APB_10",
                 "Full_description": "Destination Waypoint ID",
-                "short_description": "Destination Waypoint ID SID APB_10"
+                "short_description": "Destination Waypoint ID APB_10"
             },
             {
                 "name": "APB 11",
                 "unique_id": "APB_11",
                 "Full_description": "Bearing, present position to Destination",
-                "short_description": "Bearing SID APB_11"
+                "short_description": "Bearing APB_11",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "APB 12",
                 "unique_id": "APB_12",
                 "Full_description": "M = Magnetic, T = True",
-                "short_description": "M or T SID APB_12"
+                "short_description": "M or T APB_12"
             },
             {
                 "name": "APB 13",
                 "unique_id": "APB_13",
                 "Full_description": "Heading to steer to destination waypoint",
-                "short_description": "Heading to steer to destination waypoint SID APB_13"
+                "short_description": "Heading to steer to destination waypoint APB_13",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "APB 14",
                 "unique_id": "APB_14",
                 "Full_description": "M = Magnetic, T = True",
-                "short_description": "M or T SID APB_14"
+                "short_description": "M or T APB_14"
             }
         ]
     },
     {
         "sentence_id": "BOD",
         "sentence_description": "Bearing - Waypoint to Waypoint",
+        "group": "Routing",
         "fields": [
             {
                 "name": "BOD 1",
                 "unique_id": "BOD_1",
                 "Full_description": "Bearing Degrees, TRUE",
-                "short_description": "Bearing Degrees SID BOD_1"
+                "short_description": "Bearing Degrees BOD_1",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "BOD 2",
                 "unique_id": "BOD_2",
                 "Full_description": "T = True",
-                "short_description": "T SID BOD_2"
+                "short_description": "T BOD_2"
             },
             {
                 "name": "BOD 3",
                 "unique_id": "BOD_3",
                 "Full_description": "Bearing Degrees, Magnetic",
-                "short_description": "Bearing Degrees SID BOD_3"
+                "short_description": "Bearing Degrees BOD_3",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "BOD 4",
                 "unique_id": "BOD_4",
                 "Full_description": "M = Magnetic",
-                "short_description": "M SID BOD_4"
+                "short_description": "M BOD_4"
             },
             {
                 "name": "BOD 5",
                 "unique_id": "BOD_5",
                 "Full_description": "TO Waypoint",
-                "short_description": "TO Waypoint SID BOD_5"
+                "short_description": "TO Waypoint BOD_5"
             },
             {
                 "name": "BOD 6",
                 "unique_id": "BOD_6",
                 "Full_description": "FROM Waypoint",
-                "short_description": "FROM Waypoint SID BOD_6"
+                "short_description": "FROM Waypoint BOD_6"
             }
         ]
     },
     {
         "sentence_id": "BWC",
         "sentence_description": "Bearing & Distance to Waypoint - Great Circle",
+        "group": "Routing",
         "fields": [
             {
                 "name": "BWC 1",
                 "unique_id": "BWC_1",
-                "Full_description": "UTCTime",
-                "short_description": "UTCTime SID BWC_1"
+                "Full_description": "UTC Time",
+                "short_description": "UTCTime BWC_1"
             },
             {
                 "name": "BWC 2",
                 "unique_id": "BWC_2",
                 "Full_description": "Waypoint Latitude",
-                "short_description": "Waypoint Latitude SID BWC_2"
+                "short_description": "Waypoint Latitude BWC_2",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "BWC 3",
                 "unique_id": "BWC_3",
                 "Full_description": "N = North, S = South",
-                "short_description": "N or S SID BWC_3"
+                "short_description": "N or S BWC_3"
             },
             {
                 "name": "BWC 4",
                 "unique_id": "BWC_4",
                 "Full_description": "Waypoint Longitude",
-                "short_description": "Waypoint Longitude SID BWC_4"
+                "short_description": "Waypoint Longitude BWC_4",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "BWC 5",
                 "unique_id": "BWC_5",
                 "Full_description": "E = East, W = West",
-                "short_description": "E or W SID BWC_5"
+                "short_description": "E or W BWC_5"
             },
             {
                 "name": "BWC 6",
                 "unique_id": "BWC_6",
                 "Full_description": "Bearing, True",
-                "short_description": "Bearing SID BWC_6"
+                "short_description": "Bearing BWC_6",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "BWC 7",
                 "unique_id": "BWC_7",
                 "Full_description": "T = True",
-                "short_description": "T SID BWC_7"
+                "short_description": "T BWC_7"
             },
             {
                 "name": "BWC 8",
                 "unique_id": "BWC_8",
                 "Full_description": "Bearing, Magnetic",
-                "short_description": "Bearing SID BWC_8"
+                "short_description": "Bearing BWC_8",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "BWC 9",
                 "unique_id": "BWC_9",
                 "Full_description": "M = Magnetic",
-                "short_description": "M SID BWC_9"
+                "short_description": "M BWC_9"
             },
             {
                 "name": "BWC 10",
                 "unique_id": "BWC_10",
                 "Full_description": "Nautical Miles",
-                "short_description": "Nautical Miles SID BWC_10"
+                "short_description": "Nautical Miles BWC_10",
+                "unit_of_measurement": "NM"
             },
             {
                 "name": "BWC 11",
                 "unique_id": "BWC_11",
                 "Full_description": "N = Nautical Miles",
-                "short_description": "N SID BWC_11"
+                "short_description": "N BWC_11"
             },
             {
                 "name": "BWC 12",
                 "unique_id": "BWC_12",
                 "Full_description": "Waypoint ID",
-                "short_description": "Waypoint ID SID BWC_12"
+                "short_description": "Waypoint ID BWC_12"
             },
             {
                 "name": "BWC 13",
                 "unique_id": "BWC_13",
                 "Full_description": "FAA mode indicator (NMEA 2.3 and later, optional)",
-                "short_description": "FAA mode indicator SID BWC_13"
+                "short_description": "FAA mode indicator BWC_13"
             }
         ]
     },
     {
         "sentence_id": "BWR",
         "sentence_description": "Bearing and Distance to Waypoint - Rhumb Line",
+        "group": "Routing",
         "fields": [
             {
                 "name": "BWR 1",
                 "unique_id": "BWR_1",
-                "Full_description": "UTCTime",
-                "short_description": "UTCTime SID BWR_1"
+                "Full_description": "UTC Time",
+                "short_description": "UTCTime BWR_1"
             },
             {
                 "name": "BWR 2",
                 "unique_id": "BWR_2",
                 "Full_description": "Waypoint Latitude",
-                "short_description": "Waypoint Latitude SID BWR_2"
+                "short_description": "Waypoint Latitude BWR_2",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "BWR 3",
                 "unique_id": "BWR_3",
                 "Full_description": "N = North, S = South",
-                "short_description": "N or S SID BWR_3"
+                "short_description": "N or S BWR_3"
             },
             {
                 "name": "BWR 4",
                 "unique_id": "BWR_4",
                 "Full_description": "Waypoint Longitude",
-                "short_description": "Waypoint Longitude SID BWR_4"
+                "short_description": "Waypoint Longitude BWR_4",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "BWR 5",
                 "unique_id": "BWR_5",
                 "Full_description": "E = East, W = West",
-                "short_description": "E or W SID BWR_5"
+                "short_description": "E or W BWR_5"
             },
             {
                 "name": "BWR 6",
                 "unique_id": "BWR_6",
                 "Full_description": "Bearing, True",
-                "short_description": "Bearing SID BWR_6"
+                "short_description": "Bearing BWR_6",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "BWR 7",
                 "unique_id": "BWR_7",
                 "Full_description": "T = True",
-                "short_description": "T SID BWR_7"
+                "short_description": "T BWR_7"
             },
             {
                 "name": "BWR 8",
                 "unique_id": "BWR_8",
                 "Full_description": "Bearing, Magnetic",
-                "short_description": "Bearing SID BWR_8"
+                "short_description": "Bearing BWR_8",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "BWR 9",
                 "unique_id": "BWR_9",
                 "Full_description": "M = Magnetic",
-                "short_description": "M SID BWR_9"
+                "short_description": "M BWR_9"
             },
             {
                 "name": "BWR 10",
                 "unique_id": "BWR_10",
                 "Full_description": "Nautical Miles",
-                "short_description": "Nautical Miles SID BWR_10"
+                "short_description": "Nautical Miles BWR_10",
+                "unit_of_measurement": "NM"
             },
             {
                 "name": "BWR 11",
                 "unique_id": "BWR_11",
                 "Full_description": "N = Nautical Miles",
-                "short_description": "N SID BWR_11"
+                "short_description": "N BWR_11"
             },
             {
                 "name": "BWR 12",
                 "unique_id": "BWR_12",
                 "Full_description": "Waypoint ID",
-                "short_description": "Waypoint ID SID BWR_12"
+                "short_description": "Waypoint ID BWR_12"
             }
         ]
     },
     {
         "sentence_id": "BWW",
         "sentence_description": "Bearing - Waypoint to Waypoint",
+        "group": "Routing",
         "fields": [
             {
                 "name": "BWW 1",
                 "unique_id": "BWW_1",
                 "Full_description": "Bearing Degrees, TRUE",
-                "short_description": "Bearing Degrees SID BWW_1"
+                "short_description": "Bearing Degrees BWW_1",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "BWW 2",
                 "unique_id": "BWW_2",
                 "Full_description": "T = True",
-                "short_description": "T SID BWW_2"
+                "short_description": "T BWW_2"
             },
             {
                 "name": "BWW 3",
                 "unique_id": "BWW_3",
                 "Full_description": "Bearing Degrees, Magnetic",
-                "short_description": "Bearing Degrees SID BWW_3"
+                "short_description": "Bearing Degrees BWW_3",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "BWW 4",
                 "unique_id": "BWW_4",
                 "Full_description": "M = Magnetic",
-                "short_description": "M SID BWW_4"
+                "short_description": "M BWW_4"
             },
             {
                 "name": "BWW 5",
                 "unique_id": "BWW_5",
                 "Full_description": "TO Waypoint",
-                "short_description": "TO Waypoint SID BWW_5"
+                "short_description": "TO Waypoint BWW_5",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "BWW 6",
                 "unique_id": "BWW_6",
                 "Full_description": "FROM Waypoint",
-                "short_description": "FROM Waypoint SID BWW_6"
+                "short_description": "FROM Waypoint BWW_6",
+                "unit_of_measurement": "°"
             }
         ]
     },
     {
         "sentence_id": "DBK",
         "sentence_description": "Depth Below Keel",
+        "group": "Depth, speed, distance, temperature",
         "fields": [
             {
                 "name": "DBK 1",
                 "unique_id": "DBK_1",
                 "Full_description": "Depth, feet",
-                "short_description": "Depth feet SID DBK_1"
+                "short_description": "Depth feet DBK_1",
+                "unit_of_measurement": "ft"
             },
             {
                 "name": "DBK 2",
                 "unique_id": "DBK_2",
                 "Full_description": "f = feet",
-                "short_description": "f SID DBK_2"
+                "short_description": "f DBK_2"
             },
             {
                 "name": "DBK 3",
                 "unique_id": "DBK_3",
                 "Full_description": "Depth, meters",
-                "short_description": "Depth meters SID DBK_3"
+                "short_description": "Depth meters DBK_3",
+                "unit_of_measurement": "m"
             },
             {
                 "name": "DBK 4",
                 "unique_id": "DBK_4",
                 "Full_description": "M = meters",
-                "short_description": "M SID DBK_4"
+                "short_description": "M DBK_4"
             },
             {
                 "name": "DBK 5",
                 "unique_id": "DBK_5",
                 "Full_description": "Depth, Fathoms",
-                "short_description": "Depth Fathoms SID DBK_5"
+                "short_description": "Depth Fathoms DBK_5",
+                "unit_of_measurement": "Fth"
             },
             {
                 "name": "DBK 6",
                 "unique_id": "DBK_6",
                 "Full_description": "F = Fathoms",
-                "short_description": "F SID DBK_6"
+                "short_description": "F DBK_6"
             }
         ]
     },
     {
         "sentence_id": "DBS",
         "sentence_description": "Depth Below Surface",
+        "group": "Depth, speed, distance, temperature",
         "fields": [
             {
                 "name": "DBS 1",
                 "unique_id": "DBS_1",
                 "Full_description": "Depth, feet",
-                "short_description": "Depth feet SID DBS_1"
+                "short_description": "Depth feet DBS_1",
+                "unit_of_measurement": "ft"
             },
             {
                 "name": "DBS 2",
                 "unique_id": "DBS_2",
                 "Full_description": "f = feet",
-                "short_description": "f SID DBS_2"
+                "short_description": "f DBS_2"
             },
             {
                 "name": "DBS 3",
                 "unique_id": "DBS_3",
                 "Full_description": "Depth, meters",
-                "short_description": "Depth meters SID DBS_3"
+                "short_description": "Depth meters DBS_3",
+                "unit_of_measurement": "m"
             },
             {
                 "name": "DBS 4",
                 "unique_id": "DBS_4",
                 "Full_description": "M = meters",
-                "short_description": "M SID DBS_4"
+                "short_description": "M DBS_4"
             },
             {
                 "name": "DBS 5",
                 "unique_id": "DBS_5",
                 "Full_description": "Depth, Fathoms",
-                "short_description": "Depth Fathoms SID DBS_5"
+                "short_description": "Depth Fathoms DBS_5",
+                "unit_of_measurement": "Fth"
             },
             {
                 "name": "DBS 6",
                 "unique_id": "DBS_6",
                 "Full_description": "F = Fathoms",
-                "short_description": "F SID DBS_6"
+                "short_description": "F DBS_6"
             }
         ]
     },
     {
         "sentence_id": "DBT",
         "sentence_description": "Depth below transducer",
+        "group": "Depth, speed, distance, temperature",
         "fields": [
             {
                 "name": "DBT 1",
                 "unique_id": "DBT_1",
                 "Full_description": "Depth, feet",
-                "short_description": "Depth feet SID DBT_1"
+                "short_description": "Depth feet DBT_1",
+                "unit_of_measurement": "ft"
             },
             {
                 "name": "DBT 2",
                 "unique_id": "DBT_2",
                 "Full_description": "f = feet",
-                "short_description": "f SID DBT_2"
+                "short_description": "f DBT_2"
             },
             {
                 "name": "DBT 3",
                 "unique_id": "DBT_3",
                 "Full_description": "Depth, meters",
-                "short_description": "Depth meters SID DBT_3"
+                "short_description": "Depth meters DBT_3",
+                "unit_of_measurement": "m"
             },
             {
                 "name": "DBT 4",
                 "unique_id": "DBT_4",
                 "Full_description": "M = meters",
-                "short_description": "M SID DBT_4"
+                "short_description": "M DBT_4"
             },
             {
                 "name": "DBT 5",
                 "unique_id": "DBT_5",
                 "Full_description": "Depth, Fathoms",
-                "short_description": "Depth Fathoms SID DBT_5"
+                "short_description": "Depth Fathoms DBT_5",
+                "unit_of_measurement": "Fth"
             },
             {
                 "name": "DBT 6",
                 "unique_id": "DBT_6",
                 "Full_description": "F = Fathoms",
-                "short_description": "F SID DBT_6"
-            }
-        ]
-    },
-    {
-        "sentence_id": "DCN",
-        "sentence_description": "Decca Position",
-        "fields": [
-            {
-                "name": "DCN 1",
-                "unique_id": "DCN_1",
-                "Full_description": "Decca chain identifier",
-                "short_description": "Decca chain identifier SID DCN_1"
-            },
-            {
-                "name": "DCN 2",
-                "unique_id": "DCN_2",
-                "Full_description": "Red Zone Identifier",
-                "short_description": "Red Zone Identifier SID DCN_2"
-            },
-            {
-                "name": "DCN 3",
-                "unique_id": "DCN_3",
-                "Full_description": "Red Line Of Position",
-                "short_description": "Red Line Of Position SID DCN_3"
-            },
-            {
-                "name": "DCN 4",
-                "unique_id": "DCN_4",
-                "Full_description": "Red Master Line Status",
-                "short_description": "Red Master Line Status SID DCN_4"
-            },
-            {
-                "name": "DCN 5",
-                "unique_id": "DCN_5",
-                "Full_description": "Green Zone Identifier",
-                "short_description": "Green Zone Identifier SID DCN_5"
-            },
-            {
-                "name": "DCN 6",
-                "unique_id": "DCN_6",
-                "Full_description": "Green Line Of Position",
-                "short_description": "Green Line Of Position SID DCN_6"
-            },
-            {
-                "name": "DCN 7",
-                "unique_id": "DCN_7",
-                "Full_description": "Green Master Line Status",
-                "short_description": "Green Master Line Status SID DCN_7"
-            },
-            {
-                "name": "DCN 8",
-                "unique_id": "DCN_8",
-                "Full_description": "Purple Zone Identifier",
-                "short_description": "Purple Zone Identifier SID DCN_8"
-            },
-            {
-                "name": "DCN 9",
-                "unique_id": "DCN_9",
-                "Full_description": "Purple Line Of Position",
-                "short_description": "Purple Line Of Position SID DCN_9"
-            },
-            {
-                "name": "DCN 10",
-                "unique_id": "DCN_10",
-                "Full_description": "Purple Master Line Status",
-                "short_description": "Purple Master Line Status SID DCN_10"
-            },
-            {
-                "name": "DCN 11",
-                "unique_id": "DCN_11",
-                "Full_description": "Red Line Navigation Use",
-                "short_description": "Red Line Navigation Use SID DCN_11"
-            },
-            {
-                "name": "DCN 12",
-                "unique_id": "DCN_12",
-                "Full_description": "Green Line Navigation Use",
-                "short_description": "Green Line Navigation Use SID DCN_12"
-            },
-            {
-                "name": "DCN 13",
-                "unique_id": "DCN_13",
-                "Full_description": "Purple Line Navigation Use",
-                "short_description": "Purple Line Navigation Use SID DCN_13"
-            },
-            {
-                "name": "DCN 14",
-                "unique_id": "DCN_14",
-                "Full_description": "Position Uncertainity",
-                "short_description": "Position Uncertainity SID DCN_14"
-            },
-            {
-                "name": "DCN 15",
-                "unique_id": "DCN_15",
-                "Full_description": "N = Nautical Miles",
-                "short_description": "N SID DCN_15"
-            },
-            {
-                "name": "DCN 16",
-                "unique_id": "DCN_16",
-                "Full_description": "Fix Data Basis - 1 = Normal Pattern - 2 = Lane Identification Pattern - 3 = Lane Identification Transmissions",
-                "short_description": "Fix Data Basis SID DCN_16"
+                "short_description": "F DBT_6"
             }
         ]
     },
     {
         "sentence_id": "DPT",
         "sentence_description": "Depth of Water",
+        "group": "Depth, speed, distance, temperature",
         "fields": [
             {
                 "name": "DPT 1",
                 "unique_id": "DPT_1",
                 "Full_description": "Depth, meters",
-                "short_description": "Depth meters SID DPT_1"
+                "short_description": "Depth meters DPT_1",
+                "unit_of_measurement": "m"
             },
             {
                 "name": "DPT 2",
                 "unique_id": "DPT_2",
-                "Full_description": "Offset from transducer, positive means distance from tansducer to water line negative means distance from transducer to keel",
-                "short_description": "Offset from transducer SID DPT_2"
+                "Full_description": "Offset from transducer, + = distance tansducer to water line - = transducer to keel",
+                "short_description": "Offset from transducer DPT_2"
             }
         ]
     },
     {
         "sentence_id": "DTM",
         "sentence_description": "Datum Reference",
+        "group": "Other sentences",
         "fields": [
             {
                 "name": "DTM 1",
                 "unique_id": "DTM_1",
                 "Full_description": "Local datum code.",
-                "short_description": "Local datum code SID DTM_1"
+                "short_description": "Local datum code DTM_1"
             },
             {
                 "name": "DTM 2",
                 "unique_id": "DTM_2",
                 "Full_description": "Local datum subcode.  May be blank.",
-                "short_description": "Local datum subcode SID DTM_2"
+                "short_description": "Local datum subcode DTM_2"
             },
             {
                 "name": "DTM 3",
                 "unique_id": "DTM_3",
                 "Full_description": "Latitude offset (minutes)",
-                "short_description": "Latitude offset SID DTM_3"
+                "short_description": "Latitude offset DTM_3"
             },
             {
                 "name": "DTM 4",
                 "unique_id": "DTM_4",
                 "Full_description": "N or S",
-                "short_description": "N or S SID DTM_4"
+                "short_description": "N or S DTM_4"
             },
             {
                 "name": "DTM 5",
                 "unique_id": "DTM_5",
                 "Full_description": "Longitude offset (minutes)",
-                "short_description": "Longitude offset SID DTM_5"
+                "short_description": "Longitude offset DTM_5"
             },
             {
                 "name": "DTM 6",
                 "unique_id": "DTM_6",
                 "Full_description": "E or W",
-                "short_description": "E or W SID DTM_6"
+                "short_description": "E or W DTM_6"
             },
             {
                 "name": "DTM 7",
                 "unique_id": "DTM_7",
                 "Full_description": "Altitude offset in meters",
-                "short_description": "Altitude offset in meters SID DTM_7"
+                "short_description": "Altitude offset in meters DTM_7"
             },
             {
                 "name": "DTM 8",
                 "unique_id": "DTM_8",
-                "Full_description": "Datum name. What's usually seen here is \"W84\", the standard WGS84 datum used by GPS.",
-                "short_description": "Datum name SID DTM_8"
+                "Full_description": "Datum name.",
+                "short_description": "Datum name DTM_8"
             }
         ]
     },
     {
         "sentence_id": "FSI",
         "sentence_description": "Frequency Set Information",
+        "group": "Radio",
         "fields": [
             {
                 "name": "FSI 1",
                 "unique_id": "FSI_1",
                 "Full_description": "Transmitting Frequency",
-                "short_description": "Transmitting Frequency SID FSI_1"
+                "short_description": "Transmitting Frequency FSI_1",
+                "unit_of_measurement": "Hz"
             },
             {
                 "name": "FSI 2",
                 "unique_id": "FSI_2",
                 "Full_description": "Receiving Frequency",
-                "short_description": "Receiving Frequency SID FSI_2"
+                "short_description": "Receiving Frequency FSI_2",
+                "unit_of_measurement": "Hz"
             },
             {
                 "name": "FSI 3",
                 "unique_id": "FSI_3",
                 "Full_description": "Communications Mode (NMEA Syntax 2)",
-                "short_description": "Communications Mode SID FSI_3"
+                "short_description": "Communications Mode FSI_3"
             },
             {
                 "name": "FSI 4",
                 "unique_id": "FSI_4",
                 "Full_description": "Power Level",
-                "short_description": "Power Level SID FSI_4"
+                "short_description": "Power Level FSI_4"
             }
         ]
     },
     {
         "sentence_id": "GBS",
         "sentence_description": "GPS Satellite Fault Detection",
+        "group": "Global positioning",
         "fields": [
             {
                 "name": "GBS 1",
                 "unique_id": "GBS_1",
-                "Full_description": "UTC time of the GGA or GNS fix associated with this sentence",
-                "short_description": "UTC time of the GGA SID GBS_1"
+                "Full_description": "UTC time of the GGA or GNS fix",
+                "short_description": "UTC time of the GGA GBS_1"
             },
             {
                 "name": "GBS 2",
                 "unique_id": "GBS_2",
                 "Full_description": "Expected error in latitude (meters)",
-                "short_description": "Expected error in latitude SID GBS_2"
+                "short_description": "Expected error in latitude GBS_2",
+                "unit_of_measurement": "m"
             },
             {
                 "name": "GBS 3",
                 "unique_id": "GBS_3",
                 "Full_description": "Expected error in longitude (meters)",
-                "short_description": "Expected error in longitude SID GBS_3"
+                "short_description": "Expected error in longitude GBS_3",
+                "unit_of_measurement": "m"
             },
             {
                 "name": "GBS 4",
                 "unique_id": "GBS_4",
                 "Full_description": "Expected error in altitude (meters)",
-                "short_description": "Expected error in altitude SID GBS_4"
+                "short_description": "Expected error in altitude GBS_4",
+                "unit_of_measurement": "m"
             },
             {
                 "name": "GBS 5",
                 "unique_id": "GBS_5",
                 "Full_description": "PRN of most likely failed satellite",
-                "short_description": "PRN of most likely failed satellite SID GBS_5"
+                "short_description": "PRN of most likely failed satellite GBS_5"
             },
             {
                 "name": "GBS 6",
                 "unique_id": "GBS_6",
                 "Full_description": "Probability of missed detection for most likely failed satellite",
-                "short_description": "Probability of missed detection SID GBS_6"
+                "short_description": "Probability of missed detection GBS_6"
             },
             {
                 "name": "GBS 7",
                 "unique_id": "GBS_7",
                 "Full_description": "Estimate of bias in meters on most likely failed satellite",
-                "short_description": "Estimate of bias in meters SID GBS_7"
+                "short_description": "Estimate of bias in meters GBS_7",
+                "unit_of_measurement": "m"                
             },
             {
                 "name": "GBS 8",
                 "unique_id": "GBS_8",
                 "Full_description": "Standard deviation of bias estimate",
-                "short_description": "Standard deviation of bias estimate SID GBS_8"
+                "short_description": "Standard deviation of bias estimate GBS_8"
             }
         ]
     },
     {
         "sentence_id": "GGA",
         "sentence_description": "Global Positioning System Fix Data",
+        "group": "Global positioning",
         "fields": [
             {
                 "name": "GGA 1",
                 "unique_id": "GGA_1",
                 "Full_description": "Universal Time Coordinated (UTC)",
-                "short_description": "Universal Time Coordinated SID GGA_1"
+                "short_description": "Universal Time Coordinated GGA_1"
             },
             {
                 "name": "GGA 2",
                 "unique_id": "GGA_2",
                 "Full_description": "Latitude",
-                "short_description": "Latitude SID GGA_2"
+                "short_description": "Latitude GGA_2",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "GGA 3",
                 "unique_id": "GGA_3",
                 "Full_description": "N or S (North or South)",
-                "short_description": "N or S SID GGA_3"
+                "short_description": "N or S GGA_3"
             },
             {
                 "name": "GGA 4",
                 "unique_id": "GGA_4",
                 "Full_description": "Longitude",
-                "short_description": "Longitude SID GGA_4"
+                "short_description": "Longitude GGA_4",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "GGA 5",
                 "unique_id": "GGA_5",
                 "Full_description": "E or W (East or West)",
-                "short_description": "E or W SID GGA_5"
+                "short_description": "E or W GGA_5"
             },
             {
                 "name": "GGA 6",
                 "unique_id": "GGA_6",
-                "Full_description": "GPS Quality Indicator, - 0 - fix not available, - 1 - GPS fix, - 2 - Differential GPS fix (values above 2 are 2.3 features) - 3 = PPS fix - 4 = Real Time Kinematic - 5 = Float RTK - 6 = estimated (dead reckoning) - 7 = Manual input mode - 8 = Simulation mode",
-                "short_description": "GPS Quality Indicator SID GGA_6"
+                "Full_description": "GPS Quality Indicator",
+                "short_description": "GPS Quality Indicator GGA_6"
             },
             {
                 "name": "GGA 7",
                 "unique_id": "GGA_7",
                 "Full_description": "Number of satellites in view, 00 - 12",
-                "short_description": "Number of satellites in view SID GGA_7"
+                "short_description": "Number of satellites in view GGA_7"
             },
             {
                 "name": "GGA 8",
                 "unique_id": "GGA_8",
                 "Full_description": "Horizontal Dilution of precision (meters)",
-                "short_description": "Horizontal Dilution of precision SID GGA_8"
+                "short_description": "Horizontal Dilution of precision GGA_8",
+                "unit_of_measurement": "m"
             },
             {
                 "name": "GGA 9",
                 "unique_id": "GGA_9",
                 "Full_description": "Antenna Altitude above/below mean-sea-level (geoid) (in meters)",
-                "short_description": "Antenna Altitude above SID GGA_9"
+                "short_description": "Antenna Altitude above GGA_9",
+                "unit_of_measurement": "m"
             },
             {
                 "name": "GGA 10",
                 "unique_id": "GGA_10",
                 "Full_description": "Units of antenna altitude, meters",
-                "short_description": "Units of antenna altitude SID GGA_10"
+                "short_description": "Units of antenna altitude GGA_10",
+                "unit_of_measurement": "m"
             },
             {
                 "name": "GGA 11",
                 "unique_id": "GGA_11",
-                "Full_description": "Geoidal separation, the difference between the WGS-84 earth ellipsoid and mean-sea-level (geoid), \"-\" means mean-sea-level below ellipsoid",
-                "short_description": "Geoidal separation SID GGA_11"
+                "Full_description": "Geoidal separation",
+                "short_description": "Geoidal separation GGA_11"
             },
             {
                 "name": "GGA 12",
                 "unique_id": "GGA_12",
                 "Full_description": "Units of geoidal separation, meters",
-                "short_description": "Units of geoidal separation SID GGA_12"
+                "short_description": "Units of geoidal separation GGA_12",
+                "unit_of_measurement": "m"
             },
             {
                 "name": "GGA 13",
                 "unique_id": "GGA_13",
-                "Full_description": "Age of differential GPS data, time in seconds since last SC104 type 1 or 9 update, null field when DGPS is not used",
-                "short_description": "Age of differential GPS data SID GGA_13"
+                "Full_description": "Age of differential GPS data, time in seconds since last SC104",
+                "short_description": "Age of differential GPS data GGA_13"
             },
             {
                 "name": "GGA 14",
                 "unique_id": "GGA_14",
                 "Full_description": "Differential reference station ID, 0000-1023",
-                "short_description": "Differential reference station ID SID GGA_14"
-            }
-        ]
-    },
-    {
-        "sentence_id": "GLC",
-        "sentence_description": "Geographic Position, Loran-C",
-        "fields": [
-            {
-                "name": "GLC 1",
-                "unique_id": "GLC_1",
-                "Full_description": "GRI Microseconds/10",
-                "short_description": "GRI Microseconds SID GLC_1"
-            },
-            {
-                "name": "GLC 2",
-                "unique_id": "GLC_2",
-                "Full_description": "Master TOA Microseconds",
-                "short_description": "Master TOA Microseconds SID GLC_2"
-            },
-            {
-                "name": "GLC 3",
-                "unique_id": "GLC_3",
-                "Full_description": "Master TOA Signal Status",
-                "short_description": "Master TOA Signal Status SID GLC_3"
-            },
-            {
-                "name": "GLC 4",
-                "unique_id": "GLC_4",
-                "Full_description": "Time Difference 1 Microseconds",
-                "short_description": "Time Difference 1 Microseconds SID GLC_4"
-            },
-            {
-                "name": "GLC 5",
-                "unique_id": "GLC_5",
-                "Full_description": "Time Difference 1 Signal Status",
-                "short_description": "Time Difference 1 Signal Status SID GLC_5"
-            },
-            {
-                "name": "GLC 6",
-                "unique_id": "GLC_6",
-                "Full_description": "Time Difference 2 Microseconds",
-                "short_description": "Time Difference 2 Microseconds SID GLC_6"
-            },
-            {
-                "name": "GLC 7",
-                "unique_id": "GLC_7",
-                "Full_description": "Time Difference 2 Signal Status",
-                "short_description": "Time Difference 2 Signal Status SID GLC_7"
-            },
-            {
-                "name": "GLC 8",
-                "unique_id": "GLC_8",
-                "Full_description": "Time Difference 3 Microseconds",
-                "short_description": "Time Difference 3 Microseconds SID GLC_8"
-            },
-            {
-                "name": "GLC 9",
-                "unique_id": "GLC_9",
-                "Full_description": "Time Difference 3 Signal Status",
-                "short_description": "Time Difference 3 Signal Status SID GLC_9"
-            },
-            {
-                "name": "GLC 10",
-                "unique_id": "GLC_10",
-                "Full_description": "Time Difference 4 Microseconds",
-                "short_description": "Time Difference 4 Microseconds SID GLC_10"
-            },
-            {
-                "name": "GLC 11",
-                "unique_id": "GLC_11",
-                "Full_description": "Time Difference 4 Signal Status",
-                "short_description": "Time Difference 4 Signal Status SID GLC_11"
-            },
-            {
-                "name": "GLC 12",
-                "unique_id": "GLC_12",
-                "Full_description": "Time Difference 5 Microseconds",
-                "short_description": "Time Difference 5 Microseconds SID GLC_12"
-            },
-            {
-                "name": "GLC 13",
-                "unique_id": "GLC_13",
-                "Full_description": "Time Difference 5 Signal Status",
-                "short_description": "Time Difference 5 Signal Status SID GLC_13"
+                "short_description": "Differential reference station ID GGA_14"
             }
         ]
     },
     {
         "sentence_id": "GLL",
         "sentence_description": "Geographic Position - Latitude/Longitude",
+        "group": "Global positioning",
         "fields": [
             {
                 "name": "GLL 1",
                 "unique_id": "GLL_1",
                 "Full_description": "Latitude",
-                "short_description": "Latitude SID GLL_1"
+                "short_description": "Latitude GLL_1",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "GLL 2",
                 "unique_id": "GLL_2",
                 "Full_description": "N or S (North or South)",
-                "short_description": "N or S SID GLL_2"
+                "short_description": "N or S GLL_2"
             },
             {
                 "name": "GLL 3",
                 "unique_id": "GLL_3",
                 "Full_description": "Longitude",
-                "short_description": "Longitude SID GLL_3"
+                "short_description": "Longitude GLL_3",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "GLL 4",
                 "unique_id": "GLL_4",
                 "Full_description": "E or W (East or West)",
-                "short_description": "E or W SID GLL_4"
+                "short_description": "E or W GLL_4"
             },
             {
                 "name": "GLL 5",
                 "unique_id": "GLL_5",
                 "Full_description": "Universal Time Coordinated (UTC)",
-                "short_description": "Universal Time Coordinated SID GLL_5"
+                "short_description": "Universal Time Coordinated GLL_5"
             },
             {
                 "name": "GLL 6",
                 "unique_id": "GLL_6",
                 "Full_description": "Status A - Data Valid, V - Data Invalid",
-                "short_description": "Status A SID GLL_6"
+                "short_description": "Status A GLL_6"
             },
             {
                 "name": "GLL 7",
                 "unique_id": "GLL_7",
                 "Full_description": "FAA mode indicator (NMEA 2.3 and later)",
-                "short_description": "FAA mode indicator SID GLL_7"
+                "short_description": "FAA mode indicator GLL_7"
             }
         ]
     },
     {
         "sentence_id": "GRS",
         "sentence_description": "GPS Range Residuals",
+        "group": "Global positioning",
         "fields": [
             {
                 "name": "GRS 1",
                 "unique_id": "GRS_1",
                 "Full_description": "TC time of associated GGA fix",
-                "short_description": "TC time of associated GGA fix SID GRS_1"
+                "short_description": "TC time of associated GGA fix GRS_1"
             },
             {
                 "name": "GRS 2",
                 "unique_id": "GRS_2",
                 "Full_description": "0 = Residuals used in GGA, 1 = residuals calculated after GGA",
-                "short_description": "0 or 1 SID GRS_2"
+                "short_description": "0 or 1 GRS_2"
             },
             {
                 "name": "GRS 3",
                 "unique_id": "GRS_3",
                 "Full_description": "Satellite 1 residual in meters",
-                "short_description": "Satellite 1 residual in meters SID GRS_3"
+                "short_description": "Satellite 1 residual in meters GRS_3"
             },
             {
                 "name": "GRS 4",
                 "unique_id": "GRS_4",
                 "Full_description": "Satellite 2 residual in meters",
-                "short_description": "Satellite 2 residual in meters SID GRS_4"
+                "short_description": "Satellite 2 residual in meters GRS_4"
             },
             {
                 "name": "GRS 5",
                 "unique_id": "GRS_5",
                 "Full_description": "Satellite 3 residual in meters",
-                "short_description": "Satellite 3 residual in meters SID GRS_5"
+                "short_description": "Satellite 3 residual in meters GRS_5"
             },
             {
                 "name": "GRS 6",
                 "unique_id": "GRS_6",
                 "Full_description": "Satellite 4 residual in meters (blank if unused)",
-                "short_description": "Satellite 4 residual in meters SID GRS_6"
+                "short_description": "Satellite 4 residual in meters GRS_6"
             },
             {
                 "name": "GRS 7",
                 "unique_id": "GRS_7",
                 "Full_description": "Satellite 5 residual in meters (blank if unused)",
-                "short_description": "Satellite 5 residual in meters SID GRS_7"
+                "short_description": "Satellite 5 residual in meters GRS_7"
             },
             {
                 "name": "GRS 8",
                 "unique_id": "GRS_8",
                 "Full_description": "Satellite 6 residual in meters (blank if unused)",
-                "short_description": "Satellite 6 residual in meters SID GRS_8"
+                "short_description": "Satellite 6 residual in meters GRS_8"
             },
             {
                 "name": "GRS 9",
                 "unique_id": "GRS_9",
                 "Full_description": "Satellite 7 residual in meters (blank if unused)",
-                "short_description": "Satellite 7 residual in meters SID GRS_9"
+                "short_description": "Satellite 7 residual in meters GRS_9"
             },
             {
                 "name": "GRS 10",
                 "unique_id": "GRS_10",
                 "Full_description": "Satellite 8 residual in meters (blank if unused)",
-                "short_description": "Satellite 8 residual in meters SID GRS_10"
+                "short_description": "Satellite 8 residual in meters GRS_10"
             },
             {
                 "name": "GRS 11",
                 "unique_id": "GRS_11",
                 "Full_description": "Satellite 9 residual in meters (blank if unused)",
-                "short_description": "Satellite 9 residual in meters SID GRS_11"
+                "short_description": "Satellite 9 residual in meters GRS_11"
             },
             {
                 "name": "GRS 12",
                 "unique_id": "GRS_12",
                 "Full_description": "Satellite 10 residual in meters (blank if unused)",
-                "short_description": "Satellite 10 residual in meters SID GRS_12"
+                "short_description": "Satellite 10 residual in meters GRS_12"
             },
             {
                 "name": "GRS 13",
                 "unique_id": "GRS_13",
                 "Full_description": "Satellite 11 residual in meters (blank if unused)",
-                "short_description": "Satellite 11 residual in meters SID GRS_13"
+                "short_description": "Satellite 11 residual in meters GRS_13"
             },
             {
                 "name": "GRS 14",
                 "unique_id": "GRS_14",
                 "Full_description": "Satellite 12 residual in meters (blank if unused)",
-                "short_description": "Satellite 12 residual in meters SID GRS_14"
+                "short_description": "Satellite 12 residual in meters GRS_14"
             }
         ]
     },
     {
         "sentence_id": "GST",
         "sentence_description": "GPS Pseudorange Noise Statistics",
+        "group": "Global positioning",
         "fields": [
             {
                 "name": "GST 1",
                 "unique_id": "GST_1",
                 "Full_description": "TC time of associated GGA fix",
-                "short_description": "TC time of associated GGA fix SID GST_1"
+                "short_description": "TC time of associated GGA fix GST_1"
             },
             {
                 "name": "GST 2",
                 "unique_id": "GST_2",
                 "Full_description": "Total RMS standard deviation of ranges inputs to the navigation solution",
-                "short_description": "Total RMS standard deviation SID GST_2"
+                "short_description": "Total RMS standard deviation GST_2"
             },
             {
                 "name": "GST 3",
                 "unique_id": "GST_3",
                 "Full_description": "Standard deviation (meters) of semi-major axis of error ellipse",
-                "short_description": "Standard deviation SID GST_3"
+                "short_description": "Standard deviation GST_3"
             },
             {
                 "name": "GST 4",
                 "unique_id": "GST_4",
                 "Full_description": "Standard deviation (meters) of semi-minor axis of error ellipse",
-                "short_description": "Standard deviation SID GST_4"
+                "short_description": "Standard deviation GST_4"
             },
             {
                 "name": "GST 5",
                 "unique_id": "GST_5",
                 "Full_description": "Orientation of semi-major axis of error ellipse (true north degrees)",
-                "short_description": "Orientation of semi SID GST_5"
+                "short_description": "Orientation of semi GST_5"
             },
             {
                 "name": "GST 6",
                 "unique_id": "GST_6",
                 "Full_description": "Standard deviation (meters) of latitude error",
-                "short_description": "Standard deviation SID GST_6"
+                "short_description": "Standard deviation GST_6"
             },
             {
                 "name": "GST 7",
                 "unique_id": "GST_7",
                 "Full_description": "Standard deviation (meters) of longitude error",
-                "short_description": "Standard deviation SID GST_7"
+                "short_description": "Standard deviation GST_7"
             },
             {
                 "name": "GST 8",
                 "unique_id": "GST_8",
                 "Full_description": "Standard deviation (meters) of altitude error",
-                "short_description": "Standard deviation SID GST_8"
+                "short_description": "Standard deviation GST_8"
             }
         ]
     },
     {
         "sentence_id": "GSA",
         "sentence_description": "GPS DOP and active satellites",
+        "group": "Global positioning",
         "fields": [
             {
                 "name": "GSA 1",
                 "unique_id": "GSA_1",
-                "Full_description": "Selection mode: M=Manual, forced to operate in 2D or 3D, A=Automatic, 3D/2D",
-                "short_description": "Selection mode SID GSA_1"
+                "Full_description": "Selection mode",
+                "short_description": "Selection mode GSA_1"
             },
             {
                 "name": "GSA 2",
                 "unique_id": "GSA_2",
                 "Full_description": "Mode (1 = no fix, 2 = 2D fix, 3 = 3D fix)",
-                "short_description": "Mode SID GSA_2"
+                "short_description": "Mode GSA_2"
             },
             {
                 "name": "GSA 3",
                 "unique_id": "GSA_3",
                 "Full_description": "ID of 1st satellite used for fix",
-                "short_description": "ID of 1st satellite used for fix SID GSA_3"
+                "short_description": "ID of 1st satellite used for fix GSA_3"
             },
             {
                 "name": "GSA 4",
                 "unique_id": "GSA_4",
                 "Full_description": "ID of 2nd satellite used for fix",
-                "short_description": "ID of 2nd satellite used for fix SID GSA_4"
+                "short_description": "ID of 2nd satellite used for fix GSA_4"
             },
             {
                 "name": "GSA 5",
                 "unique_id": "GSA_5",
                 "Full_description": "ID of 3rd satellite used for fix",
-                "short_description": "ID of 3rd satellite used for fix SID GSA_5"
+                "short_description": "ID of 3rd satellite used for fix GSA_5"
             },
             {
                 "name": "GSA 6",
                 "unique_id": "GSA_6",
                 "Full_description": "ID of 4th satellite used for fix",
-                "short_description": "ID of 4th satellite used for fix SID GSA_6"
+                "short_description": "ID of 4th satellite used for fix GSA_6"
             },
             {
                 "name": "GSA 7",
                 "unique_id": "GSA_7",
                 "Full_description": "ID of 5th satellite used for fix",
-                "short_description": "ID of 5th satellite used for fix SID GSA_7"
+                "short_description": "ID of 5th satellite used for fix GSA_7"
             },
             {
                 "name": "GSA 8",
                 "unique_id": "GSA_8",
                 "Full_description": "ID of 6th satellite used for fix",
-                "short_description": "ID of 6th satellite used for fix SID GSA_8"
+                "short_description": "ID of 6th satellite used for fix GSA_8"
             },
             {
                 "name": "GSA 9",
                 "unique_id": "GSA_9",
                 "Full_description": "ID of 7th satellite used for fix",
-                "short_description": "ID of 7th satellite used for fix SID GSA_9"
+                "short_description": "ID of 7th satellite used for fix GSA_9"
             },
             {
                 "name": "GSA 10",
                 "unique_id": "GSA_10",
                 "Full_description": "ID of 8th satellite used for fix",
-                "short_description": "ID of 8th satellite used for fix SID GSA_10"
+                "short_description": "ID of 8th satellite used for fix GSA_10"
             },
             {
                 "name": "GSA 11",
                 "unique_id": "GSA_11",
                 "Full_description": "ID of 9th satellite used for fix",
-                "short_description": "ID of 9th satellite used for fix SID GSA_11"
+                "short_description": "ID of 9th satellite used for fix GSA_11"
             },
             {
                 "name": "GSA 12",
                 "unique_id": "GSA_12",
                 "Full_description": "ID of 10th satellite used for fix",
-                "short_description": "ID of 10th satellite used for fix SID GSA_12"
+                "short_description": "ID of 10th satellite used for fix GSA_12"
             },
             {
                 "name": "GSA 13",
                 "unique_id": "GSA_13",
                 "Full_description": "ID of 11th satellite used for fix",
-                "short_description": "ID of 11th satellite used for fix SID GSA_13"
+                "short_description": "ID of 11th satellite used for fix GSA_13"
             },
             {
                 "name": "GSA 14",
                 "unique_id": "GSA_14",
                 "Full_description": "ID of 12th satellite used for fix",
-                "short_description": "ID of 12th satellite used for fix SID GSA_14"
+                "short_description": "ID of 12th satellite used for fix GSA_14"
             },
             {
                 "name": "GSA 15",
                 "unique_id": "GSA_15",
                 "Full_description": "PDOP",
-                "short_description": "PDOP SID GSA_15"
+                "short_description": "PDOP GSA_15"
             },
             {
                 "name": "GSA 16",
                 "unique_id": "GSA_16",
                 "Full_description": "HDOP",
-                "short_description": "HDOP SID GSA_16"
+                "short_description": "HDOP GSA_16"
             },
             {
                 "name": "GSA 17",
                 "unique_id": "GSA_17",
                 "Full_description": "VDOP",
-                "short_description": "VDOP SID GSA_17"
+                "short_description": "VDOP GSA_17"
             }
         ]
     },
     {
         "sentence_id": "GSV",
         "sentence_description": "Satellites in view",
+        "group": "Global positioning",
         "fields": [
             {
                 "name": "GSV 1",
                 "unique_id": "GSV_1",
                 "Full_description": "total number of GSV messages to be transmitted in this group",
-                "short_description": "total number of GSV messages SID GSV_1"
+                "short_description": "total number of GSV messages GSV_1"
             },
             {
                 "name": "GSV 2",
                 "unique_id": "GSV_2",
                 "Full_description": "1-origin number of this GSV message  within current group",
-                "short_description": "1 SID GSV_2"
+                "short_description": "1 GSV_2"
             },
             {
                 "name": "GSV 3",
                 "unique_id": "GSV_3",
                 "Full_description": "total number of satellites in view (leading zeros sent)",
-                "short_description": "total number of satellites in view SID GSV_3"
+                "short_description": "total number of satellites in view GSV_3"
             },
             {
                 "name": "GSV 4",
                 "unique_id": "GSV_4",
                 "Full_description": "satellite PRN number (leading zeros sent)",
-                "short_description": "satellite PRN number SID GSV_4"
+                "short_description": "satellite PRN number GSV_4"
             },
             {
                 "name": "GSV 5",
                 "unique_id": "GSV_5",
                 "Full_description": "elevation in degrees (00-90) (leading zeros sent)",
-                "short_description": "elevation in degrees SID GSV_5"
+                "short_description": "elevation in degrees GSV_5"
             },
             {
                 "name": "GSV 6",
                 "unique_id": "GSV_6",
                 "Full_description": "azimuth in degrees to true north (000-359) (leading zeros sent)",
-                "short_description": "azimuth in degrees to true north SID GSV_6"
+                "short_description": "azimuth in degrees to true north GSV_6"
             },
             {
                 "name": "GSV 7",
                 "unique_id": "GSV_7",
                 "Full_description": "SNR in dB (00-99) (leading zeros sent) more satellite info quadruples like 4-7 n) checksum",
-                "short_description": "SNR in dB SID GSV_7"
+                "short_description": "SNR in dB GSV_7"
             }
         ]
     },
     {
         "sentence_id": "GTD",
         "sentence_description": "Geographic Location in Time Differences",
+        "group": "Global positioning",
         "fields": [
             {
                 "name": "GTD 1",
                 "unique_id": "GTD_1",
                 "Full_description": "time difference",
-                "short_description": "time difference SID GTD_1"
+                "short_description": "time difference GTD_1"
             },
             {
                 "name": "GTD 2",
                 "unique_id": "GTD_2",
                 "Full_description": "time difference",
-                "short_description": "time difference SID GTD_2"
+                "short_description": "time difference GTD_2"
             },
             {
                 "name": "GTD 3",
                 "unique_id": "GTD_3",
                 "Full_description": "time difference",
-                "short_description": "time difference SID GTD_3"
+                "short_description": "time difference GTD_3"
             },
             {
                 "name": "GTD 4",
                 "unique_id": "GTD_4",
                 "Full_description": "time difference",
-                "short_description": "time difference SID GTD_4"
+                "short_description": "time difference GTD_4"
             },
             {
                 "name": "GTD 5",
                 "unique_id": "GTD_5",
                 "Full_description": "time difference n) checksum",
-                "short_description": "time difference n SID GTD_5"
+                "short_description": "time difference n GTD_5"
             }
         ]
     },
     {
         "sentence_id": "GXA",
         "sentence_description": "TRANSIT Position - Latitude/Longitude",
+        "group": "Global positioning",
         "fields": [
             {
                 "name": "GXA 1",
                 "unique_id": "GXA_1",
                 "Full_description": "UTC of position fix",
-                "short_description": "UTC of position fix SID GXA_1"
+                "short_description": "UTC of position fix GXA_1"
             },
             {
                 "name": "GXA 2",
                 "unique_id": "GXA_2",
                 "Full_description": "Latitude",
-                "short_description": "Latitude SID GXA_2"
+                "short_description": "Latitude GXA_2",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "GXA 3",
                 "unique_id": "GXA_3",
                 "Full_description": "East or West",
-                "short_description": "East or West SID GXA_3"
+                "short_description": "East or West GXA_3"
             },
             {
                 "name": "GXA 4",
                 "unique_id": "GXA_4",
                 "Full_description": "Longitude",
-                "short_description": "Longitude SID GXA_4"
+                "short_description": "Longitude GXA_4",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "GXA 5",
                 "unique_id": "GXA_5",
                 "Full_description": "North or South",
-                "short_description": "North or South SID GXA_5"
+                "short_description": "North or South GXA_5"
             },
             {
                 "name": "GXA 6",
                 "unique_id": "GXA_6",
                 "Full_description": "Waypoint ID",
-                "short_description": "Waypoint ID SID GXA_6"
+                "short_description": "Waypoint ID GXA_6"
             },
             {
                 "name": "GXA 7",
                 "unique_id": "GXA_7",
                 "Full_description": "Satelite number",
-                "short_description": "Satelite number SID GXA_7"
+                "short_description": "Satelite number GXA_7"
             }
         ]
     },
     {
         "sentence_id": "HDG",
         "sentence_description": "Heading - Deviation & Variation",
+        "group": "Own ship",
         "fields": [
             {
                 "name": "HDG 1",
                 "unique_id": "HDG_1",
                 "Full_description": "Magnetic Sensor heading in degrees",
-                "short_description": "Magnetic Sensor heading in degrees SID HDG_1"
+                "short_description": "Magnetic Sensor heading in degrees HDG_1",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "HDG 2",
                 "unique_id": "HDG_2",
                 "Full_description": "Magnetic Deviation, degrees",
-                "short_description": "Magnetic Deviation SID HDG_2"
+                "short_description": "Magnetic Deviation HDG_2",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "HDG 3",
                 "unique_id": "HDG_3",
                 "Full_description": "Magnetic Deviation direction, E = Easterly, W = Westerly",
-                "short_description": "Magnetic Deviation direction SID HDG_3"
+                "short_description": "Magnetic Deviation direction HDG_3"
             },
             {
                 "name": "HDG 4",
                 "unique_id": "HDG_4",
                 "Full_description": "Magnetic Variation degrees",
-                "short_description": "Magnetic Variation degrees SID HDG_4"
+                "short_description": "Magnetic Variation degrees HDG_4",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "HDG 5",
                 "unique_id": "HDG_5",
                 "Full_description": "Magnetic Variation direction, E = Easterly, W = Westerly",
-                "short_description": "Magnetic Variation direction SID HDG_5"
+                "short_description": "Magnetic Variation direction HDG_5"
             }
         ]
     },
     {
         "sentence_id": "HDM",
         "sentence_description": "Heading - Magnetic",
+        "group": "Own ship",
         "fields": [
             {
                 "name": "HDM 1",
                 "unique_id": "HDM_1",
                 "Full_description": "Heading Degrees, magnetic",
-                "short_description": "Heading Degrees SID HDM_1"
+                "short_description": "Heading Degrees HDM_1",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "HDM 2",
                 "unique_id": "HDM_2",
                 "Full_description": "M = magnetic",
-                "short_description": "M SID HDM_2"
+                "short_description": "M HDM_2"
             }
         ]
     },
     {
         "sentence_id": "HDT",
         "sentence_description": "Heading - True",
+        "group": "Own ship",
         "fields": [
             {
                 "name": "HDT 1",
                 "unique_id": "HDT_1",
                 "Full_description": "Heading Degrees, true",
-                "short_description": "Heading Degrees SID HDT_1"
+                "short_description": "Heading Degrees HDT_1",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "HDT 2",
                 "unique_id": "HDT_2",
                 "Full_description": "T = True",
-                "short_description": "T SID HDT_2"
+                "short_description": "T HDT_2"
             }
         ]
     },
     {
         "sentence_id": "HFB",
         "sentence_description": "Trawl Headrope to Footrope and Bottom",
+        "group": "Trawl",
         "fields": [
             {
                 "name": "HFB 1",
                 "unique_id": "HFB_1",
                 "Full_description": "Distance from headrope to footrope",
-                "short_description": "Distance from headrope to footrope SID HFB_1"
+                "short_description": "Distance from headrope to footrope HFB_1"
             },
             {
                 "name": "HFB 2",
                 "unique_id": "HFB_2",
                 "Full_description": "Meters (0-100)",
-                "short_description": "Meters SID HFB_2"
+                "short_description": "Meters HFB_2"
             },
             {
                 "name": "HFB 3",
                 "unique_id": "HFB_3",
                 "Full_description": "Distance from headrope to bottom",
-                "short_description": "Distance from headrope to bottom SID HFB_3"
+                "short_description": "Distance from headrope to bottom HFB_3"
             },
             {
                 "name": "HFB 4",
                 "unique_id": "HFB_4",
                 "Full_description": "Meters (0-100)",
-                "short_description": "Meters SID HFB_4"
+                "short_description": "Meters HFB_4"
             }
         ]
     },
     {
         "sentence_id": "HSC",
         "sentence_description": "Heading Steering Command",
+        "group": "Autopilot",
         "fields": [
             {
                 "name": "HSC 1",
                 "unique_id": "HSC_1",
                 "Full_description": "Heading Degrees, True",
-                "short_description": "Heading Degrees SID HSC_1"
+                "short_description": "Heading Degrees HSC_1",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "HSC 2",
                 "unique_id": "HSC_2",
                 "Full_description": "T = True",
-                "short_description": "T SID HSC_2"
+                "short_description": "T HSC_2"
             },
             {
                 "name": "HSC 3",
                 "unique_id": "HSC_3",
                 "Full_description": "Heading Degrees, Magnetic",
-                "short_description": "Heading Degrees SID HSC_3"
+                "short_description": "Heading Degrees HSC_3",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "HSC 4",
                 "unique_id": "HSC_4",
                 "Full_description": "M = Magnetic",
-                "short_description": "M SID HSC_4"
+                "short_description": "M HSC_4"
             }
         ]
     },
     {
         "sentence_id": "ITS",
         "sentence_description": "Trawl Door Spread 2 Distance",
+        "group": "Trawl",
         "fields": [
             {
                 "name": "ITS 1",
                 "unique_id": "ITS_1",
                 "Full_description": "GRI Microseconds/10",
-                "short_description": "GRI Microseconds SID ITS_1"
+                "short_description": "GRI Microseconds ITS_1"
             },
             {
                 "name": "ITS 2",
                 "unique_id": "ITS_2",
                 "Full_description": "Master Relative SNR",
-                "short_description": "Master Relative SNR SID ITS_2"
+                "short_description": "Master Relative SNR ITS_2"
             },
             {
                 "name": "ITS 3",
                 "unique_id": "ITS_3",
                 "Full_description": "Master Relative ECD",
-                "short_description": "Master Relative ECD SID ITS_3"
+                "short_description": "Master Relative ECD ITS_3"
             },
             {
                 "name": "ITS 4",
                 "unique_id": "ITS_4",
                 "Full_description": "Time Difference 1 Microseconds",
-                "short_description": "Time Difference 1 Microseconds SID ITS_4"
+                "short_description": "Time Difference 1 Microseconds ITS_4"
             },
             {
                 "name": "ITS 5",
                 "unique_id": "ITS_5",
                 "Full_description": "Time Difference 1 Signal Status",
-                "short_description": "Time Difference 1 Signal Status SID ITS_5"
+                "short_description": "Time Difference 1 Signal Status ITS_5"
             },
             {
                 "name": "ITS 6",
                 "unique_id": "ITS_6",
                 "Full_description": "Time Difference 2 Microseconds",
-                "short_description": "Time Difference 2 Microseconds SID ITS_6"
+                "short_description": "Time Difference 2 Microseconds ITS_6"
             },
             {
                 "name": "ITS 7",
                 "unique_id": "ITS_7",
                 "Full_description": "Time Difference 2 Signal Status",
-                "short_description": "Time Difference 2 Signal Status SID ITS_7"
+                "short_description": "Time Difference 2 Signal Status ITS_7"
             },
             {
                 "name": "ITS 8",
                 "unique_id": "ITS_8",
                 "Full_description": "Time Difference 3 Microseconds",
-                "short_description": "Time Difference 3 Microseconds SID ITS_8"
+                "short_description": "Time Difference 3 Microseconds ITS_8"
             },
             {
                 "name": "ITS 9",
                 "unique_id": "ITS_9",
                 "Full_description": "Time Difference 3 Signal Status",
-                "short_description": "Time Difference 3 Signal Status SID ITS_9"
+                "short_description": "Time Difference 3 Signal Status ITS_9"
             },
             {
                 "name": "ITS 10",
                 "unique_id": "ITS_10",
                 "Full_description": "Time Difference 4 Microseconds",
-                "short_description": "Time Difference 4 Microseconds SID ITS_10"
+                "short_description": "Time Difference 4 Microseconds ITS_10"
             },
             {
                 "name": "ITS 11",
                 "unique_id": "ITS_11",
                 "Full_description": "Time Difference 4 Signal Status",
-                "short_description": "Time Difference 4 Signal Status SID ITS_11"
+                "short_description": "Time Difference 4 Signal Status ITS_11"
             },
             {
                 "name": "ITS 12",
                 "unique_id": "ITS_12",
                 "Full_description": "Time Difference 5 Microseconds",
-                "short_description": "Time Difference 5 Microseconds SID ITS_12"
+                "short_description": "Time Difference 5 Microseconds ITS_12"
             },
             {
                 "name": "ITS 13",
                 "unique_id": "ITS_13",
                 "Full_description": "Time Difference 5 Signal Status",
-                "short_description": "Time Difference 5 Signal Status SID ITS_13"
+                "short_description": "Time Difference 5 Signal Status ITS_13"
             }
         ]
     },
     {
         "sentence_id": "MSK",
         "sentence_description": "Control for a Beacon Receiver",
+        "group": "Other sentences",
         "fields": [
             {
                 "name": "MSK 1",
                 "unique_id": "MSK_1",
                 "Full_description": "Frequency to use",
-                "short_description": "Frequency to use SID MSK_1"
+                "short_description": "Frequency to use MSK_1",
+                "unit_of_measurement": "Hz"
             },
             {
                 "name": "MSK 2",
                 "unique_id": "MSK_2",
                 "Full_description": "Frequency mode, A=auto, M=manual",
-                "short_description": "Frequency mode SID MSK_2"
+                "short_description": "Frequency mode MSK_2"
             },
             {
                 "name": "MSK 3",
                 "unique_id": "MSK_3",
                 "Full_description": "Beacon bit rate",
-                "short_description": "Beacon bit rate SID MSK_3"
+                "short_description": "Beacon bit rate MSK_3"
             },
             {
                 "name": "MSK 4",
                 "unique_id": "MSK_4",
                 "Full_description": "Bitrate, A=auto, M=manual",
-                "short_description": "Bitrate SID MSK_4"
+                "short_description": "Bitrate MSK_4"
             },
             {
                 "name": "MSK 5",
                 "unique_id": "MSK_5",
                 "Full_description": "Frequency for MSS message status (null for no status)",
-                "short_description": "Frequency for MSS message status SID MSK_5"
+                "short_description": "Frequency for MSS message status MSK_5"
             }
         ]
     },
     {
         "sentence_id": "MSS",
         "sentence_description": "Beacon Receiver Status",
+        "group": "Other sentences",
         "fields": [
             {
                 "name": "MSS 1",
                 "unique_id": "MSS_1",
                 "Full_description": "Signal strength (dB 1uV)",
-                "short_description": "Signal strength SID MSS_1"
+                "short_description": "Signal strength MSS_1"
             },
             {
                 "name": "MSS 2",
                 "unique_id": "MSS_2",
                 "Full_description": "Signal to noise ratio (dB)",
-                "short_description": "Signal to noise ratio SID MSS_2"
+                "short_description": "Signal to noise ratio MSS_2"
             },
             {
                 "name": "MSS 3",
                 "unique_id": "MSS_3",
                 "Full_description": "Beacon frequency (kHz)",
-                "short_description": "Beacon frequency SID MSS_3"
+                "short_description": "Beacon frequency MSS_3"
             },
             {
                 "name": "MSS 4",
                 "unique_id": "MSS_4",
                 "Full_description": "Beacon data rate (BPS)",
-                "short_description": "Beacon data rate SID MSS_4"
+                "short_description": "Beacon data rate MSS_4"
             },
             {
                 "name": "MSS 5",
                 "unique_id": "MSS_5",
                 "Full_description": "Unknown integer value",
-                "short_description": "Unknown integer value SID MSS_5"
+                "short_description": "Unknown integer value MSS_5"
             }
         ]
     },
     {
         "sentence_id": "MTW",
         "sentence_description": "Mean Temperature of Water",
+        "group": "Depth, speed, distance, temperature",
         "fields": [
             {
                 "name": "MTW 1",
                 "unique_id": "MTW_1",
                 "Full_description": "Degrees",
-                "short_description": "Degrees SID MTW_1"
+                "short_description": "Degrees MTW_1",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "MTW 2",
                 "unique_id": "MTW_2",
                 "Full_description": "Unit of Measurement, Celcius",
-                "short_description": "Unit of Measurement SID MTW_2"
+                "short_description": "Unit of Measurement MTW_2"
             }
         ]
     },
     {
         "sentence_id": "MWD",
         "sentence_description": "Wind Direction and Speed",
+        "group": "Wind and weather",
         "fields": [
             {
                 "name": "MWD 1",
                 "unique_id": "MWD_1",
                 "Full_description": "Wind direction",
-                "short_description": "Wind direction SID MWD_1"
+                "short_description": "Wind direction MWD_1",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "MWD 2",
                 "unique_id": "MWD_2",
                 "Full_description": "T = True",
-                "short_description": "T SID MWD_2"
+                "short_description": "T MWD_2"
             },
             {
                 "name": "MWD 3",
                 "unique_id": "MWD_3",
                 "Full_description": "Wind direction",
-                "short_description": "Wind direction SID MWD_3"
+                "short_description": "Wind direction MWD_3",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "MWD 4",
                 "unique_id": "MWD_4",
                 "Full_description": "M = Magnetic",
-                "short_description": "M SID MWD_4"
+                "short_description": "M MWD_4"
             },
             {
                 "name": "MWD 5",
                 "unique_id": "MWD_5",
                 "Full_description": "Wind speed",
-                "short_description": "Wind speed SID MWD_5"
+                "short_description": "Wind speed MWD_5",
+                "unit_of_measurement": "kn"
             },
             {
                 "name": "MWD 6",
                 "unique_id": "MWD_6",
                 "Full_description": "N = Knots",
-                "short_description": "N SID MWD_6"
+                "short_description": "N MWD_6"
             },
             {
                 "name": "MWD 7",
                 "unique_id": "MWD_7",
                 "Full_description": "Wind speed",
-                "short_description": "Wind speed SID MWD_7"
+                "short_description": "Wind speed MWD_7",
+                "unit_of_measurement": "m/s"
             },
             {
                 "name": "MWD 8",
                 "unique_id": "MWD_8",
                 "Full_description": "M = Meters/second",
-                "short_description": "M per S SID MWD_8"
+                "short_description": "M per S MWD_8"
             }
         ]
     },
     {
         "sentence_id": "MWV",
         "sentence_description": "Wind Speed and Angle",
+        "group": "Wind and weather",
         "fields": [
             {
                 "name": "MWV 1",
                 "unique_id": "MWV_1",
                 "Full_description": "Wind Angle, 0 to 360 degrees",
-                "short_description": "Wind Angle SID MWV_1"
+                "short_description": "Wind Angle MWV_1",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "MWV 2",
                 "unique_id": "MWV_2",
                 "Full_description": "Reference, R = Relative, T = True",
-                "short_description": "Reference SID MWV_2"
+                "short_description": "Reference MWV_2"
             },
             {
                 "name": "MWV 3",
                 "unique_id": "MWV_3",
                 "Full_description": "Wind Speed",
-                "short_description": "Wind Speed SID MWV_3"
+                "short_description": "Wind Speed MWV_3",
+                "unit_of_measurement": "kn"
             },
             {
                 "name": "MWV 4",
                 "unique_id": "MWV_4",
                 "Full_description": "Wind Speed Units, K/M/N",
-                "short_description": "Wind Speed Units SID MWV_4"
+                "short_description": "Wind Speed Units MWV_4"
             },
             {
                 "name": "MWV 5",
                 "unique_id": "MWV_5",
                 "Full_description": "Status, A = Data Valid",
-                "short_description": "Status SID MWV_5"
+                "short_description": "Status MWV_5"
             }
         ]
     },
     {
         "sentence_id": "OLN",
         "sentence_description": "Omega Lane Numbers",
+        "group": "Other sentences",
         "fields": [
             {
                 "name": "OLN 1",
                 "unique_id": "OLN_1",
                 "Full_description": "Omega Pair 1",
-                "short_description": "Omega Pair 1 SID OLN_1"
+                "short_description": "Omega Pair 1 OLN_1"
             },
             {
                 "name": "OLN 2",
                 "unique_id": "OLN_2",
                 "Full_description": "Omega Pair 1",
-                "short_description": "Omega Pair 1 SID OLN_2"
+                "short_description": "Omega Pair 1 OLN_2"
             },
             {
                 "name": "OLN 3",
                 "unique_id": "OLN_3",
                 "Full_description": "Omega Pair 1",
-                "short_description": "Omega Pair 1 SID OLN_3"
+                "short_description": "Omega Pair 1 OLN_3"
             }
         ]
     },
     {
         "sentence_id": "OSD",
         "sentence_description": "Own Ship Data",
+        "group": "Own ship",
         "fields": [
             {
                 "name": "OSD 1",
                 "unique_id": "OSD_1",
                 "Full_description": "Heading, degrees true",
-                "short_description": "Heading SID OSD_1"
+                "short_description": "Heading OSD_1",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "OSD 2",
                 "unique_id": "OSD_2",
                 "Full_description": "Status, A = Data Valid",
-                "short_description": "Status SID OSD_2"
+                "short_description": "Status OSD_2"
             },
             {
                 "name": "OSD 3",
                 "unique_id": "OSD_3",
                 "Full_description": "Vessel Course, degrees True",
-                "short_description": "Vessel Course SID OSD_3"
+                "short_description": "Vessel Course OSD_3",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "OSD 4",
                 "unique_id": "OSD_4",
                 "Full_description": "Course Reference",
-                "short_description": "Course Reference SID OSD_4"
+                "short_description": "Course Reference OSD_4"
             },
             {
                 "name": "OSD 5",
                 "unique_id": "OSD_5",
                 "Full_description": "Vessel Speed",
-                "short_description": "Vessel Speed SID OSD_5"
+                "short_description": "Vessel Speed OSD_5",
+                "unit_of_measurement": "kn"
             },
             {
                 "name": "OSD 6",
                 "unique_id": "OSD_6",
                 "Full_description": "Speed Reference",
-                "short_description": "Speed Reference SID OSD_6"
+                "short_description": "Speed Reference OSD_6"
             },
             {
                 "name": "OSD 7",
                 "unique_id": "OSD_7",
                 "Full_description": "Vessel Set, degrees True",
-                "short_description": "Vessel Set SID OSD_7"
+                "short_description": "Vessel Set OSD_7",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "OSD 8",
                 "unique_id": "OSD_8",
                 "Full_description": "Vessel drift (speed)",
-                "short_description": "Vessel drift SID OSD_8"
+                "short_description": "Vessel drift OSD_8",
+                "unit_of_measurement": "kn"
             },
             {
                 "name": "OSD 9",
                 "unique_id": "OSD_9",
                 "Full_description": "Speed Units",
-                "short_description": "Speed Units SID OSD_9"
+                "short_description": "Speed Units OSD_9"
             }
         ]
     },
     {
         "sentence_id": "R00",
         "sentence_description": "Waypoints in active route",
+        "group": "Routing",
         "fields": [
             {
                 "name": "R00 1",
                 "unique_id": "R00_1",
                 "Full_description": "waypoint ID",
-                "short_description": "waypoint ID SID R00_1"
+                "short_description": "waypoint ID R00_1"
             }
         ]
     },
     {
         "sentence_id": "RMA",
         "sentence_description": "Recommended Minimum Navigation Information",
+        "group": "Global positioning",
         "fields": [
             {
                 "name": "RMA 1",
                 "unique_id": "RMA_1",
                 "Full_description": "Blink Warning",
-                "short_description": "Blink Warning SID RMA_1"
+                "short_description": "Blink Warning RMA_1"
             },
             {
                 "name": "RMA 2",
                 "unique_id": "RMA_2",
                 "Full_description": "Latitude",
-                "short_description": "Latitude SID RMA_2"
+                "short_description": "Latitude RMA_2",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "RMA 3",
                 "unique_id": "RMA_3",
                 "Full_description": "N or S",
-                "short_description": "N or S SID RMA_3"
+                "short_description": "N or S RMA_3"
             },
             {
                 "name": "RMA 4",
                 "unique_id": "RMA_4",
                 "Full_description": "Longitude",
-                "short_description": "Longitude SID RMA_4"
+                "short_description": "Longitude RMA_4",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "RMA 5",
                 "unique_id": "RMA_5",
                 "Full_description": "E or W",
-                "short_description": "E or W SID RMA_5"
+                "short_description": "E or W RMA_5"
             },
             {
                 "name": "RMA 6",
                 "unique_id": "RMA_6",
                 "Full_description": "Time Difference A, uS",
-                "short_description": "Time Difference A SID RMA_6"
+                "short_description": "Time Difference A RMA_6"
             },
             {
                 "name": "RMA 7",
                 "unique_id": "RMA_7",
                 "Full_description": "Time Difference B, uS",
-                "short_description": "Time Difference B SID RMA_7"
+                "short_description": "Time Difference B RMA_7"
             },
             {
                 "name": "RMA 8",
                 "unique_id": "RMA_8",
                 "Full_description": "Speed Over Ground, Knots",
-                "short_description": "Speed Over Ground SID RMA_8"
+                "short_description": "Speed Over Ground RMA_8",
+                "unit_of_measurement": "kn"
             },
             {
                 "name": "RMA 9",
                 "unique_id": "RMA_9",
                 "Full_description": "Track Made Good, degrees true",
-                "short_description": "Track Made Good SID RMA_9"
+                "short_description": "Track Made Good RMA_9",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "RMA 10",
                 "unique_id": "RMA_10",
                 "Full_description": "Magnetic Variation, degrees",
-                "short_description": "Magnetic Variation SID RMA_10"
+                "short_description": "Magnetic Variation RMA_10",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "RMA 11",
                 "unique_id": "RMA_11",
                 "Full_description": "E or W",
-                "short_description": "E or W SID RMA_11"
+                "short_description": "E or W RMA_11"
             }
         ]
     },
     {
         "sentence_id": "RMB",
         "sentence_description": "Recommended Minimum Navigation Information",
+        "group": "Global positioning",
         "fields": [
             {
                 "name": "RMB 1",
                 "unique_id": "RMB_1",
                 "Full_description": "Status, A= Active, V = Void",
-                "short_description": "Status SID RMB_1"
+                "short_description": "Status RMB_1"
             },
             {
                 "name": "RMB 2",
                 "unique_id": "RMB_2",
                 "Full_description": "Cross Track error - nautical miles",
-                "short_description": "Cross Track error SID RMB_2"
+                "short_description": "Cross Track error RMB_2",
+                "unit_of_measurement": "NM"
             },
             {
                 "name": "RMB 3",
                 "unique_id": "RMB_3",
                 "Full_description": "Direction to Steer, Left or Right",
-                "short_description": "Direction to Steer SID RMB_3"
+                "short_description": "Direction to Steer RMB_3",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "RMB 4",
                 "unique_id": "RMB_4",
                 "Full_description": "TO Waypoint ID",
-                "short_description": "TO Waypoint ID SID RMB_4"
+                "short_description": "TO Waypoint ID RMB_4"
             },
             {
                 "name": "RMB 5",
                 "unique_id": "RMB_5",
                 "Full_description": "FROM Waypoint ID",
-                "short_description": "FROM Waypoint ID SID RMB_5"
+                "short_description": "FROM Waypoint ID RMB_5"
             },
             {
                 "name": "RMB 6",
                 "unique_id": "RMB_6",
                 "Full_description": "Destination Waypoint Latitude",
-                "short_description": "Destination Waypoint Latitude SID RMB_6"
+                "short_description": "Destination Waypoint Latitude RMB_6",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "RMB 7",
                 "unique_id": "RMB_7",
                 "Full_description": "N or S",
-                "short_description": "N or S SID RMB_7"
+                "short_description": "N or S RMB_7"
             },
             {
                 "name": "RMB 8",
                 "unique_id": "RMB_8",
                 "Full_description": "Destination Waypoint Longitude",
-                "short_description": "Destination Waypoint Longitude SID RMB_8"
+                "short_description": "Destination Waypoint Longitude RMB_8",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "RMB 9",
                 "unique_id": "RMB_9",
                 "Full_description": "E or W",
-                "short_description": "E or W SID RMB_9"
+                "short_description": "E or W RMB_9"
             },
             {
                 "name": "RMB 10",
                 "unique_id": "RMB_10",
                 "Full_description": "Range to destination in nautical miles",
-                "short_description": "Range to destination in nautical miles SID RMB_10"
+                "short_description": "Range to destination in nautical miles RMB_10",
+                "unit_of_measurement": "NM"
             },
             {
                 "name": "RMB 11",
                 "unique_id": "RMB_11",
                 "Full_description": "Bearing to destination in degrees True",
-                "short_description": "Bearing to destination in degrees True SID RMB_11"
+                "short_description": "Bearing to destination in degrees True RMB_11",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "RMB 12",
                 "unique_id": "RMB_12",
                 "Full_description": "Destination closing velocity in knots",
-                "short_description": "Destination closing velocity in knots SID RMB_12"
+                "short_description": "Destination closing velocity in knots RMB_12",
+                "unit_of_measurement": "kn"
             },
             {
                 "name": "RMB 13",
                 "unique_id": "RMB_13",
                 "Full_description": "Arrival Status, A = Arrival Circle Entered",
-                "short_description": "Arrival Status SID RMB_13"
+                "short_description": "Arrival Status RMB_13"
             },
             {
                 "name": "RMB 14",
                 "unique_id": "RMB_14",
                 "Full_description": "FAA mode indicator (NMEA 2.3 and later)",
-                "short_description": "FAA mode indicator SID RMB_14"
+                "short_description": "FAA mode indicator RMB_14"
             }
         ]
     },
     {
         "sentence_id": "RMC",
         "sentence_description": "Recommended Minimum Navigation Information",
+        "group": "Global positioning",
         "fields": [
             {
                 "name": "RMC 1",
                 "unique_id": "RMC_1",
                 "Full_description": "UTC Time",
-                "short_description": "UTC Time SID RMC_1"
+                "short_description": "UTC Time RMC_1"
             },
             {
                 "name": "RMC 2",
                 "unique_id": "RMC_2",
                 "Full_description": "Status, V=Navigation receiver warning A=Valid",
-                "short_description": "Status SID RMC_2"
+                "short_description": "Status RMC_2"
             },
             {
                 "name": "RMC 3",
                 "unique_id": "RMC_3",
                 "Full_description": "Latitude",
-                "short_description": "Latitude SID RMC_3"
+                "short_description": "Latitude RMC_3",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "RMC 4",
                 "unique_id": "RMC_4",
                 "Full_description": "N or S",
-                "short_description": "N or S SID RMC_4"
+                "short_description": "N or S RMC_4"
             },
             {
                 "name": "RMC 5",
                 "unique_id": "RMC_5",
                 "Full_description": "Longitude",
-                "short_description": "Longitude SID RMC_5"
+                "short_description": "Longitude RMC_5",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "RMC 6",
                 "unique_id": "RMC_6",
                 "Full_description": "E or W",
-                "short_description": "E or W SID RMC_6"
+                "short_description": "E or W RMC_6"
             },
             {
                 "name": "RMC 7",
                 "unique_id": "RMC_7",
                 "Full_description": "Speed over ground, knots",
-                "short_description": "Speed over ground SID RMC_7"
+                "short_description": "Speed over ground RMC_7",
+                "unit_of_measurement": "kn"
             },
             {
                 "name": "RMC 8",
                 "unique_id": "RMC_8",
                 "Full_description": "Track made good, degrees true",
-                "short_description": "Track made good SID RMC_8"
+                "short_description": "Track made good RMC_8",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "RMC 9",
                 "unique_id": "RMC_9",
                 "Full_description": "Date, ddmmyy",
-                "short_description": "Date SID RMC_9"
+                "short_description": "Date RMC_9"
             },
             {
                 "name": "RMC 10",
                 "unique_id": "RMC_10",
                 "Full_description": "Magnetic Variation, degrees",
-                "short_description": "Magnetic Variation SID RMC_10"
+                "short_description": "Magnetic Variation RMC_10",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "RMC 11",
                 "unique_id": "RMC_11",
                 "Full_description": "E or W",
-                "short_description": "E or W SID RMC_11"
+                "short_description": "E or W RMC_11"
             },
             {
                 "name": "RMC 12",
                 "unique_id": "RMC_12",
                 "Full_description": "FAA mode indicator (NMEA 2.3 and later)",
-                "short_description": "FAA mode indicator SID RMC_12"
+                "short_description": "FAA mode indicator RMC_12"
             }
         ]
     },
     {
         "sentence_id": "ROT",
         "sentence_description": "Rate Of Turn",
+        "group": "Own ship",
         "fields": [
             {
                 "name": "ROT 1",
                 "unique_id": "ROT_1",
                 "Full_description": "Rate Of Turn, degrees per minute, \"-\" means bow turns to port",
-                "short_description": "Rate Of Turn SID ROT_1"
+                "short_description": "Rate Of Turn ROT_1",
+                "unit_of_measurement": "°/min"
             },
             {
                 "name": "ROT 2",
                 "unique_id": "ROT_2",
                 "Full_description": "Status, A means data is valid",
-                "short_description": "Status SID ROT_2"
+                "short_description": "Status ROT_2"
             }
         ]
     },
     {
         "sentence_id": "RPM",
         "sentence_description": "Revolutions",
+        "group": "Own ship",
         "fields": [
             {
                 "name": "RPM 1",
                 "unique_id": "RPM_1",
                 "Full_description": "Sourse, S = Shaft, E = Engine",
-                "short_description": "Sourse SID RPM_1"
+                "short_description": "Sourse RPM_1"
             },
             {
                 "name": "RPM 2",
                 "unique_id": "RPM_2",
                 "Full_description": "Engine or shaft number",
-                "short_description": "Engine or shaft number SID RPM_2"
+                "short_description": "Engine or shaft number RPM_2"
             },
             {
                 "name": "RPM 3",
                 "unique_id": "RPM_3",
                 "Full_description": "Speed, Revolutions per minute",
-                "short_description": "Speed SID RPM_3"
+                "short_description": "Speed RPM_3",
+                "unit_of_measurement": "rpm"
             },
             {
                 "name": "RPM 4",
                 "unique_id": "RPM_4",
                 "Full_description": "Propeller pitch, % of maximum, \"-\" means astern",
-                "short_description": "Propeller pitch SID RPM_4"
+                "short_description": "Propeller pitch RPM_4",
+                "unit_of_measurement": "%"
             },
             {
                 "name": "RPM 5",
                 "unique_id": "RPM_5",
                 "Full_description": "Status, A means data is valid",
-                "short_description": "Status SID RPM_5"
+                "short_description": "Status RPM_5"
             }
         ]
     },
     {
         "sentence_id": "RSA",
         "sentence_description": "Rudder Sensor Angle",
+        "group": "Own ship",
         "fields": [
             {
                 "name": "RSA 1",
                 "unique_id": "RSA_1",
                 "Full_description": "Starboard (or single) rudder sensor, \"-\" means Turn To Port",
-                "short_description": "Starboard SID RSA_1"
+                "short_description": "Starboard RSA_1",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "RSA 2",
                 "unique_id": "RSA_2",
                 "Full_description": "Status, A means data is valid",
-                "short_description": "Status SID RSA_2"
+                "short_description": "Status RSA_2"
             },
             {
                 "name": "RSA 3",
                 "unique_id": "RSA_3",
                 "Full_description": "Port rudder sensor",
-                "short_description": "Port rudder sensor SID RSA_3"
+                "short_description": "Port rudder sensor RSA_3",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "RSA 4",
                 "unique_id": "RSA_4",
                 "Full_description": "Status, A means data is valid",
-                "short_description": "Status SID RSA_4"
+                "short_description": "Status RSA_4"
             }
         ]
     },
     {
-        "sentence_id": "RSD",
+        "sentence_id": "RSD DO NOT USE",
         "sentence_description": "RADAR System Data",
+        "group": "Radar",
         "fields": [
             {
                 "name": "RSD 1",
                 "unique_id": "RSD_1",
                 "Full_description": "Unknown",
-                "short_description": "Unknown SID RSD_1"
+                "short_description": "Unknown RSD_1"
             },
             {
                 "name": "RSD 2",
                 "unique_id": "RSD_2",
                 "Full_description": "Unknown",
-                "short_description": "Unknown SID RSD_2"
+                "short_description": "Unknown RSD_2"
             },
             {
                 "name": "RSD 3",
                 "unique_id": "RSD_3",
                 "Full_description": "Unknown",
-                "short_description": "Unknown SID RSD_3"
+                "short_description": "Unknown RSD_3"
             },
             {
                 "name": "RSD 4",
                 "unique_id": "RSD_4",
                 "Full_description": "Unknown",
-                "short_description": "Unknown SID RSD_4"
+                "short_description": "Unknown RSD_4"
             },
             {
                 "name": "RSD 5",
                 "unique_id": "RSD_5",
                 "Full_description": "Unknown",
-                "short_description": "Unknown SID RSD_5"
+                "short_description": "Unknown RSD_5"
             },
             {
                 "name": "RSD 6",
                 "unique_id": "RSD_6",
                 "Full_description": "Unknown",
-                "short_description": "Unknown SID RSD_6"
+                "short_description": "Unknown RSD_6"
             },
             {
                 "name": "RSD 7",
                 "unique_id": "RSD_7",
                 "Full_description": "Unknown",
-                "short_description": "Unknown SID RSD_7"
+                "short_description": "Unknown RSD_7"
             },
             {
                 "name": "RSD 8",
                 "unique_id": "RSD_8",
                 "Full_description": "Unknown",
-                "short_description": "Unknown SID RSD_8"
+                "short_description": "Unknown RSD_8"
             },
             {
                 "name": "RSD 9",
                 "unique_id": "RSD_9",
                 "Full_description": "Cursor Range From Own Ship",
-                "short_description": "Cursor Range From Own Ship SID RSD_9"
+                "short_description": "Cursor Range From Own Ship RSD_9"
             },
             {
                 "name": "RSD 10",
                 "unique_id": "RSD_10",
                 "Full_description": "Cursor Bearing Degrees Clockwise From Zero",
-                "short_description": "Cursor Bearing Degrees Clockwise From Zero SID RSD_10"
+                "short_description": "Cursor Bearing Degrees Clockwise From Zero RSD_10"
             },
             {
                 "name": "RSD 11",
                 "unique_id": "RSD_11",
                 "Full_description": "Range Scale",
-                "short_description": "Range Scale SID RSD_11"
+                "short_description": "Range Scale RSD_11"
             },
             {
                 "name": "RSD 12",
                 "unique_id": "RSD_12",
                 "Full_description": "Range Units",
-                "short_description": "Range Units SID RSD_12"
+                "short_description": "Range Units RSD_12"
             }
         ]
     },
     {
         "sentence_id": "RTE",
         "sentence_description": "Routes",
+        "group": "Routing",
         "fields": [
             {
                 "name": "RTE 1",
                 "unique_id": "RTE_1",
                 "Full_description": "Total number of messages being transmitted",
-                "short_description": "Total number of messages being transmitted SID RTE_1"
+                "short_description": "Total number of messages being transmitted RTE_1"
             },
             {
                 "name": "RTE 2",
                 "unique_id": "RTE_2",
                 "Full_description": "Message Number",
-                "short_description": "Message Number SID RTE_2"
+                "short_description": "Message Number RTE_2"
             },
             {
                 "name": "RTE 3",
                 "unique_id": "RTE_3",
-                "Full_description": "Message mode c = complete route, all waypoints w = working route, the waypoint you just left, the waypoint you're heading to, then all the rest",
-                "short_description": "Message mode c SID RTE_3"
+                "Full_description": "Message mode",
+                "short_description": "Message mode c RTE_3"
             },
             {
                 "name": "RTE 4",
                 "unique_id": "RTE_4",
                 "Full_description": "Waypoint ID",
-                "short_description": "Waypoint ID SID RTE_4"
+                "short_description": "Waypoint ID RTE_4"
             }
         ]
     },
     {
         "sentence_id": "SFI",
         "sentence_description": "Scanning Frequency Information",
+        "group": "Radio",
         "fields": [
             {
                 "name": "SFI 1",
                 "unique_id": "SFI_1",
                 "Full_description": "Total Number Of Messages",
-                "short_description": "Total Number Of Messages SID SFI_1"
+                "short_description": "Total Number Of Messages SFI_1"
             },
             {
                 "name": "SFI 2",
                 "unique_id": "SFI_2",
                 "Full_description": "Message Number",
-                "short_description": "Message Number SID SFI_2"
+                "short_description": "Message Number SFI_2"
             },
             {
                 "name": "SFI 3",
                 "unique_id": "SFI_3",
                 "Full_description": "Frequency 1",
-                "short_description": "Frequency 1 SID SFI_3"
+                "short_description": "Frequency 1 SFI_3",
+                "unit_of_measurement": "Hz"
             },
             {
                 "name": "SFI 4",
                 "unique_id": "SFI_4",
                 "Full_description": "Mode 1",
-                "short_description": "Mode 1 SID SFI_4"
+                "short_description": "Mode 1 SFI_4"
             }
         ]
     },
     {
         "sentence_id": "STN",
         "sentence_description": "Multiple Data ID",
+        "group": "Own ship",
         "fields": [
             {
                 "name": "STN 1",
                 "unique_id": "STN_1",
                 "Full_description": "Talker ID Number",
-                "short_description": "Talker ID Number SID STN_1"
+                "short_description": "Talker ID Number STN_1"
             }
         ]
     },
     {
         "sentence_id": "TDS",
         "sentence_description": "Trawl Door Spread Distance",
+        "group": "Trawl",
         "fields": [
             {
                 "name": "TDS 1",
                 "unique_id": "TDS_1",
                 "Full_description": "Horizontal distance from the vessel center line",
-                "short_description": "Horizontal distance from the vessel center line SID TDS_1"
+                "short_description": "Horizontal distance from the vessel center line TDS_1"
             },
             {
                 "name": "TDS 2",
                 "unique_id": "TDS_2",
                 "Full_description": "Meters",
-                "short_description": "Meters SID TDS_2"
+                "short_description": "Meters TDS_2"
             },
             {
                 "name": "TDS 3",
                 "unique_id": "TDS_3",
                 "Full_description": "Horizontal distance from the transducer to the trawl along the vessel center line. The value is normally positive assuming the trawl is located behind the vessel.",
-                "short_description": "Horizontal distance from the transducer SID TDS_3"
+                "short_description": "Horizontal distance from the transducer TDS_3"
             },
             {
                 "name": "TDS 4",
                 "unique_id": "TDS_4",
                 "Full_description": "Meters",
-                "short_description": "Meters SID TDS_4"
+                "short_description": "Meters TDS_4"
             },
             {
                 "name": "TDS 5",
                 "unique_id": "TDS_5",
                 "Full_description": "Depth of the trawl below the surface",
-                "short_description": "Depth of the trawl below the surface SID TDS_5"
+                "short_description": "Depth of the trawl below the surface TDS_5"
             },
             {
                 "name": "TDS 6",
                 "unique_id": "TDS_6",
                 "Full_description": "Meters",
-                "short_description": "Meters SID TDS_6"
+                "short_description": "Meters TDS_6"
             }
         ]
     },
     {
         "sentence_id": "TPR",
         "sentence_description": "Trawl Position Relative Vessel",
+        "group": "Trawl",
         "fields": [
             {
                 "name": "TPR 1",
                 "unique_id": "TPR_1",
                 "Full_description": "Horizontal range relative to target",
-                "short_description": "Horizontal range relative to target SID TPR_1"
+                "short_description": "Horizontal range relative to target TPR_1"
             },
             {
                 "name": "TPR 2",
                 "unique_id": "TPR_2",
                 "Full_description": "Meters (0-4000)",
-                "short_description": "Meters SID TPR_2"
+                "short_description": "Meters TPR_2"
             },
             {
                 "name": "TPR 3",
                 "unique_id": "TPR_3",
                 "Full_description": "Bearing to target relative to vessel heading.  Resolution is one degree.",
-                "short_description": "Bearing to target relative to vessel heading SID TPR_3"
+                "short_description": "Bearing to target relative to vessel heading TPR_3"
             },
             {
                 "name": "TPR 4",
                 "unique_id": "TPR_4",
                 "Full_description": "Separator",
-                "short_description": "Separator SID TPR_4"
+                "short_description": "Separator TPR_4"
             },
             {
                 "name": "TPR 5",
                 "unique_id": "TPR_5",
                 "Full_description": "Depth of trawl below the surface",
-                "short_description": "Depth of trawl below the surface SID TPR_5"
+                "short_description": "Depth of trawl below the surface TPR_5"
             },
             {
                 "name": "TPR 6",
                 "unique_id": "TPR_6",
                 "Full_description": "Meters (0-2000)",
-                "short_description": "Meters SID TPR_6"
+                "short_description": "Meters TPR_6"
             }
         ]
     },
     {
         "sentence_id": "TPT",
         "sentence_description": "Trawl Position True",
+        "group": "Trawl",
         "fields": [
             {
                 "name": "TPT 1",
                 "unique_id": "TPT_1",
                 "Full_description": "Horizontal range relative to target",
-                "short_description": "Horizontal range relative to target SID TPT_1"
+                "short_description": "Horizontal range relative to target TPT_1"
             },
             {
                 "name": "TPT 2",
                 "unique_id": "TPT_2",
                 "Full_description": "Meters (0-4000)",
-                "short_description": "Meters SID TPT_2"
+                "short_description": "Meters TPT_2"
             },
             {
                 "name": "TPT 3",
                 "unique_id": "TPT_3",
                 "Full_description": "True bearing to taget (ie. relative north).  Resolution is one degree.",
-                "short_description": "True bearing to taget SID TPT_3"
+                "short_description": "True bearing to taget TPT_3"
             },
             {
                 "name": "TPT 4",
                 "unique_id": "TPT_4",
                 "Full_description": "Separator",
-                "short_description": "Separator SID TPT_4"
+                "short_description": "Separator TPT_4"
             },
             {
                 "name": "TPT 5",
                 "unique_id": "TPT_5",
                 "Full_description": "Depth of trawl below the surface",
-                "short_description": "Depth of trawl below the surface SID TPT_5"
+                "short_description": "Depth of trawl below the surface TPT_5"
             },
             {
                 "name": "TPT 6",
                 "unique_id": "TPT_6",
                 "Full_description": "Meters (0-2000)",
-                "short_description": "Meters SID TPT_6"
+                "short_description": "Meters TPT_6"
             }
         ]
     },
     {
         "sentence_id": "TRF",
         "sentence_description": "TRANSIT Fix Data",
+        "group": "Other sentences",
         "fields": [
             {
                 "name": "TRF 1",
                 "unique_id": "TRF_1",
                 "Full_description": "UTC Time",
-                "short_description": "UTC Time SID TRF_1"
+                "short_description": "UTC Time TRF_1"
             },
             {
                 "name": "TRF 2",
                 "unique_id": "TRF_2",
                 "Full_description": "Date, ddmmyy",
-                "short_description": "Date SID TRF_2"
+                "short_description": "Date TRF_2"
             },
             {
                 "name": "TRF 3",
                 "unique_id": "TRF_3",
                 "Full_description": "Latitude",
-                "short_description": "Latitude SID TRF_3"
+                "short_description": "Latitude TRF_3",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "TRF 4",
                 "unique_id": "TRF_4",
                 "Full_description": "N or S",
-                "short_description": "N or S SID TRF_4"
+                "short_description": "N or S TRF_4"
             },
             {
                 "name": "TRF 5",
                 "unique_id": "TRF_5",
                 "Full_description": "Longitude",
-                "short_description": "Longitude SID TRF_5"
+                "short_description": "Longitude TRF_5",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "TRF 6",
                 "unique_id": "TRF_6",
                 "Full_description": "E or W",
-                "short_description": "E or W SID TRF_6"
+                "short_description": "E or W TRF_6"
             },
             {
                 "name": "TRF 7",
                 "unique_id": "TRF_7",
                 "Full_description": "Elevation Angle",
-                "short_description": "Elevation Angle SID TRF_7"
+                "short_description": "Elevation Angle TRF_7",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "TRF 8",
                 "unique_id": "TRF_8",
                 "Full_description": "Number of iterations",
-                "short_description": "Number of iterations SID TRF_8"
+                "short_description": "Number of iterations TRF_8"
             },
             {
                 "name": "TRF 9",
                 "unique_id": "TRF_9",
                 "Full_description": "Number of Doppler intervals",
-                "short_description": "Number of Doppler intervals SID TRF_9"
+                "short_description": "Number of Doppler intervals TRF_9"
             },
             {
                 "name": "TRF 10",
                 "unique_id": "TRF_10",
                 "Full_description": "Update distance, nautical miles",
-                "short_description": "Update distance SID TRF_10"
+                "short_description": "Update distance TRF_10"
             },
             {
                 "name": "TRF 11",
                 "unique_id": "TRF_11",
                 "Full_description": "Satellite ID",
-                "short_description": "Satellite ID SID TRF_11"
+                "short_description": "Satellite ID TRF_11"
             },
             {
                 "name": "TRF 12",
                 "unique_id": "TRF_12",
                 "Full_description": "Data Validity",
-                "short_description": "Data Validity SID TRF_12"
+                "short_description": "Data Validity TRF_12"
             }
         ]
     },
     {
         "sentence_id": "TTM",
         "sentence_description": "Tracked Target Message",
+        "group": "Other sentences",
         "fields": [
             {
                 "name": "TTM 1",
                 "unique_id": "TTM_1",
                 "Full_description": "Target Number (0-99)",
-                "short_description": "Target Number SID TTM_1"
+                "short_description": "Target Number TTM_1"
             },
             {
                 "name": "TTM 2",
                 "unique_id": "TTM_2",
                 "Full_description": "Target Distance",
-                "short_description": "Target Distance SID TTM_2"
+                "short_description": "Target Distance TTM_2"
             },
             {
                 "name": "TTM 3",
                 "unique_id": "TTM_3",
                 "Full_description": "Bearing from own ship",
-                "short_description": "Bearing from own ship SID TTM_3"
+                "short_description": "Bearing from own ship TTM_3"
             },
             {
                 "name": "TTM 4",
                 "unique_id": "TTM_4",
                 "Full_description": "Bearing Units",
-                "short_description": "Bearing Units SID TTM_4"
+                "short_description": "Bearing Units TTM_4"
             },
             {
                 "name": "TTM 5",
                 "unique_id": "TTM_5",
                 "Full_description": "Target Speed",
-                "short_description": "Target Speed SID TTM_5"
+                "short_description": "Target Speed TTM_5"
             },
             {
                 "name": "TTM 6",
                 "unique_id": "TTM_6",
                 "Full_description": "Target Course",
-                "short_description": "Target Course SID TTM_6"
+                "short_description": "Target Course TTM_6"
             },
             {
                 "name": "TTM 7",
                 "unique_id": "TTM_7",
                 "Full_description": "Course Units",
-                "short_description": "Course Units SID TTM_7"
+                "short_description": "Course Units TTM_7"
             },
             {
                 "name": "TTM 8",
                 "unique_id": "TTM_8",
                 "Full_description": "Distance of closest-point-of-approach",
-                "short_description": "Distance of closest SID TTM_8"
+                "short_description": "Distance of closest TTM_8"
             },
             {
                 "name": "TTM 9",
                 "unique_id": "TTM_9",
                 "Full_description": "Time until closest-point-of-approach \"-\" means increasing",
-                "short_description": "Time until closest SID TTM_9"
+                "short_description": "Time until closest TTM_9"
             },
             {
                 "name": "TTM 10",
                 "unique_id": "TTM_10",
                 "Full_description": "\"-\" means increasing",
-                "short_description": " SID TTM_10"
+                "short_description": " TTM_10"
             },
             {
                 "name": "TTM 11",
                 "unique_id": "TTM_11",
                 "Full_description": "Target name",
-                "short_description": "Target name SID TTM_11"
+                "short_description": "Target name TTM_11"
             },
             {
                 "name": "TTM 12",
                 "unique_id": "TTM_12",
                 "Full_description": "Target Status",
-                "short_description": "Target Status SID TTM_12"
+                "short_description": "Target Status TTM_12"
             },
             {
                 "name": "TTM 13",
                 "unique_id": "TTM_13",
                 "Full_description": "Reference Target",
-                "short_description": "Reference Target SID TTM_13"
+                "short_description": "Reference Target TTM_13"
             }
         ]
     },
     {
         "sentence_id": "VBW",
         "sentence_description": "Dual Ground/Water Speed",
+        "group": "Depth, speed, distance, temperature",
         "fields": [
             {
                 "name": "VBW 1",
                 "unique_id": "VBW_1",
                 "Full_description": "Longitudinal water speed, \"-\" means astern",
-                "short_description": "Longitudinal water speed SID VBW_1"
+                "short_description": "Longitudinal water speed VBW_1",
+                "unit_of_measurement": "kn"
             },
             {
                 "name": "VBW 2",
                 "unique_id": "VBW_2",
                 "Full_description": "Transverse water speed, \"-\" means port",
-                "short_description": "Transverse water speed SID VBW_2"
+                "short_description": "Transverse water speed VBW_2",
+                "unit_of_measurement": "kn"
             },
             {
                 "name": "VBW 3",
                 "unique_id": "VBW_3",
                 "Full_description": "Status, A = Data Valid",
-                "short_description": "Status SID VBW_3"
+                "short_description": "Status VBW_3"
             },
             {
                 "name": "VBW 4",
                 "unique_id": "VBW_4",
                 "Full_description": "Longitudinal ground speed, \"-\" means astern",
-                "short_description": "Longitudinal ground speed SID VBW_4"
+                "short_description": "Longitudinal ground speed VBW_4",
+                "unit_of_measurement": "kn"
             },
             {
                 "name": "VBW 5",
                 "unique_id": "VBW_5",
                 "Full_description": "Transverse ground speed, \"-\" means port",
-                "short_description": "Transverse ground speed SID VBW_5"
+                "short_description": "Transverse ground speed VBW_5",
+                "unit_of_measurement": "kn"
             },
             {
                 "name": "VBW 6",
                 "unique_id": "VBW_6",
                 "Full_description": "Status, A = Data Valid",
-                "short_description": "Status SID VBW_6"
+                "short_description": "Status VBW_6"
             }
         ]
     },
     {
         "sentence_id": "VDR",
         "sentence_description": "Set and Drift",
+        "group": "Depth, speed, distance, temperature",
         "fields": [
             {
                 "name": "VDR 1",
                 "unique_id": "VDR_1",
                 "Full_description": "Degress True",
-                "short_description": "Degress True SID VDR_1"
+                "short_description": "Degress True VDR_1",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "VDR 2",
                 "unique_id": "VDR_2",
                 "Full_description": "T = True",
-                "short_description": "T SID VDR_2"
+                "short_description": "T VDR_2"
             },
             {
                 "name": "VDR 3",
                 "unique_id": "VDR_3",
                 "Full_description": "Degrees Magnetic",
-                "short_description": "Degrees Magnetic SID VDR_3"
+                "short_description": "Degrees Magnetic VDR_3",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "VDR 4",
                 "unique_id": "VDR_4",
                 "Full_description": "M = Magnetic",
-                "short_description": "M SID VDR_4"
+                "short_description": "M VDR_4"
             },
             {
                 "name": "VDR 5",
                 "unique_id": "VDR_5",
                 "Full_description": "Knots (speed of current)",
-                "short_description": "Knots SID VDR_5"
+                "short_description": "Knots VDR_5",
+                "unit_of_measurement": "kn"
             },
             {
                 "name": "VDR 6",
                 "unique_id": "VDR_6",
                 "Full_description": "N = Knots",
-                "short_description": "N SID VDR_6"
+                "short_description": "N VDR_6"
             }
         ]
     },
     {
         "sentence_id": "VHW",
         "sentence_description": "Water speed and heading",
+        "group": "Depth, speed, distance, temperature",
         "fields": [
             {
                 "name": "VHW 1",
                 "unique_id": "VHW_1",
                 "Full_description": "Degress True",
-                "short_description": "Degress True SID VHW_1"
+                "short_description": "Degress True VHW_1",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "VHW 2",
                 "unique_id": "VHW_2",
                 "Full_description": "T = True",
-                "short_description": "T SID VHW_2"
+                "short_description": "T VHW_2"
             },
             {
                 "name": "VHW 3",
                 "unique_id": "VHW_3",
                 "Full_description": "Degrees Magnetic",
-                "short_description": "Degrees Magnetic SID VHW_3"
+                "short_description": "Degrees Magnetic VHW_3",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "VHW 4",
                 "unique_id": "VHW_4",
                 "Full_description": "M = Magnetic",
-                "short_description": "M SID VHW_4"
+                "short_description": "M VHW_4"
             },
             {
                 "name": "VHW 5",
                 "unique_id": "VHW_5",
                 "Full_description": "Knots (speed of vessel relative to the water)",
-                "short_description": "Knots SID VHW_5"
+                "short_description": "Knots VHW_5",
+                "unit_of_measurement": "kn"
             },
             {
                 "name": "VHW 6",
                 "unique_id": "VHW_6",
                 "Full_description": "N = Knots",
-                "short_description": "N SID VHW_6"
+                "short_description": "N VHW_6"
             },
             {
                 "name": "VHW 7",
                 "unique_id": "VHW_7",
                 "Full_description": "Kilometers (speed of vessel relative to the water)",
-                "short_description": "Kilometers SID VHW_7"
+                "short_description": "Kilometers VHW_7",
+                "unit_of_measurement": "km/h"
             },
             {
                 "name": "VHW 8",
                 "unique_id": "VHW_8",
                 "Full_description": "K = Kilometers",
-                "short_description": "K SID VHW_8"
+                "short_description": "K VHW_8"
             }
         ]
     },
     {
         "sentence_id": "VLW",
         "sentence_description": "Distance Traveled through Water",
+        "group": "Depth, speed, distance, temperature",
         "fields": [
             {
                 "name": "VLW 1",
                 "unique_id": "VLW_1",
                 "Full_description": "Total cumulative distance",
-                "short_description": "Total cumulative distance SID VLW_1"
+                "short_description": "Total cumulative distance VLW_1",
+                "unit_of_measurement": "NM"
             },
             {
                 "name": "VLW 2",
                 "unique_id": "VLW_2",
                 "Full_description": "N = Nautical Miles",
-                "short_description": "N SID VLW_2"
+                "short_description": "N VLW_2"
             },
             {
                 "name": "VLW 3",
                 "unique_id": "VLW_3",
                 "Full_description": "Distance since Reset",
-                "short_description": "Distance since Reset SID VLW_3"
+                "short_description": "Distance since Reset VLW_3",
+                "unit_of_measurement": "NM"
             },
             {
                 "name": "VLW 4",
                 "unique_id": "VLW_4",
                 "Full_description": "N = Nautical Miles",
-                "short_description": "N SID VLW_4"
+                "short_description": "N VLW_4"
             }
         ]
     },
     {
         "sentence_id": "VPW",
         "sentence_description": "Speed - Measured Parallel to Wind",
+        "group": "Depth, speed, distance, temperature",
         "fields": [
             {
                 "name": "VPW 1",
                 "unique_id": "VPW_1",
                 "Full_description": "Speed, \"-\" means downwind",
-                "short_description": "Speed SID VPW_1"
+                "short_description": "Speed VPW_1",
+                "unit_of_measurement": "kn"
             },
             {
                 "name": "VPW 2",
                 "unique_id": "VPW_2",
                 "Full_description": "N = Knots",
-                "short_description": "N SID VPW_2"
+                "short_description": "N VPW_2"
             },
             {
                 "name": "VPW 3",
                 "unique_id": "VPW_3",
                 "Full_description": "Speed, \"-\" means downwind",
-                "short_description": "Speed SID VPW_3"
+                "short_description": "Speed VPW_3",
+                "unit_of_measurement": "m/s"
             },
             {
                 "name": "VPW 4",
                 "unique_id": "VPW_4",
                 "Full_description": "M = Meters per second",
-                "short_description": "M per S SID VPW_4"
+                "short_description": "M per S VPW_4"
             }
         ]
     },
     {
         "sentence_id": "VTG",
         "sentence_description": "Track made good and Ground speed",
+        "group": "Depth, speed, distance, temperature",
         "fields": [
             {
                 "name": "VTG 1",
                 "unique_id": "VTG_1",
                 "Full_description": "Track Degrees",
-                "short_description": "Track Degrees SID VTG_1"
+                "short_description": "Track Degrees VTG_1",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "VTG 2",
                 "unique_id": "VTG_2",
                 "Full_description": "T = True",
-                "short_description": "T SID VTG_2"
+                "short_description": "T VTG_2"
             },
             {
                 "name": "VTG 3",
                 "unique_id": "VTG_3",
                 "Full_description": "Track Degrees",
-                "short_description": "Track Degrees SID VTG_3"
+                "short_description": "Track Degrees VTG_3",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "VTG 4",
                 "unique_id": "VTG_4",
                 "Full_description": "M = Magnetic",
-                "short_description": "M SID VTG_4"
+                "short_description": "M VTG_4"
             },
             {
                 "name": "VTG 5",
                 "unique_id": "VTG_5",
                 "Full_description": "Speed Knots",
-                "short_description": "Speed Knots SID VTG_5"
+                "short_description": "Speed Knots VTG_5",
+                "unit_of_measurement": "kn"
             },
             {
                 "name": "VTG 6",
                 "unique_id": "VTG_6",
                 "Full_description": "N = Knots",
-                "short_description": "N SID VTG_6"
+                "short_description": "N VTG_6"
             },
             {
                 "name": "VTG 7",
                 "unique_id": "VTG_7",
                 "Full_description": "Speed Kilometers Per Hour",
-                "short_description": "Speed Kilometers Per Hour SID VTG_7"
+                "short_description": "Speed Kilometers Per Hour VTG_7",
+                "unit_of_measurement": "km/h"
             },
             {
                 "name": "VTG 8",
                 "unique_id": "VTG_8",
                 "Full_description": "K = Kilometers Per Hour",
-                "short_description": "K SID VTG_8"
+                "short_description": "K VTG_8"
             },
             {
                 "name": "VTG 9",
                 "unique_id": "VTG_9",
                 "Full_description": "FAA mode indicator (NMEA 2.3 and later)",
-                "short_description": "FAA mode indicator SID VTG_9"
+                "short_description": "FAA mode indicator VTG_9"
             }
         ]
     },
     {
         "sentence_id": "VWR",
         "sentence_description": "Relative Wind Speed and Angle",
+        "group": "Wind and weather",
         "fields": [
             {
                 "name": "VWR 1",
                 "unique_id": "VWR_1",
                 "Full_description": "Wind direction magnitude in degrees",
-                "short_description": "Wind direction magnitude in degrees SID VWR_1"
+                "short_description": "Wind direction magnitude in degrees VWR_1",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "VWR 2",
                 "unique_id": "VWR_2",
                 "Full_description": "Wind direction Left/Right of bow",
-                "short_description": "Wind direction Left SID VWR_2"
+                "short_description": "Wind direction Left VWR_2",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "VWR 3",
                 "unique_id": "VWR_3",
                 "Full_description": "Speed",
-                "short_description": "Speed SID VWR_3"
+                "short_description": "Speed VWR_3",
+                "unit_of_measurement": "kn"
             },
             {
                 "name": "VWR 4",
                 "unique_id": "VWR_4",
                 "Full_description": "N = Knots",
-                "short_description": "N SID VWR_4"
+                "short_description": "N VWR_4"
             },
             {
                 "name": "VWR 5",
                 "unique_id": "VWR_5",
                 "Full_description": "Speed",
-                "short_description": "Speed SID VWR_5"
+                "short_description": "Speed VWR_5",
+                "unit_of_measurement": "m/s"
             },
             {
                 "name": "VWR 6",
                 "unique_id": "VWR_6",
                 "Full_description": "M = Meters Per Second",
-                "short_description": "M SID VWR_6"
+                "short_description": "M VWR_6"
             },
             {
                 "name": "VWR 7",
                 "unique_id": "VWR_7",
                 "Full_description": "Speed",
-                "short_description": "Speed SID VWR_7"
+                "short_description": "Speed VWR_7",
+                "unit_of_measurement": "km/h"
             },
             {
                 "name": "VWR 8",
                 "unique_id": "VWR_8",
                 "Full_description": "K = Kilometers Per Hour",
-                "short_description": "K SID VWR_8"
+                "short_description": "K VWR_8"
             }
         ]
     },
     {
         "sentence_id": "WCV",
         "sentence_description": "Waypoint Closure Velocity",
+        "group": "Routing",
         "fields": [
             {
                 "name": "WCV 1",
                 "unique_id": "WCV_1",
                 "Full_description": "Velocity",
-                "short_description": "Velocity SID WCV_1"
+                "short_description": "Velocity WCV_1",
+                "unit_of_measurement": "kn"
             },
             {
                 "name": "WCV 2",
                 "unique_id": "WCV_2",
                 "Full_description": "N = knots",
-                "short_description": "N SID WCV_2"
+                "short_description": "N WCV_2"
             },
             {
                 "name": "WCV 3",
                 "unique_id": "WCV_3",
                 "Full_description": "Waypoint ID",
-                "short_description": "Waypoint ID SID WCV_3"
+                "short_description": "Waypoint ID WCV_3"
             }
         ]
     },
     {
         "sentence_id": "WNC",
         "sentence_description": "Distance - Waypoint to Waypoint",
+        "group": "Routing",
         "fields": [
             {
                 "name": "WNC 1",
                 "unique_id": "WNC_1",
                 "Full_description": "Distance, Nautical Miles",
-                "short_description": "Distance SID WNC_1"
+                "short_description": "Distance WNC_1",
+                "unit_of_measurement": "NM"
             },
             {
                 "name": "WNC 2",
                 "unique_id": "WNC_2",
                 "Full_description": "N = Nautical Miles",
-                "short_description": "N SID WNC_2"
+                "short_description": "N WNC_2"
             },
             {
                 "name": "WNC 3",
                 "unique_id": "WNC_3",
                 "Full_description": "Distance, Kilometers",
-                "short_description": "Distance SID WNC_3"
+                "short_description": "Distance WNC_3",
+                "unit_of_measurement": "km"
             },
             {
                 "name": "WNC 4",
                 "unique_id": "WNC_4",
                 "Full_description": "K = Kilometers",
-                "short_description": "K SID WNC_4"
+                "short_description": "K WNC_4"
             },
             {
                 "name": "WNC 5",
                 "unique_id": "WNC_5",
                 "Full_description": "TO Waypoint",
-                "short_description": "TO Waypoint SID WNC_5"
+                "short_description": "TO Waypoint WNC_5",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "WNC 6",
                 "unique_id": "WNC_6",
                 "Full_description": "FROM Waypoint",
-                "short_description": "FROM Waypoint SID WNC_6"
+                "short_description": "FROM Waypoint WNC_6",
+                "unit_of_measurement": "°"
             }
         ]
     },
     {
         "sentence_id": "WPL",
         "sentence_description": "Waypoint Location",
+        "group": "Routing",
         "fields": [
             {
                 "name": "WPL 1",
                 "unique_id": "WPL_1",
                 "Full_description": "Latitude",
-                "short_description": "Latitude SID WPL_1"
+                "short_description": "Latitude WPL_1",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "WPL 2",
                 "unique_id": "WPL_2",
                 "Full_description": "N or S (North or South)",
-                "short_description": "N or S SID WPL_2"
+                "short_description": "N or S WPL_2"
             },
             {
                 "name": "WPL 3",
                 "unique_id": "WPL_3",
                 "Full_description": "Longitude",
-                "short_description": "Longitude SID WPL_3"
+                "short_description": "Longitude WPL_3",
+                "unit_of_measurement": "°"
             },
             {
                 "name": "WPL 4",
                 "unique_id": "WPL_4",
                 "Full_description": "E or W (East or West)",
-                "short_description": "E or W SID WPL_4"
+                "short_description": "E or W WPL_4"
             },
             {
                 "name": "WPL 5",
                 "unique_id": "WPL_5",
                 "Full_description": "Waypoint name",
-                "short_description": "Waypoint name SID WPL_5"
+                "short_description": "Waypoint name WPL_5"
             }
         ]
     },
     {
         "sentence_id": "XDR",
         "sentence_description": "Transducer Measurement",
+        "group": "Own ship",
         "fields": [
             {
                 "name": "XDR 1",
                 "unique_id": "XDR_1",
                 "Full_description": "Transducer Type",
-                "short_description": "Transducer Type SID XDR_1"
+                "short_description": "Transducer Type XDR_1"
             },
             {
                 "name": "XDR 2",
                 "unique_id": "XDR_2",
                 "Full_description": "Measurement Data",
-                "short_description": "Measurement Data SID XDR_2"
+                "short_description": "Measurement Data XDR_2"
             },
             {
                 "name": "XDR 3",
                 "unique_id": "XDR_3",
                 "Full_description": "Units of measurement",
-                "short_description": "Units of measurement SID XDR_3"
+                "short_description": "Units of measurement XDR_3"
             },
             {
                 "name": "XDR 4",
                 "unique_id": "XDR_4",
                 "Full_description": "Name of transducer",
-                "short_description": "Name of transducer SID XDR_4"
+                "short_description": "Name of transducer XDR_4"
             }
         ]
     },
     {
         "sentence_id": "XTE",
         "sentence_description": "Cross-Track Error, Measured",
+        "group": "Routing",
         "fields": [
             {
                 "name": "XTE 1",
                 "unique_id": "XTE_1",
-                "Full_description": "Status - V = Loran-C Blink or SNR warning - V = general warning flag or other navigation systems when a reliable fix is not available",
-                "short_description": "Status SID XTE_1"
+                "Full_description": "Status",
+                "short_description": "Status XTE_1"
             },
             {
                 "name": "XTE 2",
                 "unique_id": "XTE_2",
-                "Full_description": "Status - V = Loran-C Cycle Lock warning flag - A = OK or not used",
-                "short_description": "Status SID XTE_2"
+                "Full_description": "Status 2",
+                "short_description": "Status XTE_2"
             },
             {
                 "name": "XTE 3",
                 "unique_id": "XTE_3",
                 "Full_description": "Cross Track Error Magnitude",
-                "short_description": "Cross Track Error Magnitude SID XTE_3"
+                "short_description": "Cross Track Error Magnitude XTE_3",
+                "unit_of_measurement": "NM"
             },
             {
                 "name": "XTE 4",
                 "unique_id": "XTE_4",
                 "Full_description": "Direction to steer, L or R",
-                "short_description": "Direction to steer SID XTE_4"
+                "short_description": "Direction to steer XTE_4"
             },
             {
                 "name": "XTE 5",
                 "unique_id": "XTE_5",
                 "Full_description": "Cross Track Units, N = Nautical Miles",
-                "short_description": "Cross Track Units SID XTE_5"
+                "short_description": "Cross Track Units XTE_5"
             },
             {
                 "name": "XTE 6",
                 "unique_id": "XTE_6",
                 "Full_description": "FAA mode indicator (NMEA 2.3 and later, optional)",
-                "short_description": "FAA mode indicator SID XTE_6"
+                "short_description": "FAA mode indicator XTE_6"
             }
         ]
     },
     {
         "sentence_id": "XTR",
         "sentence_description": "Cross Track Error - Dead Reckoning",
+        "group": "Routing",
         "fields": [
             {
                 "name": "XTR 1",
                 "unique_id": "XTR_1",
                 "Full_description": "Magnitude of cross track error",
-                "short_description": "Magnitude of cross track error SID XTR_1"
+                "short_description": "Magnitude of cross track error XTR_1",
+                "unit_of_measurement": "NM"
             },
             {
                 "name": "XTR 2",
                 "unique_id": "XTR_2",
                 "Full_description": "Direction to steer, L or R",
-                "short_description": "Direction to steer SID XTR_2"
+                "short_description": "Direction to steer XTR_2"
             },
             {
                 "name": "XTR 3",
                 "unique_id": "XTR_3",
                 "Full_description": "Units, N = Nautical Miles",
-                "short_description": "Units SID XTR_3"
+                "short_description": "Units XTR_3"
             }
         ]
     },
     {
         "sentence_id": "ZDA",
         "sentence_description": "Time & Date - UTC, day, month, year and local time zone",
+        "group": "Own ship",
         "fields": [
             {
                 "name": "ZDA 1",
                 "unique_id": "ZDA_1",
                 "Full_description": "UTC time (hours, minutes, seconds, may have fractional subsecond)",
-                "short_description": "UTC time SID ZDA_1"
+                "short_description": "UTC time ZDA_1"
             },
             {
                 "name": "ZDA 2",
                 "unique_id": "ZDA_2",
                 "Full_description": "Day, 01 to 31",
-                "short_description": "Day SID ZDA_2"
+                "short_description": "Day ZDA_2",
+                "unit_of_measurement": "d"
             },
             {
                 "name": "ZDA 3",
                 "unique_id": "ZDA_3",
                 "Full_description": "Month, 01 to 12",
-                "short_description": "Month SID ZDA_3"
+                "short_description": "Month ZDA_3",
+                "unit_of_measurement": "m"
             },
             {
                 "name": "ZDA 4",
                 "unique_id": "ZDA_4",
                 "Full_description": "Year (4 digits)",
-                "short_description": "Year SID ZDA_4"
+                "short_description": "Year ZDA_4",
+                "unit_of_measurement": "y"
             },
             {
                 "name": "ZDA 5",
                 "unique_id": "ZDA_5",
                 "Full_description": "Local zone description, 00 to +- 13 hours",
-                "short_description": "Local zone description SID ZDA_5"
+                "short_description": "Local zone description ZDA_5",
+                "unit_of_measurement": "h"
             },
             {
                 "name": "ZDA 6",
                 "unique_id": "ZDA_6",
                 "Full_description": "Local zone minutes description, apply same sign as local hours",
-                "short_description": "Local zone minutes description SID ZDA_6"
+                "short_description": "Local zone minutes description ZDA_6",
+                "unit_of_measurement": "m"
             }
         ]
     },
     {
         "sentence_id": "ZFO",
         "sentence_description": "UTC & Time from origin Waypoint",
+        "group": "Routing",
         "fields": [
             {
                 "name": "ZFO 1",
                 "unique_id": "ZFO_1",
                 "Full_description": "Universal Time Coordinated (UTC)",
-                "short_description": "Universal Time Coordinated SID ZFO_1"
+                "short_description": "Universal Time Coordinated ZFO_1"
             },
             {
                 "name": "ZFO 2",
                 "unique_id": "ZFO_2",
                 "Full_description": "Elapsed Time",
-                "short_description": "Elapsed Time SID ZFO_2"
+                "short_description": "Elapsed Time ZFO_2"
             },
             {
                 "name": "ZFO 3",
                 "unique_id": "ZFO_3",
                 "Full_description": "Origin Waypoint ID",
-                "short_description": "Origin Waypoint ID SID ZFO_3"
+                "short_description": "Origin Waypoint ID ZFO_3"
             }
         ]
     },
     {
         "sentence_id": "ZTG",
         "sentence_description": "UTC & Time to Destination Waypoint",
+        "group": "Routing",
         "fields": [
             {
                 "name": "ZTG 1",
                 "unique_id": "ZTG_1",
                 "Full_description": "Universal Time Coordinated (UTC)",
-                "short_description": "Universal Time Coordinated SID ZTG_1"
+                "short_description": "Universal Time Coordinated ZTG_1"
             },
             {
                 "name": "ZTG 2",
                 "unique_id": "ZTG_2",
                 "Full_description": "Time Remaining",
-                "short_description": "Time Remaining SID ZTG_2"
+                "short_description": "Time Remaining ZTG_2"
             },
             {
                 "name": "ZTG 3",
                 "unique_id": "ZTG_3",
                 "Full_description": "Destination Waypoint ID",
-                "short_description": "Destination Waypoint ID SID ZTG_3"
+                "short_description": "Destination Waypoint ID ZTG_3"
             }
         ]
     }
 ]
+

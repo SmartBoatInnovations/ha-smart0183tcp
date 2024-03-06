@@ -7,7 +7,7 @@ import os
 
 
 from homeassistant.helpers.entity import Entity
-from homeassistant.components.sensor import PLATFORM_SCHEMA, SensorEntity
+from homeassistant.components.sensor import PLATFORM_SCHEMA, SensorEntity, SensorStateClass
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType, DiscoveryInfoType
@@ -50,19 +50,13 @@ async def update_sensor_availability(hass):
 
 # The main setup function to initialize the sensor platform
 
-async def async_setup_platform(
-    hass: HomeAssistant,
-    config: ConfigType,
-    async_add_entities: AddEntitiesCallback,
-    discovery_info: DiscoveryInfoType | None = None,
-) -> None:
-    """Set up the TCP sensor platform."""
-    name = config.get(CONF_NAME)
-    port = config.get(CONF_PORT)
-    host = config.get(CONF_HOST)
+async def async_setup_entry(hass, entry, async_add_entities):
+    # Retrieve configuration from entry
+    host = entry.data[CONF_HOST]
+    port = entry.data[CONF_PORT]
 
     # Log the retrieved configuration values for debugging purposes
-    _LOGGER.debug(f"Configuring sensor with name: {name}, host: {host}, port: {port}")
+    _LOGGER.debug(f"Configuring sensor with host: {host}, port: {port}")
 
     _LOGGER.debug("Setting up platform.")
     # Save a reference to the add_entities callback
@@ -86,8 +80,14 @@ async def async_setup_platform(
 
         result_dict = {}
         for sentence in smart_data:
+            group = sentence["group"]  # Capture the group for all fields within this sentence
             for field in sentence["fields"]:
-                result_dict[field["unique_id"]] = field["short_description"]
+                result_dict[field["unique_id"]] = {
+                    "short_description": field["short_description"],
+                    "group": group,
+                    "unit_of_measurement": field.get("unit_of_measurement", None)
+                }
+
 
         hass.data["smart0183tcp_data"] = result_dict
 
@@ -99,7 +99,7 @@ async def async_setup_platform(
 
 
     sensor = TCPSensor(
-        name,
+        "SMART0183TCP",
         host,
         port,
     )
@@ -113,12 +113,15 @@ async def async_setup_platform(
 # SmartSensor class representing a basic sensor entity with state
 
 class SmartSensor(Entity):
-    def __init__(self, name, friendly_name, initial_state):
+    def __init__(self, name, friendly_name, initial_state, group=None, unit_of_measurement=None):
         """Initialize the sensor."""
         _LOGGER.info(f"Initializing sensor: {name} with state: {initial_state}")
         self._unique_id = name.lower().replace(" ", "_")
         self._name = friendly_name if friendly_name else self._unique_id
         self._state = initial_state
+        self._group = group if group is not None else "Other"
+        self._unit_of_measurement = unit_of_measurement
+        self._state_class = SensorStateClass.MEASUREMENT
         self._last_updated = datetime.now()
         if initial_state is None or initial_state == "":
             self._available = False
@@ -139,6 +142,27 @@ class SmartSensor(Entity):
     def state(self):
         """Return the state of the sensor."""
         return self._state
+
+    @property
+    def unit_of_measurement(self):
+        """Return the unit of measurement."""
+        return self._unit_of_measurement
+
+    @property
+    def device_info(self):
+        """Return device information about this sensor."""
+        return {
+            "identifiers": {("smart0183tcp", self._group)},
+            "name": self._group,
+            "manufacturer": "Smart Boat Innovations",
+            "model": "General",
+        }
+
+    @property
+    def state_class(self):
+        """Return the state class of the sensor."""
+        return self._state_class
+
 
     @property
     def last_updated(self):
@@ -248,19 +272,6 @@ class TCPSensor(SensorEntity):
 
             _LOGGER.debug(f"Checking sensor: {sentence_id}")
 
-            # Check if main sensor exists; if not, create one
-            if sentence_id not in self.hass.data["created_sensors"]:
-                _LOGGER.debug(f"Creating main sensor: {sentence_id}")
-                sensor = SmartSensor(sentence_id, sentence_id, line)
-
-                self.hass.data["add_tcp_sensors"]([sensor])
-                self.hass.data["created_sensors"][sentence_id] = sensor
-            else:
-                # If the sensor already exists, update its state
-                _LOGGER.debug(f"Updating main sensor: {sentence_id}")
-                sensor = self.hass.data["created_sensors"][sentence_id]
-                sensor.set_state(line)
-
             # Now creating or updating sensors for individual fields
             for idx, field_data in enumerate(fields[1:], 1):
                 # Skip the last field since it's a check digit
@@ -272,22 +283,26 @@ class TCPSensor(SensorEntity):
                 _LOGGER.debug(f"Checking field sensor: {sensor_name}")
 
                 short_sensor_name = f"{sentence_id[2:]}_{idx}"
-
+                
+                # Attempt to retrieve the sensor information using the short_sensor_name
+                sensor_info = self.hass.data["smart0183tcp_data"].get(short_sensor_name)
+                short_desc = sensor_info["short_description"] if sensor_info else sensor_name
+                group = sensor_info["group"]
+                unit_of_measurement = sensor_info.get("unit_of_measurement")
+                
                 # Check if this field sensor exists; if not, create one
                 if sensor_name not in self.hass.data["created_sensors"]:
                     _LOGGER.debug(f"Creating field sensor: {sensor_name}")
 
-                    short_desc = self.hass.data["smart0183tcp_data"].get(short_sensor_name, sensor_name)
                     _LOGGER.debug(f"Short descr sensor: {short_sensor_name} with : {short_desc}")
 
-                    sensor = SmartSensor(sensor_name, short_desc, field_data)
+                    sensor = SmartSensor(sensor_name, short_desc, field_data, group, unit_of_measurement)
                     self.hass.data["add_tcp_sensors"]([sensor])
                     self.hass.data["created_sensors"][sensor_name] = sensor
                 else:
                     # If the sensor already exists, update its state
                     _LOGGER.debug(f"Updating field sensor: {sensor_name}")
 
-                    short_desc = self.hass.data["smart0183tcp_data"].get(short_sensor_name, sensor_name)
                     _LOGGER.debug(f"Short descr sensor: {short_sensor_name} with : {short_desc}")
 
                     sensor = self.hass.data["created_sensors"][sensor_name]
@@ -331,15 +346,20 @@ class TCPSensor(SensorEntity):
                     _LOGGER.debug(f"Received: {line}")
                     await self.set_smart_sensors(line)
 
+            # Handling connection errors more gracefully
+            except asyncio.TimeoutError:
+                _LOGGER.error(f"Failed to connect to TCP device at {host}:{port}. Please check if the host and port are correct.")
+
             except (ClientConnectorError, IncompleteReadError, UnicodeDecodeError) as specific_exc:
                 _LOGGER.error(f"Connection error to {host}:{port}: {specific_exc}")
-                
+
             except asyncio.CancelledError:
                 _LOGGER.info("Connection attempt to TCP device was cancelled.")
                 raise
 
             except Exception as exc:
                 _LOGGER.exception(f"Unexpected error with TCP device {host}:{port}: {exc}")
+
 
             finally:
                 try:
@@ -371,4 +391,6 @@ class TCPSensor(SensorEntity):
     def native_value(self):
         """Return the state of the sensor."""
         return self._state
+
+
 

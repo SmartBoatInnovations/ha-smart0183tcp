@@ -1,0 +1,22 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to Smart 0183 TCP Sensor",
+        "data": {
+          "host": "Server IP",
+          "port": "Server Port"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to the server. Please check the IP address and port.",
+      "invalid_auth": "Invalid authentication. Please check your credentials."
+    },
+    "success": {
+      "title": "Connection Successful",
+      "description": "You have successfully connected to Smart 0183 TCP Sensor."
+    }
+  }
+}
+
