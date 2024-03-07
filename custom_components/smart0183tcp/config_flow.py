@@ -52,12 +52,12 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
 
         # Use current values as defaults
         host = self.config_entry.data.get("host")
-        port = self.config_entry.data.get("port", 65432)
+        port = self.config_entry.data.get("port")
 
         _LOGGER.debug("Showing options form with host: %s and port: %s", host, port)
 
         return self.async_show_form(
-            step_id="user",
+            step_id="init",
             data_schema=vol.Schema({
                 vol.Required("host", default=host): str,
                 vol.Required("port", default=port): int,

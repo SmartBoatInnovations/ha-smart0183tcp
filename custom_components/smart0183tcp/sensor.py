@@ -15,6 +15,8 @@ from datetime import datetime, timedelta
 from asyncio import IncompleteReadError
 from aiohttp.client_exceptions import ClientConnectorError
 
+
+
 from homeassistant.const import (
     CONF_HOST,
     CONF_PORT,
@@ -83,7 +85,7 @@ async def async_setup_entry(hass, entry, async_add_entities):
             group = sentence["group"]  # Capture the group for all fields within this sentence
             for field in sentence["fields"]:
                 result_dict[field["unique_id"]] = {
-                    "short_description": field["short_description"],
+                    "full_description": field["full_description"],
                     "group": group,
                     "unit_of_measurement": field.get("unit_of_measurement", None)
                 }
@@ -116,7 +118,12 @@ class SmartSensor(Entity):
     def __init__(self, name, friendly_name, initial_state, group=None, unit_of_measurement=None):
         """Initialize the sensor."""
         _LOGGER.info(f"Initializing sensor: {name} with state: {initial_state}")
+        _LOGGER.debug(f"SmartSensor name: {name}")
+
         self._unique_id = name.lower().replace(" ", "_")
+        
+        _LOGGER.debug(f"SmartSensor _unique_id: {self._unique_id}")
+
         self._name = friendly_name if friendly_name else self._unique_id
         self._state = initial_state
         self._group = group if group is not None else "Other"
@@ -270,7 +277,7 @@ class TCPSensor(SensorEntity):
 
             sentence_id = fields[0][1:6]  # Gets the 5-char word after the $
 
-            _LOGGER.debug(f"Checking sensor: {sentence_id}")
+            _LOGGER.debug(f"Sentence_id: {sentence_id}")
 
             # Now creating or updating sensors for individual fields
             for idx, field_data in enumerate(fields[1:], 1):
@@ -278,34 +285,45 @@ class TCPSensor(SensorEntity):
                 if idx == len(fields) - 1:
                     break
 
+                # eg IIDBT_1
                 sensor_name = f"{sentence_id}_{idx}"
 
-                _LOGGER.debug(f"Checking field sensor: {sensor_name}")
+                _LOGGER.debug(f"Sensor_name: {sensor_name}")
 
+                # eg DBT_1
                 short_sensor_name = f"{sentence_id[2:]}_{idx}"
+                
+                _LOGGER.debug(f"Short_sensor_name: {short_sensor_name}")
+
                 
                 # Attempt to retrieve the sensor information using the short_sensor_name
                 sensor_info = self.hass.data["smart0183tcp_data"].get(short_sensor_name)
-                short_desc = sensor_info["short_description"] if sensor_info else sensor_name
+                full_desc = sensor_info["full_description"] if sensor_info else sensor_name
                 group = sensor_info["group"]
                 unit_of_measurement = sensor_info.get("unit_of_measurement")
+                
+                _LOGGER.debug(f"Full descr: {full_desc}")
+
                 
                 # Check if this field sensor exists; if not, create one
                 if sensor_name not in self.hass.data["created_sensors"]:
                     _LOGGER.debug(f"Creating field sensor: {sensor_name}")
 
-                    _LOGGER.debug(f"Short descr sensor: {short_sensor_name} with : {short_desc}")
-
-                    sensor = SmartSensor(sensor_name, short_desc, field_data, group, unit_of_measurement)
+                    sensor = SmartSensor(sensor_name, full_desc, field_data, group, unit_of_measurement)
+                    
+                    # Add Sensor to Home Assistant
                     self.hass.data["add_tcp_sensors"]([sensor])
+                    
+                    # Update dictionary with added sensor
                     self.hass.data["created_sensors"][sensor_name] = sensor
                 else:
                     # If the sensor already exists, update its state
                     _LOGGER.debug(f"Updating field sensor: {sensor_name}")
 
-                    _LOGGER.debug(f"Short descr sensor: {short_sensor_name} with : {short_desc}")
-
+                    # Retrieve the sensor from Home Assistant
                     sensor = self.hass.data["created_sensors"][sensor_name]
+                    
+                    # Set the sate of the is sensor
                     sensor.set_state(field_data)
 
             self._state = line
@@ -391,6 +409,5 @@ class TCPSensor(SensorEntity):
     def native_value(self):
         """Return the state of the sensor."""
         return self._state
-
 
 
