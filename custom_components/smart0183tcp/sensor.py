@@ -11,6 +11,7 @@ from homeassistant.components.sensor import PLATFORM_SCHEMA, SensorEntity, Senso
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType, DiscoveryInfoType
+from homeassistant.helpers.entity import generate_entity_id
 from datetime import datetime, timedelta
 from asyncio import IncompleteReadError
 from aiohttp.client_exceptions import ClientConnectorError
@@ -118,12 +119,9 @@ class SmartSensor(Entity):
     def __init__(self, name, friendly_name, initial_state, group=None, unit_of_measurement=None):
         """Initialize the sensor."""
         _LOGGER.info(f"Initializing sensor: {name} with state: {initial_state}")
-        _LOGGER.debug(f"SmartSensor name: {name}")
 
         self._unique_id = name.lower().replace(" ", "_")
-        
-        _LOGGER.debug(f"SmartSensor _unique_id: {self._unique_id}")
-
+        self.entity_id = f"sensor.{self._unique_id}"
         self._name = friendly_name if friendly_name else self._unique_id
         self._state = initial_state
         self._group = group if group is not None else "Other"
