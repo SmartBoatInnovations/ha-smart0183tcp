@@ -570,7 +570,7 @@
     {
         "sentence_id": "DBK",
         "sentence_description": "Depth Below Keel",
-        "group": "Depth, speed, distance, temperature",
+        "group": "Transducer",
         "fields": [
             {
                 "name": "DBK 1",
@@ -616,7 +616,7 @@
     {
         "sentence_id": "DBS",
         "sentence_description": "Depth Below Surface",
-        "group": "Depth, speed, distance, temperature",
+        "group": "Transducer",
         "fields": [
             {
                 "name": "DBS 1",
@@ -662,7 +662,7 @@
     {
         "sentence_id": "DBT",
         "sentence_description": "Depth below transducer",
-        "group": "Depth, speed, distance, temperature",
+        "group": "Transducer",
         "fields": [
             {
                 "name": "DBT 1",
@@ -708,7 +708,7 @@
     {
         "sentence_id": "DPT",
         "sentence_description": "Depth of Water",
-        "group": "Depth, speed, distance, temperature",
+        "group": "Transducer",
         "fields": [
             {
                 "name": "DPT 1",
@@ -1719,7 +1719,7 @@
     {
         "sentence_id": "MTW",
         "sentence_description": "Mean Temperature of Water",
-        "group": "Depth, speed, distance, temperature",
+        "group": "Transducer",
         "fields": [
             {
                 "name": "MTW 1",
@@ -2744,7 +2744,7 @@
     {
         "sentence_id": "VBW",
         "sentence_description": "Dual Ground/Water Speed",
-        "group": "Depth, speed, distance, temperature",
+        "group": "Transducer",
         "fields": [
             {
                 "name": "VBW 1",
@@ -2791,7 +2791,7 @@
     {
         "sentence_id": "VDR",
         "sentence_description": "Set and Drift",
-        "group": "Depth, speed, distance, temperature",
+        "group": "Transducer",
         "fields": [
             {
                 "name": "VDR 1",
@@ -2837,7 +2837,7 @@
     {
         "sentence_id": "VHW",
         "sentence_description": "Water speed and heading",
-        "group": "Depth, speed, distance, temperature",
+        "group": "Transducer",
         "fields": [
             {
                 "name": "VHW 1",
@@ -2896,7 +2896,7 @@
     {
         "sentence_id": "VLW",
         "sentence_description": "Distance Traveled through Water",
-        "group": "Depth, speed, distance, temperature",
+        "group": "Transducer",
         "fields": [
             {
                 "name": "VLW 1",
@@ -2929,7 +2929,7 @@
     {
         "sentence_id": "VPW",
         "sentence_description": "Speed - Measured Parallel to Wind",
-        "group": "Depth, speed, distance, temperature",
+        "group": "Transducer",
         "fields": [
             {
                 "name": "VPW 1",
@@ -2962,7 +2962,7 @@
     {
         "sentence_id": "VTG",
         "sentence_description": "Track made good and Ground speed",
-        "group": "Depth, speed, distance, temperature",
+        "group": "Transducer",
         "fields": [
             {
                 "name": "VTG 1",

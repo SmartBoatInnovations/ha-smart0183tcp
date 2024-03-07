@@ -113,6 +113,60 @@ async def async_setup_entry(hass, entry, async_add_entities):
     # Start the task that updates the sensor availability every 5 minutes
     hass.loop.create_task(update_sensor_availability(hass))
 
+async def set_smart_sensors(hass, line):
+    """Process the content of the line related to the smart sensors."""
+    try:
+        if not line or not line.startswith("$"):
+            return
+
+        # Splitting by comma and getting the data fields
+        fields = line.split(',')
+        if len(fields) < 1 or len(fields[0]) < 6:  # Ensure enough fields and length
+            _LOGGER.error(f"Malformed line: {line}")
+            return
+
+        sentence_id = fields[0][1:6]  # Gets the 5-char word after the $
+
+        _LOGGER.debug(f"Sentence_id: {sentence_id}")
+
+        for idx, field_data in enumerate(fields[1:], 1):
+            if idx == len(fields) - 1:  # Skip the last field since it's a check digit
+                break
+
+            sensor_name = f"{sentence_id}_{idx}"
+            _LOGGER.debug(f"Sensor_name: {sensor_name}")
+
+            short_sensor_name = f"{sentence_id[2:]}_{idx}"
+            _LOGGER.debug(f"Short_sensor_name: {short_sensor_name}")
+
+            sensor_info = hass.data["smart0183tcp_data"].get(short_sensor_name)
+            full_desc = sensor_info["full_description"] if sensor_info else sensor_name
+            group = sensor_info["group"]
+            unit_of_measurement = sensor_info.get("unit_of_measurement")
+            _LOGGER.debug(f"Full descr: {full_desc}")
+
+            if sensor_name not in hass.data["created_sensors"]:
+                _LOGGER.debug(f"Creating field sensor: {sensor_name}")
+                sensor = SmartSensor(sensor_name, full_desc, field_data, group, unit_of_measurement)
+                
+                # Add Sensor to Home Assistant
+                hass.data["add_tcp_sensors"]([sensor])
+                
+                # Update dictionary with added sensor
+                hass.data["created_sensors"][sensor_name] = sensor
+            else:
+                _LOGGER.debug(f"Updating field sensor: {sensor_name}")
+                sensor = hass.data["created_sensors"][sensor_name]
+                sensor.set_state(field_data)
+
+    except IndexError:
+        _LOGGER.error(f"Index error for line: {line}")
+    except KeyError as e:
+        _LOGGER.error(f"Key error: {e}")
+    except Exception as e:
+        _LOGGER.error(f"An unexpected error occurred: {e}")
+
+
 # SmartSensor class representing a basic sensor entity with state
 
 class SmartSensor(Entity):
@@ -260,81 +314,6 @@ class TCPSensor(SensorEntity):
 
 
 
-    async def set_smart_sensors(self, line):
-        """Process the content of the line related to the smart sensors."""
-        try:
-
-            if not line or not line.startswith("$"):
-                return
-
-            # Splitting by comma and getting the data fields
-            fields = line.split(',')
-            if len(fields) < 1 or len(fields[0]) < 6:  # Ensure enough fields and length
-                _LOGGER.error(f"Malformed line: {line}")
-                return
-
-            sentence_id = fields[0][1:6]  # Gets the 5-char word after the $
-
-            _LOGGER.debug(f"Sentence_id: {sentence_id}")
-
-            # Now creating or updating sensors for individual fields
-            for idx, field_data in enumerate(fields[1:], 1):
-                # Skip the last field since it's a check digit
-                if idx == len(fields) - 1:
-                    break
-
-                # eg IIDBT_1
-                sensor_name = f"{sentence_id}_{idx}"
-
-                _LOGGER.debug(f"Sensor_name: {sensor_name}")
-
-                # eg DBT_1
-                short_sensor_name = f"{sentence_id[2:]}_{idx}"
-                
-                _LOGGER.debug(f"Short_sensor_name: {short_sensor_name}")
-
-                
-                # Attempt to retrieve the sensor information using the short_sensor_name
-                sensor_info = self.hass.data["smart0183tcp_data"].get(short_sensor_name)
-                full_desc = sensor_info["full_description"] if sensor_info else sensor_name
-                group = sensor_info["group"]
-                unit_of_measurement = sensor_info.get("unit_of_measurement")
-                
-                _LOGGER.debug(f"Full descr: {full_desc}")
-
-                
-                # Check if this field sensor exists; if not, create one
-                if sensor_name not in self.hass.data["created_sensors"]:
-                    _LOGGER.debug(f"Creating field sensor: {sensor_name}")
-
-                    sensor = SmartSensor(sensor_name, full_desc, field_data, group, unit_of_measurement)
-                    
-                    # Add Sensor to Home Assistant
-                    self.hass.data["add_tcp_sensors"]([sensor])
-                    
-                    # Update dictionary with added sensor
-                    self.hass.data["created_sensors"][sensor_name] = sensor
-                else:
-                    # If the sensor already exists, update its state
-                    _LOGGER.debug(f"Updating field sensor: {sensor_name}")
-
-                    # Retrieve the sensor from Home Assistant
-                    sensor = self.hass.data["created_sensors"][sensor_name]
-                    
-                    # Set the sate of the is sensor
-                    sensor.set_state(field_data)
-
-            self._state = line
-            self.async_write_ha_state()
-
-        except IndexError:
-            _LOGGER.error(f"Index error for line: {line}")
-        except KeyError as e:
-            _LOGGER.error(f"Key error: {e}")
-        except Exception as e:
-            _LOGGER.error(f"An unexpected error occurred: {e}")
-
-
 
     async def tcp_read(self, host, port):
         """Read the data from the TCP connection with improved error handling."""
@@ -360,7 +339,7 @@ class TCPSensor(SensorEntity):
 
                     line = line.decode('utf-8').strip()
                     _LOGGER.debug(f"Received: {line}")
-                    await self.set_smart_sensors(line)
+                    await set_smart_sensors(self.hass,line)
 
             # Handling connection errors more gracefully
             except asyncio.TimeoutError:
