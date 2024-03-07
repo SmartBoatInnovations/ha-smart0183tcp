@@ -1,22 +1,20 @@
+# Standard Library Imports
 import asyncio
-import logging
-import voluptuous as vol
-import homeassistant.helpers.config_validation as cv
 import json
+import logging
 import os
-
-
-from homeassistant.helpers.entity import Entity
-from homeassistant.components.sensor import PLATFORM_SCHEMA, SensorEntity, SensorStateClass
-from homeassistant.core import HomeAssistant, callback
-from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from homeassistant.helpers.typing import ConfigType, DiscoveryInfoType
-from homeassistant.helpers.entity import generate_entity_id
 from datetime import datetime, timedelta
+
+# Third-Party Library Imports
+import voluptuous as vol
 from asyncio import IncompleteReadError
 from aiohttp.client_exceptions import ClientConnectorError
 
-
+# Home Assistant Imports
+import homeassistant.helpers.config_validation as cv
+from homeassistant.core import callback
+from homeassistant.components.sensor import PLATFORM_SCHEMA, SensorEntity, SensorStateClass
+from homeassistant.helpers.entity import Entity
 
 from homeassistant.const import (
     CONF_HOST,
@@ -61,20 +59,14 @@ async def async_setup_entry(hass, entry, async_add_entities):
     # Log the retrieved configuration values for debugging purposes
     _LOGGER.debug(f"Configuring sensor with host: {host}, port: {port}")
 
-    _LOGGER.debug("Setting up platform.")
     # Save a reference to the add_entities callback
-
     _LOGGER.debug("Assigning async_add_entities to hass.data.")
-
     hass.data["add_tcp_sensors"] = async_add_entities
-
-    _LOGGER.debug("Assigned successfully.")
 
     # Initialize a dictionary to store references to the created sensors
     hass.data["created_sensors"] = {}
 
-
-    # Load the 0183 data within setup_platform
+    # Load the Smart0183 json data 
     config_dir = hass.config.config_dir
     json_path = os.path.join(config_dir, 'custom_components', 'smart0183tcp', 'Smart0183tcp.json')
     try:
@@ -137,13 +129,11 @@ async def set_smart_sensors(hass, line):
             _LOGGER.debug(f"Sensor_name: {sensor_name}")
 
             short_sensor_name = f"{sentence_id[2:]}_{idx}"
-            _LOGGER.debug(f"Short_sensor_name: {short_sensor_name}")
 
             sensor_info = hass.data["smart0183tcp_data"].get(short_sensor_name)
             full_desc = sensor_info["full_description"] if sensor_info else sensor_name
             group = sensor_info["group"]
             unit_of_measurement = sensor_info.get("unit_of_measurement")
-            _LOGGER.debug(f"Full descr: {full_desc}")
 
             if sensor_name not in hass.data["created_sensors"]:
                 _LOGGER.debug(f"Creating field sensor: {sensor_name}")
@@ -244,11 +234,6 @@ class SmartSensor(Entity):
 
         new_availability = (datetime.now() - self._last_updated) < timedelta(minutes=4)
 
-        if new_availability:
-            _LOGGER.debug(f"Sensor '{self._name}' is being set to available at {datetime.now()}")
-        else:
-            _LOGGER.debug(f"Sensor '{self._name}' is being set to unavailable at {datetime.now()}")
-
         self._available = new_availability
 
         try:
@@ -311,8 +296,6 @@ class TCPSensor(SensorEntity):
                 self._port
             )
         )
-
-
 
 
     async def tcp_read(self, host, port):
