@@ -1,0 +1,22 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to Smart 0183 TCP Sensor",
+        "description": "Please enter the Hostname or IP address and Port of your NMEA TCP device.", 
+        "data": {
+          "host": "Hostname or IP address",
+          "port": "Port number"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to the server. Please check the IP address and port."
+    },
+    "success": {
+      "title": "Connection Successful",
+      "description": "You have successfully connected to Smart 0183 TCP Sensor."
+    }
+  }
+}
+

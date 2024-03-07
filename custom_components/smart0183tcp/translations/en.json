@@ -3,15 +3,15 @@
     "step": {
       "user": {
         "title": "Connect to Smart 0183 TCP Sensor",
+        "description": "Please enter the Hostname or IP address and Port of your NMEA TCP device.", 
         "data": {
-          "host": "Server IP",
-          "port": "Server Port"
+          "host": "Hostname or IP address",
+          "port": "Port number"
         }
       }
     },
     "error": {
-      "cannot_connect": "Failed to connect to the server. Please check the IP address and port.",
-      "invalid_auth": "Invalid authentication. Please check your credentials."
+      "cannot_connect": "Failed to connect to the server. Please check the IP address and port."
     },
     "success": {
       "title": "Connection Successful",

@@ -21,7 +21,7 @@ class Smart0183TCPConfigFlow(config_entries.ConfigFlow, domain="smart0183tcp"):
             step_id="user",
             data_schema=vol.Schema({
                 vol.Required("host"): str,
-                vol.Required("port", default=65432): int,
+                vol.Required("port"): int,
             }),
             errors=errors,
         )
@@ -57,7 +57,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
         _LOGGER.debug("Showing options form with host: %s and port: %s", host, port)
 
         return self.async_show_form(
-            step_id="init",
+            step_id="user",
             data_schema=vol.Schema({
                 vol.Required("host", default=host): str,
                 vol.Required("port", default=port): int,
