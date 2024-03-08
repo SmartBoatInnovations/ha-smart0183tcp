@@ -31,21 +31,24 @@ _LOGGER = logging.getLogger(__name__)
 # Extending the schema to include configurations for the TCP connection
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
+    vol.Optional(CONF_NAME): cv.string,
     vol.Required(CONF_HOST): cv.string,
     vol.Required(CONF_PORT): cv.port,
-    vol.Optional(CONF_NAME, default="SMART0183 TCP SENSOR "): cv.string,
     }
 )
 
 
 
-async def update_sensor_availability(hass):
+async def update_sensor_availability(hass,instance_name):
     """Update the availability of all sensors every 5 minutes."""
+    
+    created_sensors_key = f"{instance_name}_created_sensors"
+
     while True:
         _LOGGER.debug("Running update_sensor_availability")
         await asyncio.sleep(300)  # wait for 5 minutes
 
-        for sensor in hass.data["created_sensors"].values():
+        for sensor in hass.data[created_sensors_key].values():
             sensor.update_availability()
 
 
@@ -53,18 +56,26 @@ async def update_sensor_availability(hass):
 
 async def async_setup_entry(hass, entry, async_add_entities):
     # Retrieve configuration from entry
+    name = entry.data[CONF_NAME]
     host = entry.data[CONF_HOST]
     port = entry.data[CONF_PORT]
 
     # Log the retrieved configuration values for debugging purposes
-    _LOGGER.debug(f"Configuring sensor with host: {host}, port: {port}")
+    _LOGGER.info(f"Configuring sensor with name: {name}, host: {host}, port: {port}")
+    
+    # Initialize unique dictionary keys based on the integration name
+    add_entities_key = f"{name}_add_entities"
+    created_sensors_key = f"{name}_created_sensors"
+    smart0183tcp_data_key = f"{name}_smart0183tcp_data"
 
-    # Save a reference to the add_entities callback
-    _LOGGER.debug("Assigning async_add_entities to hass.data.")
-    hass.data["add_tcp_sensors"] = async_add_entities
+
+     # Save a reference to the add_entities callback
+    _LOGGER.debug(f"Assigning async_add_entities to hass.data[{add_entities_key}].")
+    hass.data[add_entities_key] = async_add_entities
+
 
     # Initialize a dictionary to store references to the created sensors
-    hass.data["created_sensors"] = {}
+    hass.data[created_sensors_key] = {}
 
     # Load the Smart0183 json data 
     config_dir = hass.config.config_dir
@@ -84,17 +95,17 @@ async def async_setup_entry(hass, entry, async_add_entities):
                 }
 
 
-        hass.data["smart0183tcp_data"] = result_dict
+        hass.data[smart0183tcp_data_key] = result_dict
 
     except Exception as e:
         _LOGGER.error(f"Error loading Smart0183tcp.json: {e}")
         return
 
-    _LOGGER.debug(f"Loaded smart data: {hass.data['smart0183tcp_data']}")
+    _LOGGER.debug(f"Loaded smart data: {hass.data[smart0183tcp_data_key]}")
 
 
     sensor = TCPSensor(
-        "SMART0183TCP",
+        name,
         host,
         port,
     )
@@ -103,9 +114,9 @@ async def async_setup_entry(hass, entry, async_add_entities):
     async_add_entities([sensor], True)
 
     # Start the task that updates the sensor availability every 5 minutes
-    hass.loop.create_task(update_sensor_availability(hass))
+    hass.loop.create_task(update_sensor_availability(hass,name))
 
-async def set_smart_sensors(hass, line):
+async def set_smart_sensors(hass, line, instance_name):
     """Process the content of the line related to the smart sensors."""
     try:
         if not line or not line.startswith("$"):
@@ -120,6 +131,11 @@ async def set_smart_sensors(hass, line):
         sentence_id = fields[0][1:6]  # Gets the 5-char word after the $
 
         _LOGGER.debug(f"Sentence_id: {sentence_id}")
+        
+        # Dynamically construct the keys based on the instance name
+        smart0183tcp_data_key = f"{instance_name}_smart0183tcp_data"
+        created_sensors_key = f"{instance_name}_created_sensors"
+        add_entities_key = f"{instance_name}_add_entities"
 
         for idx, field_data in enumerate(fields[1:], 1):
             if idx == len(fields) - 1:  # Skip the last field since it's a check digit
@@ -130,23 +146,23 @@ async def set_smart_sensors(hass, line):
 
             short_sensor_name = f"{sentence_id[2:]}_{idx}"
 
-            sensor_info = hass.data["smart0183tcp_data"].get(short_sensor_name)
+            sensor_info = hass.data[smart0183tcp_data_key].get(short_sensor_name)
             full_desc = sensor_info["full_description"] if sensor_info else sensor_name
             group = sensor_info["group"]
             unit_of_measurement = sensor_info.get("unit_of_measurement")
 
-            if sensor_name not in hass.data["created_sensors"]:
+            if sensor_name not in hass.data[created_sensors_key]:
                 _LOGGER.debug(f"Creating field sensor: {sensor_name}")
                 sensor = SmartSensor(sensor_name, full_desc, field_data, group, unit_of_measurement)
                 
                 # Add Sensor to Home Assistant
-                hass.data["add_tcp_sensors"]([sensor])
+                hass.data[add_entities_key]([sensor])
                 
                 # Update dictionary with added sensor
-                hass.data["created_sensors"][sensor_name] = sensor
+                hass.data[created_sensors_key][sensor_name] = sensor
             else:
                 _LOGGER.debug(f"Updating field sensor: {sensor_name}")
-                sensor = hass.data["created_sensors"][sensor_name]
+                sensor = hass.data[created_sensors_key][sensor_name]
                 sensor.set_state(field_data)
 
     except IndexError:
@@ -322,7 +338,7 @@ class TCPSensor(SensorEntity):
 
                     line = line.decode('utf-8').strip()
                     _LOGGER.debug(f"Received: {line}")
-                    await set_smart_sensors(self.hass,line)
+                    await set_smart_sensors(self.hass,line,self.name)
 
             # Handling connection errors more gracefully
             except asyncio.TimeoutError:

@@ -12,14 +12,28 @@ class Smart0183TCPConfigFlow(config_entries.ConfigFlow, domain="smart0183tcp"):
     async def async_step_user(self, user_input=None):
         _LOGGER.debug("async_step_user called with user_input: %s", user_input)
         errors = {}
+        
         if user_input is not None:
-            _LOGGER.debug("User input is not None, creating entry")
-            return self.async_create_entry(title="Smart 0183 TCP Sensor", data=user_input)
-        else:
-            _LOGGER.debug("No user input, showing form")
+            # Check if name already exists
+            existing_names = {entry.data.get("name") for entry in self._async_current_entries()}
+            _LOGGER.debug("Existing names in the integration: %s", existing_names) 
+            
+            if user_input["name"] in existing_names:
+                
+                _LOGGER.debug("Name exists error") 
+
+                errors["name"] = "name_exists"
+            else:
+                _LOGGER.debug("User input is not None, creating entry with name: %s", user_input.get('name'))
+                return self.async_create_entry(title=user_input.get('name'), data=user_input)
+
+        if not errors:
+            _LOGGER.debug("No user input or errors, showing form")
+            
         return self.async_show_form(
             step_id="user",
             data_schema=vol.Schema({
+                vol.Required("name"): str,  # Add this line for the 'name' field
                 vol.Required("host"): str,
                 vol.Required("port"): int,
             }),
@@ -63,4 +77,3 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 vol.Required("port", default=port): int,
             }),
         )
-
