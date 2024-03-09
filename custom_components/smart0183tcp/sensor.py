@@ -31,7 +31,7 @@ _LOGGER = logging.getLogger(__name__)
 # Extending the schema to include configurations for the TCP connection
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
-    vol.Optional(CONF_NAME): cv.string,
+    vol.Required(CONF_NAME): cv.string,
     vol.Required(CONF_HOST): cv.string,
     vol.Required(CONF_PORT): cv.port,
     }
