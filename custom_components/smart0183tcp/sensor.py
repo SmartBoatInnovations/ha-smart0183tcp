@@ -6,14 +6,12 @@ import os
 from datetime import datetime, timedelta
 
 # Third-Party Library Imports
-import voluptuous as vol
 from asyncio import IncompleteReadError
 from aiohttp.client_exceptions import ClientConnectorError
 
 # Home Assistant Imports
-import homeassistant.helpers.config_validation as cv
 from homeassistant.core import callback
-from homeassistant.components.sensor import PLATFORM_SCHEMA, SensorEntity, SensorStateClass
+from homeassistant.components.sensor import SensorEntity, SensorStateClass
 from homeassistant.helpers.entity import Entity
 
 from homeassistant.const import (
@@ -77,10 +75,12 @@ async def async_setup_entry(hass, entry, async_add_entities):
         result_dict = {}
         for sentence in smart_data:
             group = sentence["group"]  # Capture the group for all fields within this sentence
+            sentence_desc = sentence["sentence_description"]
             for field in sentence["fields"]:
                 result_dict[field["unique_id"]] = {
                     "full_description": field["full_description"],
                     "group": group,
+                    "sentence_description": sentence_desc,
                     "unit_of_measurement": field.get("unit_of_measurement", None)
                 }
 
@@ -119,8 +119,9 @@ async def set_smart_sensors(hass, line, instance_name):
             return
 
         sentence_id = fields[0][1:6]  # Gets the 5-char word after the $
+        device_id = sentence_id[0:2] # Gets the 2-char sender id (pos 2 & 3 of sentence)
 
-        _LOGGER.debug(f"Sentence_id: {sentence_id}")
+        _LOGGER.debug(f"Sentence_id: {sentence_id}, device_id: {device_id}")
         
         # Dynamically construct the keys based on the instance name
         smart0183tcp_data_key = f"{instance_name}_smart0183tcp_data"
@@ -131,19 +132,30 @@ async def set_smart_sensors(hass, line, instance_name):
             if idx == len(fields) - 1:  # Skip the last field since it's a check digit
                 break
 
-            sensor_name = f"{sentence_id}_{idx}"
-            _LOGGER.debug(f"Sensor_name: {sensor_name}")
-
-            short_sensor_name = f"{sentence_id[2:]}_{idx}"
-
-            sensor_info = hass.data[smart0183tcp_data_key].get(short_sensor_name)
-            full_desc = sensor_info["full_description"] if sensor_info else sensor_name
-            group = sensor_info["group"]
-            unit_of_measurement = sensor_info.get("unit_of_measurement")
+            sentence_type = sentence_id[2:]
+            sensor_name = f"{device_id}_{sentence_type}_{idx}"
 
             if sensor_name not in hass.data[created_sensors_key]:
                 _LOGGER.debug(f"Creating field sensor: {sensor_name}")
-                sensor = SmartSensor(sensor_name, full_desc, field_data, group, unit_of_measurement)
+                
+                short_sensor_name = f"{sentence_id[2:]}_{idx}"
+                sensor_info = hass.data[smart0183tcp_data_key].get(short_sensor_name)
+                full_desc = sensor_info["full_description"] if sensor_info else sensor_name
+                group = sensor_info["group"]
+                sentence_description = sensor_info["sentence_description"]
+                unit_of_measurement = sensor_info.get("unit_of_measurement")
+
+                device_name = sentence_description + ' (' + device_id + ')'
+
+                sensor = SmartSensor(
+                    sensor_name, 
+                    full_desc, 
+                    field_data, 
+                    group, 
+                    unit_of_measurement, 
+                    device_name, 
+                    sentence_type
+                )
                 
                 # Add Sensor to Home Assistant
                 hass.data[add_entities_key]([sensor])
@@ -166,7 +178,16 @@ async def set_smart_sensors(hass, line, instance_name):
 # SmartSensor class representing a basic sensor entity with state
 
 class SmartSensor(Entity):
-    def __init__(self, name, friendly_name, initial_state, group=None, unit_of_measurement=None):
+    def __init__(
+        self, 
+        name, 
+        friendly_name, 
+        initial_state, 
+        group=None, 
+        unit_of_measurement=None, 
+        device_name=None, 
+        sentence_type=None
+    ):
         """Initialize the sensor."""
         _LOGGER.info(f"Initializing sensor: {name} with state: {initial_state}")
 
@@ -175,6 +196,8 @@ class SmartSensor(Entity):
         self._name = friendly_name if friendly_name else self._unique_id
         self._state = initial_state
         self._group = group if group is not None else "Other"
+        self._device_name = device_name
+        self._sentence_type = sentence_type
         self._unit_of_measurement = unit_of_measurement
         self._state_class = SensorStateClass.MEASUREMENT
         self._last_updated = datetime.now()
@@ -207,10 +230,10 @@ class SmartSensor(Entity):
     def device_info(self):
         """Return device information about this sensor."""
         return {
-            "identifiers": {("smart0183tcp", self._group)},
-            "name": self._group,
-            "manufacturer": "Smart Boat Innovations",
-            "model": "General",
+            "identifiers": {("smart0183tcp", self._device_name)},
+            "name": self._device_name,
+            "manufacturer": self._group,
+            "model": self._sentence_type,
         }
 
     @property
