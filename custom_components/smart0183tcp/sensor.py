@@ -28,16 +28,6 @@ from homeassistant.const import (
 
 _LOGGER = logging.getLogger(__name__)
 
-# Extending the schema to include configurations for the TCP connection
-PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
-    {
-    vol.Required(CONF_NAME): cv.string,
-    vol.Required(CONF_HOST): cv.string,
-    vol.Required(CONF_PORT): cv.port,
-    }
-)
-
-
 
 async def update_sensor_availability(hass,instance_name):
     """Update the availability of all sensors every 5 minutes."""
