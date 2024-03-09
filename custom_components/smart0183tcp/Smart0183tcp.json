@@ -40,7 +40,7 @@
     {
         "sentence_id": "ALM",
         "sentence_description": "GPS Almanac Data",
-        "group": "Global positioning",
+        "group": "Global Positioning",
         "fields": [
             {
                 "name": "ALM 1",
@@ -816,7 +816,7 @@
     {
         "sentence_id": "GBS",
         "sentence_description": "GPS Satellite Fault Detection",
-        "group": "Global positioning",
+        "group": "Global Positioning",
         "fields": [
             {
                 "name": "GBS 1",
@@ -875,7 +875,7 @@
     {
         "sentence_id": "GGA",
         "sentence_description": "Global Positioning System Fix Data",
-        "group": "Global positioning",
+        "group": "Global Positioning",
         "fields": [
             {
                 "name": "GGA 1",
@@ -972,7 +972,7 @@
     {
         "sentence_id": "GLL",
         "sentence_description": "Geographic Position - Latitude/Longitude",
-        "group": "Global positioning",
+        "group": "Global Positioning",
         "fields": [
             {
                 "name": "GLL 1",
@@ -1023,7 +1023,7 @@
     {
         "sentence_id": "GRS",
         "sentence_description": "GPS Range Residuals",
-        "group": "Global positioning",
+        "group": "Global Positioning",
         "fields": [
             {
                 "name": "GRS 1",
@@ -1114,7 +1114,7 @@
     {
         "sentence_id": "GST",
         "sentence_description": "GPS Pseudorange Noise Statistics",
-        "group": "Global positioning",
+        "group": "Global Positioning",
         "fields": [
             {
                 "name": "GST 1",
@@ -1169,7 +1169,7 @@
     {
         "sentence_id": "GSA",
         "sentence_description": "GPS DOP and active satellites",
-        "group": "Global positioning",
+        "group": "Global Positioning",
         "fields": [
             {
                 "name": "GSA 1",
@@ -1278,7 +1278,7 @@
     {
         "sentence_id": "GSV",
         "sentence_description": "Satellites in view",
-        "group": "Global positioning",
+        "group": "Global Positioning",
         "fields": [
             {
                 "name": "GSV 1",
@@ -1327,7 +1327,7 @@
     {
         "sentence_id": "GTD",
         "sentence_description": "Geographic Location in Time Differences",
-        "group": "Global positioning",
+        "group": "Global Positioning",
         "fields": [
             {
                 "name": "GTD 1",
@@ -1364,7 +1364,7 @@
     {
         "sentence_id": "GXA",
         "sentence_description": "TRANSIT Position - Latitude/Longitude",
-        "group": "Global positioning",
+        "group": "Global Positioning",
         "fields": [
             {
                 "name": "GXA 1",
@@ -1941,7 +1941,7 @@
     {
         "sentence_id": "RMA",
         "sentence_description": "Recommended Minimum Navigation Information",
-        "group": "Global positioning",
+        "group": "Global Positioning",
         "fields": [
             {
                 "name": "RMA 1",
@@ -2019,7 +2019,7 @@
     {
         "sentence_id": "RMB",
         "sentence_description": "Recommended Minimum Navigation Information",
-        "group": "Global positioning",
+        "group": "Global Positioning",
         "fields": [
             {
                 "name": "RMB 1",
@@ -2117,7 +2117,7 @@
     {
         "sentence_id": "RMC",
         "sentence_description": "Recommended Minimum Navigation Information",
-        "group": "Global positioning",
+        "group": "Global Positioning",
         "fields": [
             {
                 "name": "RMC 1",
@@ -2962,7 +2962,7 @@
     {
         "sentence_id": "VTG",
         "sentence_description": "Track made good and Ground speed",
-        "group": "Transducer",
+        "group": "Global Positioning",
         "fields": [
             {
                 "name": "VTG 1",
