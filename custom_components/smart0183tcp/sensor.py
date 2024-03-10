@@ -140,6 +140,13 @@ async def set_smart_sensors(hass, line, instance_name):
                 
                 short_sensor_name = f"{sentence_id[2:]}_{idx}"
                 sensor_info = hass.data[smart0183tcp_data_key].get(short_sensor_name)
+                
+                # If sensor_info does not exist, skip this loop iteration
+                if sensor_info is None:
+                    _LOGGER.debug(f"Skipping creation/update for undefined sensor: {sensor_name}")
+                    continue
+
+
                 full_desc = sensor_info["full_description"] if sensor_info else sensor_name
                 group = sensor_info["group"]
                 sentence_description = sensor_info["sentence_description"]
@@ -332,6 +339,10 @@ class TCPSensor(SensorEntity):
         retry_delay = 1  # Start with a 1-second delay
         max_retry_delay = 60  # Maximum delay of 60 seconds between retries
         writer = None
+        
+        last_processed = {}  # Dictionary to store last processed timestamp for each sentence type
+        min_interval = timedelta(seconds=5)  # Minimum time interval between processing each sentence type
+
 
         while True:
             try:
@@ -351,7 +362,17 @@ class TCPSensor(SensorEntity):
 
                     line = line.decode('utf-8').strip()
                     _LOGGER.debug(f"Received: {line}")
-                    await set_smart_sensors(self.hass,line,self.name)
+                    
+                    sentence_type = line[:6]  
+                    
+                    now = datetime.now()
+                    
+                    if sentence_type not in last_processed or now - last_processed[sentence_type] >= min_interval:
+                        _LOGGER.debug(f"Processing: {line}")
+                        await set_smart_sensors(self.hass, line, self.name)
+                        last_processed[sentence_type] = now
+                    else:
+                        _LOGGER.debug(f"Skipping {sentence_type} due to throttling")
 
             # Handling connection errors more gracefully
             except asyncio.TimeoutError:
