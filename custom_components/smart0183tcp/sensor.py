@@ -343,9 +343,14 @@ class TCPSensor(SensorEntity):
         last_processed = {}  # Dictionary to store last processed timestamp for each sentence type
         min_interval = timedelta(seconds=5)  # Minimum time interval between processing each sentence type
 
+        data_timeout = 60  # 60 seconds timeout for data reception
 
         while True:
             try:
+                
+                # Variable to track the current operation
+                current_operation = "connecting"
+
                 _LOGGER.info(f"Attempting to connect to TCP device {host}:{port} ")
 
                 reader, writer = await asyncio.wait_for(asyncio.open_connection(host, port), timeout=10)
@@ -353,9 +358,11 @@ class TCPSensor(SensorEntity):
                 
                 _LOGGER.info(f"Connected to TCP device {host}:{port}")
                 retry_delay = 1  # Reset retry delay after a successful connection
+                
+                current_operation = "receiving data"  
 
                 while True:
-                    line = await reader.readline()
+                    line = await asyncio.wait_for(reader.readline(), timeout=data_timeout)
                     if not line:
                         _LOGGER.info("TCP connection closed by the server.")
                         break  # Connection closed by the server
@@ -376,8 +383,11 @@ class TCPSensor(SensorEntity):
 
             # Handling connection errors more gracefully
             except asyncio.TimeoutError:
-                _LOGGER.error(f"Failed to connect to TCP device at {host}:{port}. Please check if the host and port are correct.")
-
+                if current_operation == "connecting":
+                    _LOGGER.error(f"Timeout occurred while trying to connect to TCP device at {host}:{port}.")
+                else:  # current_operation == "receiving data"
+                    _LOGGER.error(f"No data received in the last {data_timeout} seconds from {host}:{port}.")
+                    
             except (ClientConnectorError, IncompleteReadError, UnicodeDecodeError) as specific_exc:
                 _LOGGER.error(f"Connection error to {host}:{port}: {specific_exc}")
 
