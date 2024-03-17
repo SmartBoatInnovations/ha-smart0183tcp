@@ -2,7 +2,7 @@
 
 ## Smart Boat 0183 TCP Integration
 
-![Alt text for your image](.github/smart0183.png)
+![Alt text for your image](.github/smart0183tcp.png)
 
 I'm Rob, a seasoned sailor and tech enthusiast dedicated to revolutionizing the boating industry through the integration of accessible technology. With over 20 years of global sailing experience and a Computer Science degree, I am committed to providing you with practical innovations and ideas that will transform your boating experience. At Smart Boat Innovations, we explore the world of boat automation and harness the power of the Internet of Things (IoT) technology.
 
