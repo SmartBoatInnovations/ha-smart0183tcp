@@ -341,7 +341,7 @@ class TCPSensor(SensorEntity):
         writer = None
         
         last_processed = {}  # Dictionary to store last processed timestamp for each sentence type
-        min_interval = timedelta(seconds=5)  # Minimum time interval between processing each sentence type
+        min_interval = timedelta(seconds=3)  # Minimum time interval between processing each sentence type
 
         data_timeout = 60  # 60 seconds timeout for data reception
 
