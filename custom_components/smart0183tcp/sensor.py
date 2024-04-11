@@ -106,12 +106,33 @@ async def async_setup_entry(hass, entry, async_add_entities):
     # Start the task that updates the sensor availability every 5 minutes
     hass.loop.create_task(update_sensor_availability(hass,name))
 
+
+def translate_unit(unit_of_measurement):
+    
+    if unit_of_measurement is None:
+        return None
+    
+    unit_of_measurement = unit_of_measurement.upper()
+
+    translation = {
+        'N': 'kn',
+        'K': 'kn',
+        'M': 'm/s'
+    }
+    
+    return translation.get(unit_of_measurement, unit_of_measurement)
+
+
 async def set_smart_sensors(hass, line, instance_name):
     """Process the content of the line related to the smart sensors."""
     try:
         if not line or not line.startswith("$"):
             return
 
+        # Make the checksum a seperate field instead of joined to the last field
+        if '*' in line[-3:]:
+            line = line[:-3] + line[-3:].replace('*', ',')
+            
         # Splitting by comma and getting the data fields
         fields = line.split(',')
         if len(fields) < 1 or len(fields[0]) < 6:  # Ensure enough fields and length
@@ -152,6 +173,16 @@ async def set_smart_sensors(hass, line, instance_name):
                 sentence_description = sensor_info["sentence_description"]
                 unit_of_measurement = sensor_info.get("unit_of_measurement")
 
+                # Check if unit_of_measurement matches the pattern "#x" and x is within the valid index range
+                if unit_of_measurement and unit_of_measurement.startswith("#") and unit_of_measurement[1:].isdigit():
+                    reference_idx = int(unit_of_measurement[1:])  # Extract the integer x
+                    # Ensure the reference index is within the bounds of the fields list
+                    if 1 <= reference_idx < len(fields):
+                        unit_of_measurement = translate_unit(fields[reference_idx])
+                    else:
+                        _LOGGER.debug(f"Referenced unit_of_measurement index {reference_idx} is out of bounds for sensor: {sensor_name}")
+                        continue  # Skip to the next iteration if the reference is out of bounds
+        
                 device_name = sentence_description + ' (' + device_id + ')'
 
                 sensor = SmartSensor(
@@ -341,7 +372,7 @@ class TCPSensor(SensorEntity):
         writer = None
         
         last_processed = {}  # Dictionary to store last processed timestamp for each sentence type
-        min_interval = timedelta(seconds=3)  # Minimum time interval between processing each sentence type
+        min_interval = timedelta(seconds=5)  # Minimum time interval between processing each sentence type
 
         data_timeout = 60  # 60 seconds timeout for data reception
 
