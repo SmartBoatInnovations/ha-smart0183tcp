@@ -888,7 +888,7 @@
                 "unique_id": "GGA_2",
                 "full_description": "Latitude",
                 "short_description": "Latitude GGA_2",
-                "unit_of_measurement": "°"
+                "unit_of_measurement": "GPSLAT3"
             },
             {
                 "name": "GGA 3",
@@ -901,7 +901,7 @@
                 "unique_id": "GGA_4",
                 "full_description": "Longitude",
                 "short_description": "Longitude GGA_4",
-                "unit_of_measurement": "°"
+                "unit_of_measurement": "GPSLON5"
             },
             {
                 "name": "GGA 5",
@@ -979,7 +979,7 @@
                 "unique_id": "GLL_1",
                 "full_description": "Latitude",
                 "short_description": "Latitude GLL_1",
-                "unit_of_measurement": "°"
+                "unit_of_measurement": "GPSLAT2"
             },
             {
                 "name": "GLL 2",
@@ -992,7 +992,7 @@
                 "unique_id": "GLL_3",
                 "full_description": "Longitude",
                 "short_description": "Longitude GLL_3",
-                "unit_of_measurement": "°"
+                "unit_of_measurement": "GPSLON4"
             },
             {
                 "name": "GLL 4",
@@ -1377,7 +1377,7 @@
                 "unique_id": "GXA_2",
                 "full_description": "Latitude",
                 "short_description": "Latitude GXA_2",
-                "unit_of_measurement": "°"
+                "unit_of_measurement": "GPSLAT3"
             },
             {
                 "name": "GXA 3",
@@ -1390,7 +1390,7 @@
                 "unique_id": "GXA_4",
                 "full_description": "Longitude",
                 "short_description": "Longitude GXA_4",
-                "unit_of_measurement": "°"
+                "unit_of_measurement": "GPSLON5"
             },
             {
                 "name": "GXA 5",
@@ -1954,7 +1954,7 @@
                 "unique_id": "RMA_2",
                 "full_description": "Latitude",
                 "short_description": "Latitude RMA_2",
-                "unit_of_measurement": "°"
+                "unit_of_measurement": "GPSLAT3"
             },
             {
                 "name": "RMA 3",
@@ -1967,7 +1967,7 @@
                 "unique_id": "RMA_4",
                 "full_description": "Longitude",
                 "short_description": "Longitude RMA_4",
-                "unit_of_measurement": "°"
+                "unit_of_measurement": "GPSLON5"
             },
             {
                 "name": "RMA 5",

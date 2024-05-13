@@ -55,6 +55,7 @@ async def async_setup_entry(hass, entry, async_add_entities):
     add_entities_key = f"{name}_add_entities"
     created_sensors_key = f"{name}_created_sensors"
     smart0183tcp_data_key = f"{name}_smart0183tcp_data"
+    gps_key = f"{name}_gps"
 
 
      # Save a reference to the add_entities callback
@@ -64,6 +65,7 @@ async def async_setup_entry(hass, entry, async_add_entities):
 
     # Initialize a dictionary to store references to the created sensors
     hass.data[created_sensors_key] = {}
+    hass.data[gps_key] = {}
 
     # Load the Smart0183 json data 
     config_dir = hass.config.config_dir
@@ -123,6 +125,102 @@ def translate_unit(unit_of_measurement):
     return translation.get(unit_of_measurement, unit_of_measurement)
 
 
+def convert_latitude(lat_str, direction):
+    # Extract degrees and minutes from the string format
+    degrees = int(lat_str[:2])
+    minutes = float(lat_str[2:])
+
+    # Convert to decimal degrees
+    decimal_degrees = degrees + minutes / 60
+
+    # Apply direction
+    if direction == 'S':
+        decimal_degrees = -decimal_degrees
+
+    # Round the result to six decimal places
+    return round(decimal_degrees, 6)
+
+def convert_longitude(lon_str, direction):
+    # Extract degrees and minutes from the string format
+    degrees = int(lon_str[:3])
+    minutes = float(lon_str[3:])
+
+    # Convert to decimal degrees
+    decimal_degrees = degrees + minutes / 60
+
+    # Apply direction
+    if direction == 'W':
+        decimal_degrees = -decimal_degrees
+
+    # Round the result to six decimal places
+    return round(decimal_degrees, 6)
+
+
+def decimal_sensor(hass, 
+                   sensor_name, 
+                   full_desc, 
+                   field_data, 
+                   unit_of_measurement, 
+                   fields, 
+                   created_sensors_key, 
+                   add_entities_key, 
+                   group, 
+                   device_name, 
+                   sentence_type):
+    
+        
+    _LOGGER.debug(f"Processing decimal conversion for {sensor_name} with data {field_data} and unit {unit_of_measurement}")
+
+    # Determine the index for the compass direction based on the last character of the unit_of_measurement
+    compass_field_idx = int(unit_of_measurement[-1])
+    if compass_field_idx >= len(fields):
+        _LOGGER.error(f"Compass index {compass_field_idx} out of bounds for {sensor_name}")
+        return
+
+    # Extract compass direction
+    compass_direction = fields[compass_field_idx].strip()
+    _LOGGER.debug(f"Compass direction for {sensor_name} is {compass_direction}")
+
+    # Convert field data to decimal
+    try:
+        if 'GPSLAT' in unit_of_measurement:
+            decimal_value = convert_latitude(field_data, compass_direction)
+        elif 'GPSLON' in unit_of_measurement:
+            decimal_value = convert_longitude(field_data, compass_direction)
+        else:
+            _LOGGER.debug(f"Unsupported unit of measurement for decimal conversion: {unit_of_measurement}")
+            return
+
+        _LOGGER.debug(f"Converted decimal value for {sensor_name} is {decimal_value}")
+    except Exception as e:
+        _LOGGER.error(f"Error converting GPS data for {sensor_name}: {e}")
+        return
+
+    # Create or update the sensor
+    decimal_sensor_name = f"{sensor_name}_decimal"
+    decimal_desc = f"{full_desc} Decimal Coversion"
+    if decimal_sensor_name in hass.data[created_sensors_key]:
+        # Update existing decimal sensor
+        decimal_sensor = hass.data[created_sensors_key][decimal_sensor_name]
+        decimal_sensor.set_state(decimal_value)
+        _LOGGER.debug(f"Updated decimal sensor {decimal_sensor_name} with value {decimal_value}")
+    else:
+        # Create new decimal sensor
+        decimal_sensor = SmartSensor(
+            decimal_sensor_name,
+            decimal_desc,
+            decimal_value,
+            group,
+            "°",
+            device_name,
+            sentence_type
+        )
+        hass.data[add_entities_key]([decimal_sensor])
+        hass.data[created_sensors_key][decimal_sensor_name] = decimal_sensor
+        _LOGGER.debug(f"Created new decimal sensor {decimal_sensor_name} with value {decimal_value}")
+
+
+
 async def set_smart_sensors(hass, line, instance_name):
     """Process the content of the line related to the smart sensors."""
     try:
@@ -148,6 +246,8 @@ async def set_smart_sensors(hass, line, instance_name):
         smart0183tcp_data_key = f"{instance_name}_smart0183tcp_data"
         created_sensors_key = f"{instance_name}_created_sensors"
         add_entities_key = f"{instance_name}_add_entities"
+        gps_key = f"{instance_name}_gps"
+
 
         for idx, field_data in enumerate(fields[1:], 1):
             if idx == len(fields) - 1:  # Skip the last field since it's a check digit
@@ -155,6 +255,13 @@ async def set_smart_sensors(hass, line, instance_name):
 
             sentence_type = sentence_id[2:]
             sensor_name = f"{device_id}_{sentence_type}_{idx}"
+            
+            # Initialize variables for GPS conversion fields
+            group = ""
+            sentence_description = ""
+            device_name = ""
+            full_desc  = ""
+
 
             if sensor_name not in hass.data[created_sensors_key]:
                 _LOGGER.debug(f"Creating field sensor: {sensor_name}")
@@ -185,12 +292,21 @@ async def set_smart_sensors(hass, line, instance_name):
         
                 device_name = sentence_description + ' (' + device_id + ')'
 
+                # Reset unit for GPS conversion fields
+                if unit_of_measurement and unit_of_measurement.startswith("GPS"):
+                        unit = "°"
+                        # Keep track od the sensors that need GPS conversions
+                        hass.data[gps_key][sensor_name] = unit_of_measurement
+                else:
+                        unit = unit_of_measurement
+
+
                 sensor = SmartSensor(
                     sensor_name, 
                     full_desc, 
                     field_data, 
                     group, 
-                    unit_of_measurement, 
+                    unit, 
                     device_name, 
                     sentence_type
                 )
@@ -204,6 +320,26 @@ async def set_smart_sensors(hass, line, instance_name):
                 _LOGGER.debug(f"Updating field sensor: {sensor_name}")
                 sensor = hass.data[created_sensors_key][sensor_name]
                 sensor.set_state(field_data)
+                
+                
+            # Create/update an additional sensor for GPS conversion fields
+            if sensor_name in hass.data[gps_key]:
+                
+                # Retrive GPS conversion info
+                unit_of_measurement = hass.data[gps_key][sensor_name]
+                
+                decimal_sensor(hass, 
+                               sensor_name, 
+                               full_desc,
+                               field_data, 
+                               unit_of_measurement, 
+                               fields, 
+                               created_sensors_key, 
+                               add_entities_key, 
+                               group, 
+                               device_name, 
+                               sentence_type)
+
 
     except IndexError:
         _LOGGER.error(f"Index error for line: {line}")
