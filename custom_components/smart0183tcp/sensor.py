@@ -1,3 +1,16 @@
+"""
+Copyright (c) 2024 Smart Boat Innovations
+
+Version 1.0, 01 June 2024
+
+This file is part of the Smart Boat Innovations software.
+
+Smart Boat Innovations ("Licensor") grants you a limited, non-exclusive, non-transferable, revocable license to load and use this software through Home Assistant Community Store (HACS) for personal, non-commercial use only.
+
+You may not copy, distribute, or modify this file or the accompanying software. The software is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.
+
+See the full license text in the accompanying LICENSE file.
+"""
 # Standard Library Imports
 import asyncio
 import json
