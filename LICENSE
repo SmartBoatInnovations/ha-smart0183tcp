@@ -1,21 +1,39 @@
-MIT License
+Smart Boat Innovations License
 
-Copyright (c) 2023 Smart Boat Innovations
+Copyright (c) 2024 Smart Boat Innovations
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Version 1.0, 01 June 2024
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+This License is between Smart Boat Innovations ("Licensor") and any person or entity that loads, accesses, or uses the Software ("Licensee").
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+1. Grant of License
+Licensor grants Licensee a limited, non-exclusive, non-transferable, revocable license to load and use the Software through Home Assistant Community Store (HACS) for personal, non-commercial use only.
+
+2. Restrictions
+Licensee shall not:
+a. Copy, distribute, or modify the Software.
+b. Use the Software for any commercial purpose.
+c. Reverse engineer, decompile, or attempt to extract the source code of the Software.
+d. Remove or alter any proprietary notices or labels on the Software.
+
+3. Ownership
+All rights, title, and interest in and to the Software, including all intellectual property rights, are and shall remain the exclusive property of Licensor.
+
+4. Termination
+This License is effective until terminated. Licensor may terminate this License at any time for any reason. Upon termination, Licensee must cease all use of the Software and destroy all copies of the Software in their possession or control.
+
+5. Disclaimer of Warranties
+The Software is provided "as is" without warranty of any kind, either express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, or non-infringement.
+
+6. Limitation of Liability
+In no event shall Licensor be liable for any special, incidental, indirect, or consequential damages whatsoever arising out of or in connection with the use of or inability to use the Software, even if Licensor has been advised of the possibility of such damages.
+
+7. Governing Law
+This License shall be governed by and construed in accordance with the UNIDROIT Principles of International Commercial Contracts (2016), without regard to any conflicts of law principles.
+
+8. Entire Agreement
+This License constitutes the entire agreement between the parties with respect to the use of the Software and supersedes all prior or contemporaneous understandings regarding such subject matter.
+
+The software is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.
+
+By using the Software, Licensee agrees to be bound by the terms of this License.
