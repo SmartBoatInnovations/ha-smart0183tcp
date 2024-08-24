@@ -3394,6 +3394,134 @@
                 "short_description": "Destination Waypoint ID ZTG_3"
             }
         ]
+    },
+    {
+    "sentence_id": "MDA",
+    "sentence_description": "Meteorological Composite",
+    "group": "Meteorological Data",
+    "fields": [
+        {
+            "name": "MDA 1",
+            "unique_id": "MDA_1",
+            "full_description": "Barometric pressure, inches of mercury, to the nearest 0.01 inch",
+            "short_description": "Barometric pressure (inHg) MDA_1"
+        },
+        {
+            "name": "MDA 2",
+            "unique_id": "MDA_2",
+            "full_description": "I = inches of mercury",
+            "short_description": "Units (inHg) MDA_2"
+        },
+        {
+            "name": "MDA 3",
+            "unique_id": "MDA_3",
+            "full_description": "Barometric pressure, bars, to the nearest 0.001 bar",
+            "short_description": "Barometric pressure (bar) MDA_3"
+        },
+        {
+            "name": "MDA 4",
+            "unique_id": "MDA_4",
+            "full_description": "B = bars",
+            "short_description": "Units (bar) MDA_4"
+        },
+        {
+            "name": "MDA 5",
+            "unique_id": "MDA_5",
+            "full_description": "Air temperature, degrees C, to the nearest 0.1 degree C",
+            "short_description": "Air temperature (°C) MDA_5"
+        },
+        {
+            "name": "MDA 6",
+            "unique_id": "MDA_6",
+            "full_description": "C = degrees C",
+            "short_description": "Units (°C) MDA_6"
+        },
+        {
+            "name": "MDA 7",
+            "unique_id": "MDA_7",
+            "full_description": "Water temperature, degrees C",
+            "short_description": "Water temperature (°C) MDA_7"
+        },
+        {
+            "name": "MDA 8",
+            "unique_id": "MDA_8",
+            "full_description": "C = degrees C",
+            "short_description": "Units (°C) MDA_8"
+        },
+        {
+            "name": "MDA 9",
+            "unique_id": "MDA_9",
+            "full_description": "Relative humidity, percent, to the nearest 0.1 percent",
+            "short_description": "Relative humidity (%) MDA_9"
+        },
+        {
+            "name": "MDA 10",
+            "unique_id": "MDA_10",
+            "full_description": "Absolute humidity, percent",
+            "short_description": "Absolute humidity (%) MDA_10"
+        },
+        {
+            "name": "MDA 11",
+            "unique_id": "MDA_11",
+            "full_description": "Dew point, degrees C, to the nearest 0.1 degree C",
+            "short_description": "Dew point (°C) MDA_11"
+        },
+        {
+            "name": "MDA 12",
+            "unique_id": "MDA_12",
+            "full_description": "C = degrees C",
+            "short_description": "Units (°C) MDA_12"
+        },
+        {
+            "name": "MDA 13",
+            "unique_id": "MDA_13",
+            "full_description": "Wind direction, degrees True, to the nearest 0.1 degree",
+            "short_description": "Wind direction (True) MDA_13"
+        },
+        {
+            "name": "MDA 14",
+            "unique_id": "MDA_14",
+            "full_description": "T = true",
+            "short_description": "Units (True) MDA_14"
+        },
+        {
+            "name": "MDA 15",
+            "unique_id": "MDA_15",
+            "full_description": "Wind direction, degrees Magnetic, to the nearest 0.1 degree",
+            "short_description": "Wind direction (Magnetic) MDA_15"
+        },
+        {
+            "name": "MDA 16",
+            "unique_id": "MDA_16",
+            "full_description": "M = magnetic",
+            "short_description": "Units (Magnetic) MDA_16"
+        },
+        {
+            "name": "MDA 17",
+            "unique_id": "MDA_17",
+            "full_description": "Wind speed, knots, to the nearest 0.1 knot",
+            "short_description": "Wind speed (knots) MDA_17"
+        },
+        {
+            "name": "MDA 18",
+            "unique_id": "MDA_18",
+            "full_description": "N = knots",
+            "short_description": "Units (knots) MDA_18"
+        },
+        {
+            "name": "MDA 19",
+            "unique_id": "MDA_19",
+            "full_description": "Wind speed, meters per second, to the nearest 0.1 m/s",
+            "short_description": "Wind speed (m/s) MDA_19"
+        },
+        {
+            "name": "MDA 20",
+            "unique_id": "MDA_20",
+            "full_description": "M = meters per second",
+            "short_description": "Units (m/s) MDA_20"
+        }
+    ]
     }
+
 ]
 
