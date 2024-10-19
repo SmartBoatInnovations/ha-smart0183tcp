@@ -11,6 +11,7 @@ You may not copy, distribute, or modify this file or the accompanying software. 
 
 See the full license text in the accompanying LICENSE file.
 """
+
 # Standard Library Imports
 import asyncio
 import json
@@ -25,7 +26,6 @@ from aiohttp.client_exceptions import ClientConnectorError
 # Home Assistant Imports
 from homeassistant.core import callback
 from homeassistant.components.sensor import SensorEntity, SensorStateClass
-from homeassistant.helpers.entity import Entity
 
 from homeassistant.const import (
     CONF_HOST,
@@ -364,7 +364,7 @@ async def set_smart_sensors(hass, line, instance_name):
 
 # SmartSensor class representing a basic sensor entity with state
 
-class SmartSensor(Entity):
+class SmartSensor(SensorEntity):
     def __init__(
         self, 
         name, 
