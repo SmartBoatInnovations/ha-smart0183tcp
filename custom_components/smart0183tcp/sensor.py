@@ -237,6 +237,68 @@ def decimal_sensor(hass,
         hass.data[created_sensors_key][decimal_sensor_name] = decimal_sensor
         _LOGGER.debug(f"Created new decimal sensor {decimal_sensor_name} with value {decimal_value}")
 
+def handle_xdr(hass, sentence_id, fields,
+               smart0183tcp_data_key, created_sensors_key, add_entities_key):
+    """Parse XDR repeating 4-field groups and publish separate sensors."""
+    device_id   = sentence_id[0:2]   # e.g., "WI"
+    sentence_tp = "XDR"
+
+    # Look up via the keys you passed in
+    meta            = hass.data.get(smart0183tcp_data_key, {}).get("XDR_1", {})
+    created_sensors = hass.data[created_sensors_key]
+    add_entities    = hass.data[add_entities_key]
+
+    group         = meta.get("group", "Own ship")
+    sentence_desc = meta.get("sentence_description", "Transducer Measurement")
+    device_name   = f"{sentence_desc} ({device_id})"
+
+    def publish(name, typ, value, unit, label):
+        base = f"{device_id}_{sentence_tp}_{(name or typ)}_{typ}".lower()
+        if base in created_sensors:
+            created_sensors[base].set_state(value)
+        else:
+            sensor = SmartSensor(base, f"{label} ({name or typ})", value,
+                                 group, unit, device_name, sentence_tp)
+            add_entities([sensor])
+            created_sensors[base] = sensor
+
+    # Iterate over repeating quadruples: type,value,unit,name
+    last = len(fields) - 1
+    i = 1
+    while i + 3 < last:
+        typ  = fields[i].strip().upper()
+        valS = fields[i+1].strip()
+        unit = fields[i+2].strip()
+        name = fields[i+3].strip()
+        i += 4
+
+        try:
+            value = float(valS)
+        except Exception:
+            value = valS
+
+        if typ == "H":
+            label, out_unit = "Humidity", "%"
+        elif typ in ("C", "T"):
+            label = "Temperature"
+            out_unit = "°F" if unit.upper().startswith("F") else "°C"
+        elif typ == "P":
+            label = "Pressure"
+            u = unit.upper()
+            out_unit = "hPa"
+            if isinstance(value, (int, float)):
+                if u.startswith("B"):   # bar -> hPa
+                    value *= 1000.0
+                elif u.startswith("P"): # Pa  -> hPa
+                    value /= 100.0
+                else:
+                    out_unit = unit or None
+            else:
+                out_unit = unit or None
+        else:
+            label, out_unit = f"XDR {typ}", (unit or None)
+
+        publish(name, typ, value, out_unit, label)
 
 
 async def set_smart_sensors(hass, line, instance_name):
@@ -245,9 +307,11 @@ async def set_smart_sensors(hass, line, instance_name):
         if not line or not line.startswith("$"):
             return
 
-        # Make the checksum a seperate field instead of joined to the last field
-        if '*' in line[-3:]:
-            line = line[:-3] + line[-3:].replace('*', ',')
+        # Make the checksum a separate field even if trailing text is present
+        if "*" in line:
+            head, _, tail = line.rpartition("*")  # split at the LAST '*'
+            if len(tail) >= 2 and all(c in "0123456789abcdefABCDEF" for c in tail[:2]):
+                line = head + "," + tail[:2]      # keep only hh
             
         # Splitting by comma and getting the data fields
         fields = line.split(',')
@@ -265,6 +329,18 @@ async def set_smart_sensors(hass, line, instance_name):
         created_sensors_key = f"{instance_name}_created_sensors"
         add_entities_key = f"{instance_name}_add_entities"
         gps_key = f"{instance_name}_gps"
+
+        # Hard-coded XDR handler (multiple 4-field groups)
+        if sentence_id[2:] == "XDR":
+            handle_xdr(
+                hass,
+                sentence_id,
+                fields,
+                smart0183tcp_data_key,
+                created_sensors_key,
+                add_entities_key,
+            )
+            return
 
 
         for idx, field_data in enumerate(fields[1:], 1):
